@@ -59,5 +59,17 @@ namespace Trustbank
             btnLblRecoverAccess.Font = new Font(btnLblRecoverAccess.Font.FontFamily, btnLblRecoverAccess.Font.SizeInPoints, FontStyle.Regular);
         }
 
+        private void btnLblSignUp_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
+
+            if (registerForm.DialogResult == DialogResult.OK)
+            {
+                this.Show();
+            }
+
+        }
     }
 }

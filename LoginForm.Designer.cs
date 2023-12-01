@@ -110,6 +110,7 @@
             btnLblSignUp.Size = new Size(70, 25);
             btnLblSignUp.TabIndex = 4;
             btnLblSignUp.Text = "Sign Up";
+            btnLblSignUp.Click += btnLblSignUp_Click;
             btnLblSignUp.MouseEnter += btnLblSignUp_MouseEnter;
             btnLblSignUp.MouseLeave += btnLblSignUp_MouseLeave;
             // 
@@ -230,10 +231,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-2, 504);
+            pictureBox1.Location = new Point(-8, 493);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1410, 254);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.Size = new Size(1430, 301);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -273,7 +274,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1404, 751);
+            ClientSize = new Size(1420, 790);
             Controls.Add(btnAbout);
             Controls.Add(btnShutdown);
             Controls.Add(LoginPanel);
