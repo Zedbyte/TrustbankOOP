@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             HEADERLBLONLY = new Label();
             LoginPanel = new ReaLTaiizor.Controls.Panel();
-            parrotButton1 = new ReaLTaiizor.Controls.ParrotButton();
+            btnLblRecoverAccess = new Label();
+            btnLblSignUp = new Label();
+            btnParrotLogin = new ReaLTaiizor.Controls.ParrotButton();
             BTNPASSWORDLOGO = new FontAwesome.Sharp.IconButton();
             BTNUSERLOGO = new FontAwesome.Sharp.IconButton();
             LINE2 = new Panel();
@@ -41,6 +43,8 @@
             TRUSTBANKLOGO = new PictureBox();
             TRUSTBANKLBLONLY = new Label();
             pictureBox1 = new PictureBox();
+            btnShutdown = new FontAwesome.Sharp.IconButton();
+            btnAbout = new FontAwesome.Sharp.IconButton();
             LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGO).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -60,7 +64,9 @@
             // LoginPanel
             // 
             LoginPanel.BackColor = Color.FromArgb(230, 230, 230);
-            LoginPanel.Controls.Add(parrotButton1);
+            LoginPanel.Controls.Add(btnLblRecoverAccess);
+            LoginPanel.Controls.Add(btnLblSignUp);
+            LoginPanel.Controls.Add(btnParrotLogin);
             LoginPanel.Controls.Add(BTNPASSWORDLOGO);
             LoginPanel.Controls.Add(BTNUSERLOGO);
             LoginPanel.Controls.Add(LINE2);
@@ -70,36 +76,65 @@
             LoginPanel.Controls.Add(TRUSTBANKLOGO);
             LoginPanel.Controls.Add(TRUSTBANKLBLONLY);
             LoginPanel.EdgeColor = Color.White;
-            LoginPanel.Location = new Point(405, 171);
+            LoginPanel.Location = new Point(405, 184);
             LoginPanel.Name = "LoginPanel";
             LoginPanel.Padding = new Padding(5);
-            LoginPanel.Size = new Size(609, 323);
+            LoginPanel.Size = new Size(609, 327);
             LoginPanel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             LoginPanel.TabIndex = 1;
             LoginPanel.Text = "panel1";
+            LoginPanel.Click += LoginPanel_Click;
             // 
-            // parrotButton1
+            // btnLblRecoverAccess
             // 
-            parrotButton1.BackgroundColor = Color.White;
-            parrotButton1.ButtonImage = null;
-            parrotButton1.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            parrotButton1.ButtonText = "LOGIN";
-            parrotButton1.ClickBackColor = Color.FromArgb(65, 75, 80);
-            parrotButton1.ClickTextColor = Color.FromArgb(125, 130, 140);
-            parrotButton1.CornerRadius = 7;
-            parrotButton1.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            parrotButton1.Horizontal_Alignment = StringAlignment.Center;
-            parrotButton1.HoverBackgroundColor = Color.FromArgb(75, 80, 90);
-            parrotButton1.HoverTextColor = Color.FromArgb(235, 235, 215);
-            parrotButton1.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            parrotButton1.Location = new Point(38, 222);
-            parrotButton1.Name = "parrotButton1";
-            parrotButton1.Size = new Size(526, 50);
-            parrotButton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotButton1.TabIndex = 3;
-            parrotButton1.TextColor = Color.Black;
-            parrotButton1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            parrotButton1.Vertical_Alignment = StringAlignment.Center;
+            btnLblRecoverAccess.AutoSize = true;
+            btnLblRecoverAccess.FlatStyle = FlatStyle.Flat;
+            btnLblRecoverAccess.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLblRecoverAccess.ForeColor = Color.FromArgb(0, 26, 136);
+            btnLblRecoverAccess.Location = new Point(436, 281);
+            btnLblRecoverAccess.Name = "btnLblRecoverAccess";
+            btnLblRecoverAccess.Size = new Size(128, 25);
+            btnLblRecoverAccess.TabIndex = 5;
+            btnLblRecoverAccess.Text = "Recover Access";
+            btnLblRecoverAccess.MouseEnter += btnLblRecoverAccess_MouseEnter;
+            btnLblRecoverAccess.MouseLeave += btnLblRecoverAccess_MouseLeave;
+            // 
+            // btnLblSignUp
+            // 
+            btnLblSignUp.AutoSize = true;
+            btnLblSignUp.FlatStyle = FlatStyle.Flat;
+            btnLblSignUp.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLblSignUp.ForeColor = Color.FromArgb(0, 26, 136);
+            btnLblSignUp.Location = new Point(35, 281);
+            btnLblSignUp.Name = "btnLblSignUp";
+            btnLblSignUp.Size = new Size(70, 25);
+            btnLblSignUp.TabIndex = 4;
+            btnLblSignUp.Text = "Sign Up";
+            btnLblSignUp.MouseEnter += btnLblSignUp_MouseEnter;
+            btnLblSignUp.MouseLeave += btnLblSignUp_MouseLeave;
+            // 
+            // btnParrotLogin
+            // 
+            btnParrotLogin.BackgroundColor = Color.FromArgb(25, 48, 147);
+            btnParrotLogin.ButtonImage = null;
+            btnParrotLogin.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            btnParrotLogin.ButtonText = "LOGIN";
+            btnParrotLogin.ClickBackColor = Color.FromArgb(0, 20, 108);
+            btnParrotLogin.ClickTextColor = Color.White;
+            btnParrotLogin.CornerRadius = 7;
+            btnParrotLogin.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            btnParrotLogin.Horizontal_Alignment = StringAlignment.Center;
+            btnParrotLogin.HoverBackgroundColor = Color.FromArgb(0, 20, 108);
+            btnParrotLogin.HoverTextColor = Color.White;
+            btnParrotLogin.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            btnParrotLogin.Location = new Point(38, 226);
+            btnParrotLogin.Name = "btnParrotLogin";
+            btnParrotLogin.Size = new Size(526, 50);
+            btnParrotLogin.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            btnParrotLogin.TabIndex = 3;
+            btnParrotLogin.TextColor = Color.White;
+            btnParrotLogin.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnParrotLogin.Vertical_Alignment = StringAlignment.Center;
             // 
             // BTNPASSWORDLOGO
             // 
@@ -195,12 +230,43 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-6, 437);
+            pictureBox1.Location = new Point(-2, 504);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1418, 321);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(1410, 254);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            // 
+            // btnShutdown
+            // 
+            btnShutdown.FlatAppearance.BorderSize = 0;
+            btnShutdown.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnShutdown.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnShutdown.FlatStyle = FlatStyle.Flat;
+            btnShutdown.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            btnShutdown.IconColor = Color.FromArgb(0, 26, 136);
+            btnShutdown.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnShutdown.Location = new Point(1312, 12);
+            btnShutdown.Name = "btnShutdown";
+            btnShutdown.Size = new Size(80, 71);
+            btnShutdown.TabIndex = 3;
+            btnShutdown.UseVisualStyleBackColor = true;
+            btnShutdown.Click += btnShutdown_Click;
+            // 
+            // btnAbout
+            // 
+            btnAbout.FlatAppearance.BorderSize = 0;
+            btnAbout.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnAbout.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnAbout.FlatStyle = FlatStyle.Flat;
+            btnAbout.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            btnAbout.IconColor = Color.FromArgb(0, 26, 136);
+            btnAbout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAbout.Location = new Point(12, 12);
+            btnAbout.Name = "btnAbout";
+            btnAbout.Size = new Size(59, 54);
+            btnAbout.TabIndex = 4;
+            btnAbout.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
@@ -208,9 +274,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1404, 751);
+            Controls.Add(btnAbout);
+            Controls.Add(btnShutdown);
             Controls.Add(LoginPanel);
             Controls.Add(HEADERLBLONLY);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trustbank - Login";
@@ -236,6 +305,10 @@
         private Panel LINE2;
         private FontAwesome.Sharp.IconButton BTNUSERLOGO;
         private FontAwesome.Sharp.IconButton BTNPASSWORDLOGO;
-        private ReaLTaiizor.Controls.ParrotButton parrotButton1;
+        private ReaLTaiizor.Controls.ParrotButton btnParrotLogin;
+        private FontAwesome.Sharp.IconButton btnShutdown;
+        private FontAwesome.Sharp.IconButton btnAbout;
+        private Label btnLblRecoverAccess;
+        private Label btnLblSignUp;
     }
 }
