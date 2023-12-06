@@ -285,7 +285,7 @@
             // 
             txtBxUsername.BackColor = Color.FromArgb(244, 244, 244);
             txtBxUsername.BorderStyle = BorderStyle.None;
-            txtBxUsername.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxUsername.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxUsername.Location = new Point(476, 66);
             txtBxUsername.Multiline = true;
             txtBxUsername.Name = "txtBxUsername";
@@ -298,7 +298,7 @@
             // 
             txtBxPassword.BackColor = Color.FromArgb(244, 244, 244);
             txtBxPassword.BorderStyle = BorderStyle.None;
-            txtBxPassword.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxPassword.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxPassword.Location = new Point(476, 148);
             txtBxPassword.Multiline = true;
             txtBxPassword.Name = "txtBxPassword";
@@ -306,6 +306,7 @@
             txtBxPassword.TabIndex = 34;
             txtBxPassword.Enter += EnterText;
             txtBxPassword.KeyDown += txtBxPassword_KeyDown;
+            txtBxPassword.KeyUp += txtBxPassword_KeyUp;
             txtBxPassword.Leave += IsBlankTextBox;
             // 
             // button1
@@ -400,7 +401,7 @@
             // 
             txtBxAccountAlias.BackColor = Color.FromArgb(244, 244, 244);
             txtBxAccountAlias.BorderStyle = BorderStyle.None;
-            txtBxAccountAlias.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxAccountAlias.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxAccountAlias.Location = new Point(476, 742);
             txtBxAccountAlias.Multiline = true;
             txtBxAccountAlias.Name = "txtBxAccountAlias";
@@ -424,7 +425,7 @@
             // 
             txtBxAccountNumber.BackColor = Color.FromArgb(244, 244, 244);
             txtBxAccountNumber.BorderStyle = BorderStyle.None;
-            txtBxAccountNumber.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxAccountNumber.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxAccountNumber.Location = new Point(475, 664);
             txtBxAccountNumber.Multiline = true;
             txtBxAccountNumber.Name = "txtBxAccountNumber";
@@ -448,7 +449,7 @@
             // 
             txtBxMobileNumber.BackColor = Color.FromArgb(244, 244, 244);
             txtBxMobileNumber.BorderStyle = BorderStyle.None;
-            txtBxMobileNumber.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxMobileNumber.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxMobileNumber.Location = new Point(556, 538);
             txtBxMobileNumber.Multiline = true;
             txtBxMobileNumber.Name = "txtBxMobileNumber";
@@ -501,7 +502,7 @@
             // 
             txtBxEmailAddress.BackColor = Color.FromArgb(244, 244, 244);
             txtBxEmailAddress.BorderStyle = BorderStyle.None;
-            txtBxEmailAddress.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxEmailAddress.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxEmailAddress.Location = new Point(476, 452);
             txtBxEmailAddress.Multiline = true;
             txtBxEmailAddress.Name = "txtBxEmailAddress";
@@ -525,7 +526,7 @@
             // 
             txtBxLastName.BackColor = Color.FromArgb(244, 244, 244);
             txtBxLastName.BorderStyle = BorderStyle.None;
-            txtBxLastName.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxLastName.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxLastName.Location = new Point(476, 380);
             txtBxLastName.Multiline = true;
             txtBxLastName.Name = "txtBxLastName";
@@ -549,7 +550,7 @@
             // 
             txtBxMiddleName.BackColor = Color.FromArgb(244, 244, 244);
             txtBxMiddleName.BorderStyle = BorderStyle.None;
-            txtBxMiddleName.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxMiddleName.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxMiddleName.Location = new Point(475, 308);
             txtBxMiddleName.Multiline = true;
             txtBxMiddleName.Name = "txtBxMiddleName";
@@ -571,7 +572,7 @@
             // 
             txtBxFirstName.BackColor = Color.FromArgb(244, 244, 244);
             txtBxFirstName.BorderStyle = BorderStyle.None;
-            txtBxFirstName.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxFirstName.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxFirstName.Location = new Point(476, 229);
             txtBxFirstName.Multiline = true;
             txtBxFirstName.Name = "txtBxFirstName";

@@ -115,64 +115,90 @@ namespace Trustbank
             {
                 Username = txtBxUsername.Text;
             }
-            else { validData = false;
+            else
+            {
+                validData = false;
                 MessageBox.Show("U Invalid");
             }
 
-            if (txtBxPassword.Text != null && txtBxPassword.Text.Length > 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword))
+            if (txtBxPassword.Text != null && txtBxPassword.Text.Length >= 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword))
             {
                 Password = txtBxPassword.Text;
 
             }
-            else { validData = false;
+            else
+            {
+                validData = false;
                 MessageBox.Show("P Invalid");
             }
 
-            if (txtBxFirstName.Text != null && checkIsBlankTextBox(txtBxFirstName))
+            if (txtBxFirstName.Text != null && checkIsBlankTextBox(txtBxFirstName) && !containsDigits(txtBxFirstName))
             {
                 FirstName = txtBxFirstName.Text;
             }
-            else { validData = false; }
+            else { validData = false; MessageBox.Show("Invalid F Name"); }
 
-            if (txtBxLastName.Text != null && checkIsBlankTextBox(txtBxLastName))
+
+            if (txtBxMiddleName.Text != null)
+            {
+                if (containsDigits(txtBxMiddleName))
+                {
+                    MessageBox.Show("Invalid Middle Name");
+                }
+                else
+                {
+                    MiddleName = txtBxMiddleName.Text;
+                }
+            }
+
+
+            if (txtBxLastName.Text != null && checkIsBlankTextBox(txtBxLastName) && !containsDigits(txtBxLastName))
             {
                 LastName = txtBxLastName.Text;
             }
-            else { validData = false; }
+            else { validData = false; MessageBox.Show("Invalid L Name"); }
 
             if (txtBxEmailAddress.Text != null && txtBxEmailAddress.Text.Contains("@") && checkIsBlankTextBox(txtBxEmailAddress))
             {
                 EmailAddress = txtBxEmailAddress.Text;
-   
+
             }
-            else { validData = false;
+            else
+            {
+                validData = false;
                 MessageBox.Show("@ Invalid");
             }
 
             if (txtBxMobileNumber.Text != null && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && checkIsBlankTextBox(txtBxMobileNumber))
             {
                 MobileNumber = mobileNumberPrefix.Text + txtBxMobileNumber.Text;
-         
+
             }
-            else { validData = false;
+            else
+            {
+                validData = false;
                 MessageBox.Show("Mobile Invalid");
             }
 
-            if (txtBxAccountNumber.Text != null && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber))
+            if (txtBxAccountNumber.Text != null && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber) && !containsCharacters(txtBxAccountNumber))
             {
                 AccountNumber = txtBxAccountNumber.Text;
-      
+
             }
-            else { validData = false;
+            else
+            {
+                validData = false;
                 MessageBox.Show("AcN Invalid");
             }
 
             if (txtBxAccountAlias.Text != null && txtBxAccountAlias.Text.Length > 1 && checkIsBlankTextBox(txtBxAccountAlias))
             {
                 AccountAlias = txtBxAccountAlias.Text;
-                
+
             }
-            else { validData = false;
+            else
+            {
+                validData = false;
                 MessageBox.Show("AcL Invalid");
             }
 
@@ -272,6 +298,30 @@ namespace Trustbank
             btnSavings.ForeColor = Color.FromArgb(0, 26, 136);
         }
 
+        private bool containsCharacters(TextBox txtbx)
+        {
+            bool hasChars = Regex.IsMatch(txtbx.Text, "[A-Za-z]");
+
+            if (hasChars)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool containsDigits(TextBox txtbx)
+        {
+            bool hasDigits = Regex.IsMatch(txtbx.Text, "[0-9]");
+
+            if (hasDigits)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private bool isMobileNumberValid()
         {
             bool hasLetters = Regex.IsMatch(txtBxMobileNumber.Text, "[A-Za-z]");
@@ -317,12 +367,17 @@ namespace Trustbank
         }
 
         //Checks if password meets the requirements
-/*        private void txtBxPassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            doesPasswordMeetRequirements();
-        }*/
+        /*        private void txtBxPassword_KeyPress(object sender, KeyPressEventArgs e)
+                {
+                    doesPasswordMeetRequirements();
+                }*/
 
         private void txtBxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            doesPasswordMeetRequirements();
+        }
+
+        private void txtBxPassword_KeyUp(object sender, KeyEventArgs e)
         {
             doesPasswordMeetRequirements();
         }
