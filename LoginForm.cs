@@ -68,5 +68,10 @@ namespace Trustbank
             }
 
         }
+
+        private void btnParrotLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

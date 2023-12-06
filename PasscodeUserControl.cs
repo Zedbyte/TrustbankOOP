@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Trustbank
 {
-    public partial class passcodeUserControl : UserControl
+    public partial class PasscodeUserControl : UserControl
     {
-        public passcodeUserControl()
+        public PasscodeUserControl()
         {
             InitializeComponent();
         }

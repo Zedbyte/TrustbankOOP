@@ -1,6 +1,6 @@
 ﻿namespace Trustbank
 {
-    partial class DetailsPanel
+    partial class DetailsUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            detailsPanel = new Panel();
             mobileNumberPrefix = new ComboBox();
             passwordRequirementsPanel = new Panel();
             lblDigitReq = new Label();
@@ -71,55 +71,55 @@
             lblPasswordFillUp = new Label();
             lblUsernameFillUp = new Label();
             btnNext = new Button();
-            panel1.SuspendLayout();
+            detailsPanel.SuspendLayout();
             passwordRequirementsPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // detailsPanel
             // 
-            panel1.AutoScroll = true;
-            panel1.AutoScrollMargin = new Size(0, 100);
-            panel1.Controls.Add(mobileNumberPrefix);
-            panel1.Controls.Add(passwordRequirementsPanel);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(txtBxUsername);
-            panel1.Controls.Add(txtBxPassword);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(lblTermsAndService4);
-            panel1.Controls.Add(lblTermsAndService3);
-            panel1.Controls.Add(lblTermsAndService2);
-            panel1.Controls.Add(lblTermsAndService1);
-            panel1.Controls.Add(checkBxMetroTermsAndService);
-            panel1.Controls.Add(lblAccountAliasFillUp);
-            panel1.Controls.Add(txtBxAccountAlias);
-            panel1.Controls.Add(lblAccountNumberFillUp);
-            panel1.Controls.Add(txtBxAccountNumber);
-            panel1.Controls.Add(lblMobileNumberFillUp);
-            panel1.Controls.Add(txtBxMobileNumber);
-            panel1.Controls.Add(btnDeposit);
-            panel1.Controls.Add(btnSavings);
-            panel1.Controls.Add(lblEmailAddressFillUp);
-            panel1.Controls.Add(txtBxEmailAddress);
-            panel1.Controls.Add(lblLastNameFillUp);
-            panel1.Controls.Add(txtBxLastName);
-            panel1.Controls.Add(lblMiddleNameFillUp);
-            panel1.Controls.Add(txtBxMiddleName);
-            panel1.Controls.Add(lblFirstNameFillUp);
-            panel1.Controls.Add(txtBxFirstName);
-            panel1.Controls.Add(lblPasswordFillUp);
-            panel1.Controls.Add(lblUsernameFillUp);
-            panel1.Controls.Add(btnNext);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1421, 441);
-            panel1.TabIndex = 8;
+            detailsPanel.AutoScroll = true;
+            detailsPanel.AutoScrollMargin = new Size(0, 100);
+            detailsPanel.Controls.Add(mobileNumberPrefix);
+            detailsPanel.Controls.Add(passwordRequirementsPanel);
+            detailsPanel.Controls.Add(label9);
+            detailsPanel.Controls.Add(label8);
+            detailsPanel.Controls.Add(label7);
+            detailsPanel.Controls.Add(label6);
+            detailsPanel.Controls.Add(label5);
+            detailsPanel.Controls.Add(label3);
+            detailsPanel.Controls.Add(label2);
+            detailsPanel.Controls.Add(label1);
+            detailsPanel.Controls.Add(txtBxUsername);
+            detailsPanel.Controls.Add(txtBxPassword);
+            detailsPanel.Controls.Add(button1);
+            detailsPanel.Controls.Add(lblTermsAndService4);
+            detailsPanel.Controls.Add(lblTermsAndService3);
+            detailsPanel.Controls.Add(lblTermsAndService2);
+            detailsPanel.Controls.Add(lblTermsAndService1);
+            detailsPanel.Controls.Add(checkBxMetroTermsAndService);
+            detailsPanel.Controls.Add(lblAccountAliasFillUp);
+            detailsPanel.Controls.Add(txtBxAccountAlias);
+            detailsPanel.Controls.Add(lblAccountNumberFillUp);
+            detailsPanel.Controls.Add(txtBxAccountNumber);
+            detailsPanel.Controls.Add(lblMobileNumberFillUp);
+            detailsPanel.Controls.Add(txtBxMobileNumber);
+            detailsPanel.Controls.Add(btnDeposit);
+            detailsPanel.Controls.Add(btnSavings);
+            detailsPanel.Controls.Add(lblEmailAddressFillUp);
+            detailsPanel.Controls.Add(txtBxEmailAddress);
+            detailsPanel.Controls.Add(lblLastNameFillUp);
+            detailsPanel.Controls.Add(txtBxLastName);
+            detailsPanel.Controls.Add(lblMiddleNameFillUp);
+            detailsPanel.Controls.Add(txtBxMiddleName);
+            detailsPanel.Controls.Add(lblFirstNameFillUp);
+            detailsPanel.Controls.Add(txtBxFirstName);
+            detailsPanel.Controls.Add(lblPasswordFillUp);
+            detailsPanel.Controls.Add(lblUsernameFillUp);
+            detailsPanel.Controls.Add(btnNext);
+            detailsPanel.Location = new Point(0, 0);
+            detailsPanel.Name = "detailsPanel";
+            detailsPanel.Size = new Size(1421, 438);
+            detailsPanel.TabIndex = 8;
             // 
             // mobileNumberPrefix
             // 
@@ -129,7 +129,7 @@
             mobileNumberPrefix.ForeColor = Color.Black;
             mobileNumberPrefix.FormattingEnabled = true;
             mobileNumberPrefix.Items.AddRange(new object[] { "", "+63" });
-            mobileNumberPrefix.Location = new Point(482, 260);
+            mobileNumberPrefix.Location = new Point(477, 538);
             mobileNumberPrefix.Name = "mobileNumberPrefix";
             mobileNumberPrefix.Size = new Size(63, 33);
             mobileNumberPrefix.TabIndex = 51;
@@ -141,7 +141,7 @@
             passwordRequirementsPanel.Controls.Add(lblUppercaseReq);
             passwordRequirementsPanel.Controls.Add(lblNumberOfCharactersReq);
             passwordRequirementsPanel.Controls.Add(lblSpecialCharacterReq);
-            passwordRequirementsPanel.Location = new Point(989, -87);
+            passwordRequirementsPanel.Location = new Point(978, 80);
             passwordRequirementsPanel.Name = "passwordRequirementsPanel";
             passwordRequirementsPanel.Size = new Size(220, 165);
             passwordRequirementsPanel.TabIndex = 50;
@@ -205,7 +205,7 @@
             // 
             label9.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.Red;
-            label9.Location = new Point(480, 454);
+            label9.Location = new Point(475, 714);
             label9.Name = "label9";
             label9.Size = new Size(15, 25);
             label9.TabIndex = 43;
@@ -215,7 +215,7 @@
             // 
             label8.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.Red;
-            label8.Location = new Point(480, 362);
+            label8.Location = new Point(474, 636);
             label8.Name = "label8";
             label8.Size = new Size(15, 25);
             label8.TabIndex = 42;
@@ -225,7 +225,7 @@
             // 
             label7.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(479, 232);
+            label7.Location = new Point(474, 511);
             label7.Name = "label7";
             label7.Size = new Size(15, 25);
             label7.TabIndex = 41;
@@ -235,7 +235,7 @@
             // 
             label6.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.Red;
-            label6.Location = new Point(478, 145);
+            label6.Location = new Point(473, 424);
             label6.Name = "label6";
             label6.Size = new Size(15, 25);
             label6.TabIndex = 40;
@@ -245,7 +245,7 @@
             // 
             label5.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Red;
-            label5.Location = new Point(478, 62);
+            label5.Location = new Point(473, 352);
             label5.Name = "label5";
             label5.Size = new Size(15, 25);
             label5.TabIndex = 39;
@@ -255,7 +255,7 @@
             // 
             label3.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(478, -109);
+            label3.Location = new Point(473, 201);
             label3.Name = "label3";
             label3.Size = new Size(15, 25);
             label3.TabIndex = 37;
@@ -265,7 +265,7 @@
             // 
             label2.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(478, -190);
+            label2.Location = new Point(473, 120);
             label2.Name = "label2";
             label2.Size = new Size(15, 25);
             label2.TabIndex = 36;
@@ -275,7 +275,7 @@
             // 
             label1.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(477, -272);
+            label1.Location = new Point(472, 38);
             label1.Name = "label1";
             label1.Size = new Size(15, 25);
             label1.TabIndex = 35;
@@ -286,22 +286,27 @@
             txtBxUsername.BackColor = Color.FromArgb(244, 244, 244);
             txtBxUsername.BorderStyle = BorderStyle.None;
             txtBxUsername.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxUsername.Location = new Point(481, -244);
+            txtBxUsername.Location = new Point(476, 66);
             txtBxUsername.Multiline = true;
             txtBxUsername.Name = "txtBxUsername";
             txtBxUsername.Size = new Size(459, 36);
             txtBxUsername.TabIndex = 33;
+            txtBxUsername.Enter += EnterText;
+            txtBxUsername.Leave += IsBlankTextBox;
             // 
             // txtBxPassword
             // 
             txtBxPassword.BackColor = Color.FromArgb(244, 244, 244);
             txtBxPassword.BorderStyle = BorderStyle.None;
-            txtBxPassword.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxPassword.Location = new Point(481, -162);
+            txtBxPassword.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxPassword.Location = new Point(476, 148);
             txtBxPassword.Multiline = true;
             txtBxPassword.Name = "txtBxPassword";
             txtBxPassword.Size = new Size(459, 36);
             txtBxPassword.TabIndex = 34;
+            txtBxPassword.Enter += EnterText;
+            txtBxPassword.KeyDown += txtBxPassword_KeyDown;
+            txtBxPassword.Leave += IsBlankTextBox;
             // 
             // button1
             // 
@@ -310,7 +315,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.FromArgb(0, 26, 136);
-            button1.Location = new Point(481, 648);
+            button1.Location = new Point(476, 908);
             button1.Name = "button1";
             button1.Size = new Size(453, 48);
             button1.TabIndex = 32;
@@ -322,7 +327,7 @@
             lblTermsAndService4.AutoSize = true;
             lblTermsAndService4.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblTermsAndService4.ForeColor = Color.FromArgb(0, 26, 136);
-            lblTermsAndService4.Location = new Point(863, 530);
+            lblTermsAndService4.Location = new Point(858, 790);
             lblTermsAndService4.Name = "lblTermsAndService4";
             lblTermsAndService4.Size = new Size(86, 19);
             lblTermsAndService4.TabIndex = 31;
@@ -332,7 +337,7 @@
             // 
             lblTermsAndService3.AutoSize = true;
             lblTermsAndService3.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTermsAndService3.Location = new Point(604, 530);
+            lblTermsAndService3.Location = new Point(599, 790);
             lblTermsAndService3.Name = "lblTermsAndService3";
             lblTermsAndService3.Size = new Size(263, 19);
             lblTermsAndService3.TabIndex = 30;
@@ -343,7 +348,7 @@
             lblTermsAndService2.AutoSize = true;
             lblTermsAndService2.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblTermsAndService2.ForeColor = Color.FromArgb(0, 26, 136);
-            lblTermsAndService2.Location = new Point(541, 530);
+            lblTermsAndService2.Location = new Point(536, 790);
             lblTermsAndService2.Name = "lblTermsAndService2";
             lblTermsAndService2.Size = new Size(66, 19);
             lblTermsAndService2.TabIndex = 29;
@@ -353,7 +358,7 @@
             // 
             lblTermsAndService1.AutoSize = true;
             lblTermsAndService1.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTermsAndService1.Location = new Point(500, 530);
+            lblTermsAndService1.Location = new Point(495, 790);
             lblTermsAndService1.Name = "lblTermsAndService1";
             lblTermsAndService1.Size = new Size(45, 19);
             lblTermsAndService1.TabIndex = 28;
@@ -370,7 +375,7 @@
             checkBxMetroTermsAndService.DisabledBorderColor = Color.FromArgb(205, 205, 205);
             checkBxMetroTermsAndService.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             checkBxMetroTermsAndService.IsDerivedStyle = true;
-            checkBxMetroTermsAndService.Location = new Point(481, 533);
+            checkBxMetroTermsAndService.Location = new Point(476, 793);
             checkBxMetroTermsAndService.Name = "checkBxMetroTermsAndService";
             checkBxMetroTermsAndService.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
             checkBxMetroTermsAndService.Size = new Size(19, 16);
@@ -385,7 +390,7 @@
             lblAccountAliasFillUp.AutoSize = true;
             lblAccountAliasFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblAccountAliasFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblAccountAliasFillUp.Location = new Point(500, 454);
+            lblAccountAliasFillUp.Location = new Point(495, 714);
             lblAccountAliasFillUp.Name = "lblAccountAliasFillUp";
             lblAccountAliasFillUp.Size = new Size(115, 25);
             lblAccountAliasFillUp.TabIndex = 26;
@@ -395,19 +400,21 @@
             // 
             txtBxAccountAlias.BackColor = Color.FromArgb(244, 244, 244);
             txtBxAccountAlias.BorderStyle = BorderStyle.None;
-            txtBxAccountAlias.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxAccountAlias.Location = new Point(481, 482);
+            txtBxAccountAlias.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxAccountAlias.Location = new Point(476, 742);
             txtBxAccountAlias.Multiline = true;
             txtBxAccountAlias.Name = "txtBxAccountAlias";
             txtBxAccountAlias.Size = new Size(459, 36);
             txtBxAccountAlias.TabIndex = 25;
+            txtBxAccountAlias.Enter += EnterText;
+            txtBxAccountAlias.Leave += IsBlankTextBox;
             // 
             // lblAccountNumberFillUp
             // 
             lblAccountNumberFillUp.AutoSize = true;
             lblAccountNumberFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblAccountNumberFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblAccountNumberFillUp.Location = new Point(500, 362);
+            lblAccountNumberFillUp.Location = new Point(494, 636);
             lblAccountNumberFillUp.Name = "lblAccountNumberFillUp";
             lblAccountNumberFillUp.Size = new Size(138, 25);
             lblAccountNumberFillUp.TabIndex = 24;
@@ -417,19 +424,21 @@
             // 
             txtBxAccountNumber.BackColor = Color.FromArgb(244, 244, 244);
             txtBxAccountNumber.BorderStyle = BorderStyle.None;
-            txtBxAccountNumber.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxAccountNumber.Location = new Point(481, 390);
+            txtBxAccountNumber.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxAccountNumber.Location = new Point(475, 664);
             txtBxAccountNumber.Multiline = true;
             txtBxAccountNumber.Name = "txtBxAccountNumber";
             txtBxAccountNumber.Size = new Size(459, 36);
             txtBxAccountNumber.TabIndex = 23;
+            txtBxAccountNumber.Enter += EnterText;
+            txtBxAccountNumber.Leave += IsBlankTextBox;
             // 
             // lblMobileNumberFillUp
             // 
             lblMobileNumberFillUp.AutoSize = true;
             lblMobileNumberFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblMobileNumberFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblMobileNumberFillUp.Location = new Point(500, 231);
+            lblMobileNumberFillUp.Location = new Point(495, 510);
             lblMobileNumberFillUp.Name = "lblMobileNumberFillUp";
             lblMobileNumberFillUp.Size = new Size(127, 25);
             lblMobileNumberFillUp.TabIndex = 22;
@@ -439,12 +448,14 @@
             // 
             txtBxMobileNumber.BackColor = Color.FromArgb(244, 244, 244);
             txtBxMobileNumber.BorderStyle = BorderStyle.None;
-            txtBxMobileNumber.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxMobileNumber.Location = new Point(481, 259);
+            txtBxMobileNumber.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxMobileNumber.Location = new Point(556, 538);
             txtBxMobileNumber.Multiline = true;
             txtBxMobileNumber.Name = "txtBxMobileNumber";
-            txtBxMobileNumber.Size = new Size(459, 36);
+            txtBxMobileNumber.Size = new Size(379, 36);
             txtBxMobileNumber.TabIndex = 21;
+            txtBxMobileNumber.Enter += EnterText;
+            txtBxMobileNumber.Leave += IsBlankTextBox;
             // 
             // btnDeposit
             // 
@@ -452,12 +463,13 @@
             btnDeposit.FlatStyle = FlatStyle.Flat;
             btnDeposit.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnDeposit.ForeColor = Color.FromArgb(0, 26, 136);
-            btnDeposit.Location = new Point(710, 306);
+            btnDeposit.Location = new Point(704, 584);
             btnDeposit.Name = "btnDeposit";
             btnDeposit.Size = new Size(230, 39);
             btnDeposit.TabIndex = 20;
             btnDeposit.Text = "Deposit";
             btnDeposit.UseVisualStyleBackColor = true;
+            btnDeposit.Click += btnDeposit_Click;
             // 
             // btnSavings
             // 
@@ -466,19 +478,20 @@
             btnSavings.FlatStyle = FlatStyle.Flat;
             btnSavings.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnSavings.ForeColor = Color.White;
-            btnSavings.Location = new Point(481, 306);
+            btnSavings.Location = new Point(475, 584);
             btnSavings.Name = "btnSavings";
             btnSavings.Size = new Size(232, 39);
             btnSavings.TabIndex = 18;
             btnSavings.Text = "Savings";
             btnSavings.UseVisualStyleBackColor = false;
+            btnSavings.Click += btnSavings_Click;
             // 
             // lblEmailAddressFillUp
             // 
             lblEmailAddressFillUp.AutoSize = true;
             lblEmailAddressFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblEmailAddressFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblEmailAddressFillUp.Location = new Point(500, 145);
+            lblEmailAddressFillUp.Location = new Point(495, 424);
             lblEmailAddressFillUp.Name = "lblEmailAddressFillUp";
             lblEmailAddressFillUp.Size = new Size(120, 25);
             lblEmailAddressFillUp.TabIndex = 17;
@@ -488,19 +501,21 @@
             // 
             txtBxEmailAddress.BackColor = Color.FromArgb(244, 244, 244);
             txtBxEmailAddress.BorderStyle = BorderStyle.None;
-            txtBxEmailAddress.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxEmailAddress.Location = new Point(481, 173);
+            txtBxEmailAddress.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxEmailAddress.Location = new Point(476, 452);
             txtBxEmailAddress.Multiline = true;
             txtBxEmailAddress.Name = "txtBxEmailAddress";
             txtBxEmailAddress.Size = new Size(459, 36);
             txtBxEmailAddress.TabIndex = 16;
+            txtBxEmailAddress.Enter += EnterText;
+            txtBxEmailAddress.Leave += IsBlankTextBox;
             // 
             // lblLastNameFillUp
             // 
             lblLastNameFillUp.AutoSize = true;
             lblLastNameFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblLastNameFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblLastNameFillUp.Location = new Point(497, 62);
+            lblLastNameFillUp.Location = new Point(492, 352);
             lblLastNameFillUp.Name = "lblLastNameFillUp";
             lblLastNameFillUp.Size = new Size(92, 25);
             lblLastNameFillUp.TabIndex = 15;
@@ -510,19 +525,21 @@
             // 
             txtBxLastName.BackColor = Color.FromArgb(244, 244, 244);
             txtBxLastName.BorderStyle = BorderStyle.None;
-            txtBxLastName.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxLastName.Location = new Point(481, 90);
+            txtBxLastName.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxLastName.Location = new Point(476, 380);
             txtBxLastName.Multiline = true;
             txtBxLastName.Name = "txtBxLastName";
             txtBxLastName.Size = new Size(459, 36);
             txtBxLastName.TabIndex = 14;
+            txtBxLastName.Enter += EnterText;
+            txtBxLastName.Leave += IsBlankTextBox;
             // 
             // lblMiddleNameFillUp
             // 
             lblMiddleNameFillUp.AutoSize = true;
             lblMiddleNameFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblMiddleNameFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblMiddleNameFillUp.Location = new Point(478, -22);
+            lblMiddleNameFillUp.Location = new Point(472, 280);
             lblMiddleNameFillUp.Name = "lblMiddleNameFillUp";
             lblMiddleNameFillUp.Size = new Size(112, 25);
             lblMiddleNameFillUp.TabIndex = 13;
@@ -532,8 +549,8 @@
             // 
             txtBxMiddleName.BackColor = Color.FromArgb(244, 244, 244);
             txtBxMiddleName.BorderStyle = BorderStyle.None;
-            txtBxMiddleName.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxMiddleName.Location = new Point(481, 6);
+            txtBxMiddleName.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxMiddleName.Location = new Point(475, 308);
             txtBxMiddleName.Multiline = true;
             txtBxMiddleName.Name = "txtBxMiddleName";
             txtBxMiddleName.Size = new Size(459, 36);
@@ -544,7 +561,7 @@
             lblFirstNameFillUp.AutoSize = true;
             lblFirstNameFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblFirstNameFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblFirstNameFillUp.Location = new Point(496, -109);
+            lblFirstNameFillUp.Location = new Point(491, 201);
             lblFirstNameFillUp.Name = "lblFirstNameFillUp";
             lblFirstNameFillUp.Size = new Size(94, 25);
             lblFirstNameFillUp.TabIndex = 11;
@@ -554,19 +571,21 @@
             // 
             txtBxFirstName.BackColor = Color.FromArgb(244, 244, 244);
             txtBxFirstName.BorderStyle = BorderStyle.None;
-            txtBxFirstName.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxFirstName.Location = new Point(481, -81);
+            txtBxFirstName.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxFirstName.Location = new Point(476, 229);
             txtBxFirstName.Multiline = true;
             txtBxFirstName.Name = "txtBxFirstName";
             txtBxFirstName.Size = new Size(459, 36);
             txtBxFirstName.TabIndex = 10;
+            txtBxFirstName.Enter += EnterText;
+            txtBxFirstName.Leave += IsBlankTextBox;
             // 
             // lblPasswordFillUp
             // 
             lblPasswordFillUp.AutoSize = true;
             lblPasswordFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblPasswordFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblPasswordFillUp.Location = new Point(496, -191);
+            lblPasswordFillUp.Location = new Point(491, 119);
             lblPasswordFillUp.Name = "lblPasswordFillUp";
             lblPasswordFillUp.Size = new Size(84, 25);
             lblPasswordFillUp.TabIndex = 9;
@@ -577,7 +596,7 @@
             lblUsernameFillUp.AutoSize = true;
             lblUsernameFillUp.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblUsernameFillUp.ForeColor = Color.FromArgb(149, 149, 149);
-            lblUsernameFillUp.Location = new Point(496, -272);
+            lblUsernameFillUp.Location = new Point(491, 38);
             lblUsernameFillUp.Name = "lblUsernameFillUp";
             lblUsernameFillUp.Size = new Size(88, 25);
             lblUsernameFillUp.TabIndex = 7;
@@ -589,22 +608,23 @@
             btnNext.FlatStyle = FlatStyle.Flat;
             btnNext.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnNext.ForeColor = Color.White;
-            btnNext.Location = new Point(481, 583);
+            btnNext.Location = new Point(476, 843);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(453, 48);
             btnNext.TabIndex = 6;
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += btnNext_Click;
             // 
-            // DetailsPanel
+            // DetailsUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel1);
-            Name = "DetailsPanel";
+            Controls.Add(detailsPanel);
+            Name = "DetailsUserControl";
             Size = new Size(1421, 438);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            detailsPanel.ResumeLayout(false);
+            detailsPanel.PerformLayout();
             passwordRequirementsPanel.ResumeLayout(false);
             passwordRequirementsPanel.PerformLayout();
             ResumeLayout(false);
@@ -612,7 +632,7 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel detailsPanel;
         private ComboBox mobileNumberPrefix;
         private Panel passwordRequirementsPanel;
         private Label lblDigitReq;

@@ -1,6 +1,6 @@
 ﻿namespace Trustbank
 {
-    partial class passcodeUserControl
+    partial class PasscodeUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,41 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            passcodePanel = new Panel();
-            textBox1 = new TextBox();
-            passcodePanel.SuspendLayout();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // passcodePanel
+            // button1
             // 
-            passcodePanel.Controls.Add(textBox1);
-            passcodePanel.Location = new Point(0, 0);
-            passcodePanel.Name = "passcodePanel";
-            passcodePanel.Size = new Size(1322, 420);
-            passcodePanel.TabIndex = 0;
+            button1.Location = new Point(261, 131);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(352, 155);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(62, 23);
-            textBox1.TabIndex = 0;
-            // 
-            // passcodeUserControl
+            // PasscodeUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(passcodePanel);
-            Name = "passcodeUserControl";
-            Size = new Size(1421, 438);
-            passcodePanel.ResumeLayout(false);
-            passcodePanel.PerformLayout();
+            Controls.Add(button1);
+            Name = "PasscodeUserControl";
+            Size = new Size(611, 302);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel passcodePanel;
-        private TextBox textBox1;
+        private Button button1;
     }
 }

@@ -136,6 +136,7 @@
             btnParrotLogin.TextColor = Color.White;
             btnParrotLogin.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             btnParrotLogin.Vertical_Alignment = StringAlignment.Center;
+            btnParrotLogin.Click += btnParrotLogin_Click;
             // 
             // BTNPASSWORDLOGO
             // 

@@ -12,11 +12,8 @@ using System.Windows.Forms;
 
 namespace Trustbank
 {
-    public partial class DetailsPanel : UserControl
+    public partial class DetailsUserControl : UserControl
     {
-
-        Panel detailsPanel;
-
         Panel parentRegistrationPanel;
 
         bool validData = true;
@@ -51,16 +48,16 @@ namespace Trustbank
         bool isPasswordValid = false;
 
 
-        public DetailsPanel(Panel detailsPanel, Panel parentRegistrationPanel)
+        public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY)
         {
             InitializeComponent();
-
-            this.detailsPanel = detailsPanel;
 
             this.parentRegistrationPanel = parentRegistrationPanel;
 
             setSavingsValueDefault();
         }
+
+        //Set the parent property of the label and picture box above. This is for the transparent property.
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -94,17 +91,19 @@ namespace Trustbank
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Registered");
+                MessageBox.Show("Loading.. Next.");
 
-                removePanel(this.detailsPanel);
+                removePanel(this);
                 repaintParentPanel();
 
-                passcodeUserControl passcodePanel = new passcodeUserControl();
-                parentRegistrationPanel.Controls.Add(passcodePanel);
+                PasscodeUserControl passcodeUserControl = new PasscodeUserControl();
+                parentRegistrationPanel.Controls.Add(passcodeUserControl);
+
+                this.Dispose();
             }
             else
             {
-                MessageBox.Show("You need to fill all the details above!");
+                MessageBox.Show("Please make sure your details are correct.");
             }
         }
 
@@ -112,53 +111,76 @@ namespace Trustbank
         {
             validData = true;
 
-            if (txtBxUsername.Text != null && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20)
+            if (txtBxUsername.Text != null && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername))
             {
                 Username = txtBxUsername.Text;
             }
-            else { validData = false; }
+            else { validData = false;
+                MessageBox.Show("U Invalid");
+            }
 
-            if (txtBxPassword.Text != null && txtBxPassword.Text.Length > 12 && isPasswordValid)
+            if (txtBxPassword.Text != null && txtBxPassword.Text.Length > 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword))
             {
                 Password = txtBxPassword.Text;
-            }
-            else { validData = false; }
 
-            if (txtBxFirstName.Text != null)
+            }
+            else { validData = false;
+                MessageBox.Show("P Invalid");
+            }
+
+            if (txtBxFirstName.Text != null && checkIsBlankTextBox(txtBxFirstName))
             {
                 FirstName = txtBxFirstName.Text;
             }
             else { validData = false; }
 
-            if (txtBxLastName.Text != null)
+            if (txtBxLastName.Text != null && checkIsBlankTextBox(txtBxLastName))
             {
                 LastName = txtBxLastName.Text;
             }
             else { validData = false; }
 
-            if (txtBxEmailAddress.Text != null)
+            if (txtBxEmailAddress.Text != null && txtBxEmailAddress.Text.Contains("@") && checkIsBlankTextBox(txtBxEmailAddress))
             {
                 EmailAddress = txtBxEmailAddress.Text;
+   
             }
-            else { validData = false; }
+            else { validData = false;
+                MessageBox.Show("@ Invalid");
+            }
 
-            if (txtBxMobileNumber.Text != null && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid())
+            if (txtBxMobileNumber.Text != null && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && checkIsBlankTextBox(txtBxMobileNumber))
             {
                 MobileNumber = mobileNumberPrefix.Text + txtBxMobileNumber.Text;
+         
             }
-            else { validData = false; }
+            else { validData = false;
+                MessageBox.Show("Mobile Invalid");
+            }
 
-            if (txtBxAccountNumber.Text != null && txtBxAccountNumber.Text.Length > 3)
+            if (txtBxAccountNumber.Text != null && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber))
             {
                 AccountNumber = txtBxAccountNumber.Text;
+      
             }
-            else { validData = false; }
+            else { validData = false;
+                MessageBox.Show("AcN Invalid");
+            }
 
-            if (txtBxAccountAlias.Text != null && txtBxAccountAlias.Text.Length > 1)
+            if (txtBxAccountAlias.Text != null && txtBxAccountAlias.Text.Length > 1 && checkIsBlankTextBox(txtBxAccountAlias))
             {
                 AccountAlias = txtBxAccountAlias.Text;
+                
             }
-            else { validData = false; }
+            else { validData = false;
+                MessageBox.Show("AcL Invalid");
+            }
+
+            if (!checkBxMetroTermsAndService.Checked)
+            {
+                MessageBox.Show("CHKBX Invalid");
+                validData = false;
+            }
 
         }
 
@@ -200,6 +222,8 @@ namespace Trustbank
 
                 //Invalidate input
                 txtBx.Text = "This field is required.";
+
+                validData = false;
             }
         }
 
@@ -214,6 +238,15 @@ namespace Trustbank
                 txtBx.Font = new Font("Gothic A1", 12, FontStyle.Regular);
                 txtBx.ForeColor = Color.Black;
             }
+        }
+
+        private bool checkIsBlankTextBox(TextBox txtbx)
+        {
+            if (txtbx.Text.Equals("This field is required."))
+            {
+                return false;
+            }
+            return true;
         }
 
         private void btnSavings_Click(object sender, EventArgs e)
@@ -241,8 +274,8 @@ namespace Trustbank
 
         private bool isMobileNumberValid()
         {
-
-            if (txtBxMobileNumber.Text.StartsWith("0"))
+            bool hasLetters = Regex.IsMatch(txtBxMobileNumber.Text, "[A-Za-z]");
+            if (txtBxMobileNumber.Text.StartsWith("0") || hasLetters)
             {
                 return false;
             }
@@ -250,13 +283,12 @@ namespace Trustbank
             return true;
         }
 
-        //Checks if password meets the requirements
-        private void txtBxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        private void doesPasswordMeetRequirements()
         {
             // Regular expressions to check for at least one uppercase, one number, and one special character
             bool hasUppercase = Regex.IsMatch(txtBxPassword.Text, "[A-Z]");
             bool hasNumber = Regex.IsMatch(txtBxPassword.Text, "[0-9]");
-            bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[^A-Za-z0-9]");
+            bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[@$&#/~^]");
 
             if (txtBxPassword.Text.Length >= 12)
             {
@@ -282,7 +314,17 @@ namespace Trustbank
             {
                 isPasswordValid = true;
             }
+        }
 
+        //Checks if password meets the requirements
+/*        private void txtBxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            doesPasswordMeetRequirements();
+        }*/
+
+        private void txtBxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            doesPasswordMeetRequirements();
         }
     }
 }
