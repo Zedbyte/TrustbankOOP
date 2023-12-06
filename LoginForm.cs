@@ -12,22 +12,19 @@ namespace Trustbank
             this.ActiveControl = HEADERLBLONLY;
         }
 
-        private void LoginForm_Click(object sender, EventArgs e)
+        private void setFocusToOther(object sender, EventArgs e)
         {
-            //Remove focus from the textbox when clicked
-            this.ActiveControl = HEADERLBLONLY;
-        }
-
-        private void LoginPanel_Click(object sender, EventArgs e)
-        {
-            //Remove focus from the textbox when clicked
             this.ActiveControl = HEADERLBLONLY;
         }
 
         //For the shutdown symbol at the top right
         private void btnShutdown_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit.", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         //When hovering the Sign Up label, change the color.

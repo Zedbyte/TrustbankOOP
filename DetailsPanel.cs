@@ -1,12 +1,10 @@
-﻿using ReaLTaiizor.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -14,8 +12,12 @@ using System.Windows.Forms;
 
 namespace Trustbank
 {
-    public partial class RegisterForm : Form
+    public partial class DetailsPanel : UserControl
     {
+
+        Panel detailsPanel;
+
+        Panel parentRegistrationPanel;
 
         bool validData = true;
 
@@ -49,19 +51,15 @@ namespace Trustbank
         bool isPasswordValid = false;
 
 
-        public RegisterForm()
+        public DetailsPanel(Panel detailsPanel, Panel parentRegistrationPanel)
         {
             InitializeComponent();
-            setParent();
-            setSavingsValueDefault();
-        }
 
-        //Set the parent property of the label and picture box above. This is for the transparent property.
-        private void setParent()
-        {
-            TRUSTBANKLBLONLY.Parent = signUpHeaderImage;
-            HEADERLBLONLY.Parent = signUpHeaderImage;
-            TRUSTBANKLOGO.Parent = signUpHeaderImage;
+            this.detailsPanel = detailsPanel;
+
+            this.parentRegistrationPanel = parentRegistrationPanel;
+
+            setSavingsValueDefault();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -202,8 +200,6 @@ namespace Trustbank
 
                 //Invalidate input
                 txtBx.Text = "This field is required.";
-
-                validData = false;
             }
         }
 
@@ -243,11 +239,6 @@ namespace Trustbank
             btnSavings.ForeColor = Color.FromArgb(0, 26, 136);
         }
 
-        private void setFocusToOther(object sender, EventArgs e)
-        {
-            this.ActiveControl = HEADERLBLONLY;
-        }
-
         private bool isMobileNumberValid()
         {
 
@@ -265,7 +256,7 @@ namespace Trustbank
             // Regular expressions to check for at least one uppercase, one number, and one special character
             bool hasUppercase = Regex.IsMatch(txtBxPassword.Text, "[A-Z]");
             bool hasNumber = Regex.IsMatch(txtBxPassword.Text, "[0-9]");
-            bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[@$&#/~^]");
+            bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[^A-Za-z0-9]");
 
             if (txtBxPassword.Text.Length >= 12)
             {

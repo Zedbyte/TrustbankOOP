@@ -83,7 +83,7 @@
             LoginPanel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             LoginPanel.TabIndex = 1;
             LoginPanel.Text = "panel1";
-            LoginPanel.Click += LoginPanel_Click;
+            LoginPanel.Click += setFocusToOther;
             // 
             // btnLblRecoverAccess
             // 
@@ -188,7 +188,7 @@
             txtBxPassword.BackColor = Color.FromArgb(230, 230, 230);
             txtBxPassword.BorderStyle = BorderStyle.None;
             txtBxPassword.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBxPassword.ForeColor = Color.FromArgb(181, 181, 181);
+            txtBxPassword.ForeColor = Color.Black;
             txtBxPassword.Location = new Point(72, 181);
             txtBxPassword.Name = "txtBxPassword";
             txtBxPassword.PlaceholderText = "Password";
@@ -200,7 +200,7 @@
             txtBxUsername.BackColor = Color.FromArgb(230, 230, 230);
             txtBxUsername.BorderStyle = BorderStyle.None;
             txtBxUsername.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBxUsername.ForeColor = Color.FromArgb(181, 181, 181);
+            txtBxUsername.ForeColor = Color.Black;
             txtBxUsername.Location = new Point(72, 130);
             txtBxUsername.Name = "txtBxUsername";
             txtBxUsername.PlaceholderText = "Username";
@@ -284,7 +284,7 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trustbank - Login";
-            Click += LoginForm_Click;
+            Click += setFocusToOther;
             LoginPanel.ResumeLayout(false);
             LoginPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGO).EndInit();
