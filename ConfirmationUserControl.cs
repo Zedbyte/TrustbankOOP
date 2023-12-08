@@ -180,6 +180,34 @@ namespace Trustbank
 
             colorProgressBar(LINE3, prtBtn4, lblVerification);
 
+            VerificationUserControl verificationUserControl = new VerificationUserControl(Username, Password, FirstName, MiddleName, LastName,
+                EmailAddress, MobileNumber, AccountNumber, AccountAlias, Passcode, Savings, Deposit, encryptedPassword,
+                detailsPanel,
+                passcodeUserControl,
+                this,
+                parentRegistrationPanel,
+                LINE1,
+                LINE2,
+                LINE3,
+                LINE4,
+                prtBtn1,
+                prtBtn2,
+                prtBtn3,
+                prtBtn4,
+                prtBtn5,
+                lblPasscode,
+                lblConfirmation,
+                lblVerification,
+                lblDone
+                );
+
+
+            verificationUserControl.Show();
+            parentRegistrationPanel.Controls.Add(verificationUserControl);
+
+            //Hide this panel, so if user went back from confirmation to passcode, the state will not be removed.
+            this.Hide();
+
 
         }
 

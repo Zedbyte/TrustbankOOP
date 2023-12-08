@@ -55,10 +55,10 @@
             LBLONLY3 = new Label();
             LBLONLY1 = new Label();
             LBLONLY9 = new Label();
-            LBLONLY8 = new Label();
             LBLONLY7 = new Label();
             LBLONLY6 = new Label();
             LBLONLY5 = new Label();
+            LBLONLY8 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             label8 = new Label();
             label9 = new Label();
@@ -147,8 +147,8 @@
             // 
             btnSavingsOrDeposit.BackColor = Color.FromArgb(0, 26, 136);
             btnSavingsOrDeposit.FlatAppearance.BorderSize = 0;
-            btnSavingsOrDeposit.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnSavingsOrDeposit.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnSavingsOrDeposit.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 26, 136);
+            btnSavingsOrDeposit.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 26, 136);
             btnSavingsOrDeposit.FlatStyle = FlatStyle.Flat;
             btnSavingsOrDeposit.Font = new Font("Gothic A1 SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnSavingsOrDeposit.ForeColor = Color.White;
@@ -198,7 +198,7 @@
             txtBxPasswordFill.Multiline = true;
             txtBxPasswordFill.Name = "txtBxPasswordFill";
             txtBxPasswordFill.PasswordChar = '•';
-            txtBxPasswordFill.Size = new Size(256, 28);
+            txtBxPasswordFill.Size = new Size(433, 28);
             txtBxPasswordFill.TabIndex = 55;
             txtBxPasswordFill.TextAlign = HorizontalAlignment.Right;
             // 
@@ -221,7 +221,7 @@
             txtBxPasscodeFill.Multiline = true;
             txtBxPasscodeFill.Name = "txtBxPasscodeFill";
             txtBxPasscodeFill.PasswordChar = '•';
-            txtBxPasscodeFill.Size = new Size(256, 28);
+            txtBxPasscodeFill.Size = new Size(433, 28);
             txtBxPasscodeFill.TabIndex = 0;
             txtBxPasscodeFill.TextAlign = HorizontalAlignment.Right;
             // 
@@ -428,17 +428,6 @@
             LBLONLY9.TabIndex = 0;
             LBLONLY9.Text = "Account Alias";
             // 
-            // LBLONLY8
-            // 
-            LBLONLY8.Anchor = AnchorStyles.Left;
-            LBLONLY8.AutoSize = true;
-            LBLONLY8.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            LBLONLY8.Location = new Point(3, 240);
-            LBLONLY8.Name = "LBLONLY8";
-            LBLONLY8.Size = new Size(163, 30);
-            LBLONLY8.TabIndex = 0;
-            LBLONLY8.Text = "Account Number";
-            // 
             // LBLONLY7
             // 
             LBLONLY7.Anchor = AnchorStyles.Left;
@@ -471,6 +460,17 @@
             LBLONLY5.Size = new Size(110, 30);
             LBLONLY5.TabIndex = 0;
             LBLONLY5.Text = "Last Name";
+            // 
+            // LBLONLY8
+            // 
+            LBLONLY8.Anchor = AnchorStyles.Left;
+            LBLONLY8.AutoSize = true;
+            LBLONLY8.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            LBLONLY8.Location = new Point(3, 240);
+            LBLONLY8.Name = "LBLONLY8";
+            LBLONLY8.Size = new Size(163, 30);
+            LBLONLY8.TabIndex = 0;
+            LBLONLY8.Text = "Account Number";
             // 
             // tableLayoutPanel1
             // 
