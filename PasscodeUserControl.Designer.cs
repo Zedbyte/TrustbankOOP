@@ -64,6 +64,7 @@
             txtBxPasscode1.MaxLength = 1;
             txtBxPasscode1.Multiline = true;
             txtBxPasscode1.Name = "txtBxPasscode1";
+            txtBxPasscode1.PasswordChar = '•';
             txtBxPasscode1.Size = new Size(72, 64);
             txtBxPasscode1.TabIndex = 1;
             txtBxPasscode1.TextAlign = HorizontalAlignment.Center;
@@ -80,6 +81,7 @@
             txtBxPasscode2.MaxLength = 1;
             txtBxPasscode2.Multiline = true;
             txtBxPasscode2.Name = "txtBxPasscode2";
+            txtBxPasscode2.PasswordChar = '•';
             txtBxPasscode2.Size = new Size(72, 64);
             txtBxPasscode2.TabIndex = 2;
             txtBxPasscode2.TextAlign = HorizontalAlignment.Center;
@@ -96,6 +98,7 @@
             txtBxPasscode3.MaxLength = 1;
             txtBxPasscode3.Multiline = true;
             txtBxPasscode3.Name = "txtBxPasscode3";
+            txtBxPasscode3.PasswordChar = '•';
             txtBxPasscode3.Size = new Size(72, 64);
             txtBxPasscode3.TabIndex = 3;
             txtBxPasscode3.TextAlign = HorizontalAlignment.Center;
@@ -203,6 +206,7 @@
             txtBxPasscode5.MaxLength = 1;
             txtBxPasscode5.Multiline = true;
             txtBxPasscode5.Name = "txtBxPasscode5";
+            txtBxPasscode5.PasswordChar = '•';
             txtBxPasscode5.Size = new Size(72, 64);
             txtBxPasscode5.TabIndex = 5;
             txtBxPasscode5.TextAlign = HorizontalAlignment.Center;
@@ -219,6 +223,7 @@
             txtBxPasscode4.MaxLength = 1;
             txtBxPasscode4.Multiline = true;
             txtBxPasscode4.Name = "txtBxPasscode4";
+            txtBxPasscode4.PasswordChar = '•';
             txtBxPasscode4.Size = new Size(72, 64);
             txtBxPasscode4.TabIndex = 4;
             txtBxPasscode4.TextAlign = HorizontalAlignment.Center;
@@ -235,6 +240,7 @@
             txtBxPasscode6.MaxLength = 1;
             txtBxPasscode6.Multiline = true;
             txtBxPasscode6.Name = "txtBxPasscode6";
+            txtBxPasscode6.PasswordChar = '•';
             txtBxPasscode6.Size = new Size(72, 64);
             txtBxPasscode6.TabIndex = 6;
             txtBxPasscode6.TextAlign = HorizontalAlignment.Center;

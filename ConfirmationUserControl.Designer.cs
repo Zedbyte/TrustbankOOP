@@ -97,7 +97,7 @@
             btnShowPasscode.IconColor = Color.Black;
             btnShowPasscode.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnShowPasscode.IconSize = 35;
-            btnShowPasscode.Location = new Point(998, 321);
+            btnShowPasscode.Location = new Point(1049, 321);
             btnShowPasscode.Name = "btnShowPasscode";
             btnShowPasscode.Size = new Size(46, 31);
             btnShowPasscode.TabIndex = 54;
@@ -115,7 +115,7 @@
             btnViewPassword.IconColor = Color.Black;
             btnViewPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnViewPassword.IconSize = 35;
-            btnViewPassword.Location = new Point(998, 50);
+            btnViewPassword.Location = new Point(1049, 50);
             btnViewPassword.Name = "btnViewPassword";
             btnViewPassword.Size = new Size(46, 31);
             btnViewPassword.TabIndex = 53;
@@ -146,7 +146,6 @@
             // btnSavingsOrDeposit
             // 
             btnSavingsOrDeposit.BackColor = Color.FromArgb(0, 26, 136);
-            btnSavingsOrDeposit.Enabled = false;
             btnSavingsOrDeposit.FlatAppearance.BorderSize = 0;
             btnSavingsOrDeposit.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnSavingsOrDeposit.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -174,7 +173,7 @@
             lblsToFillPanel.Controls.Add(lblMobileNumber, 0, 6);
             lblsToFillPanel.Controls.Add(lblEmailAddress, 0, 5);
             lblsToFillPanel.Controls.Add(lblLastName, 0, 4);
-            lblsToFillPanel.Location = new Point(730, 13);
+            lblsToFillPanel.Location = new Point(604, 13);
             lblsToFillPanel.Name = "lblsToFillPanel";
             lblsToFillPanel.RowCount = 10;
             lblsToFillPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0000992F));
@@ -188,7 +187,7 @@
             lblsToFillPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0000992F));
             lblsToFillPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 9.999101F));
             lblsToFillPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            lblsToFillPanel.Size = new Size(262, 340);
+            lblsToFillPanel.Size = new Size(439, 340);
             lblsToFillPanel.TabIndex = 3;
             // 
             // txtBxPasswordFill
@@ -201,13 +200,14 @@
             txtBxPasswordFill.PasswordChar = '•';
             txtBxPasswordFill.Size = new Size(256, 28);
             txtBxPasswordFill.TabIndex = 55;
+            txtBxPasswordFill.TextAlign = HorizontalAlignment.Right;
             // 
             // lblMiddleName
             // 
             lblMiddleName.Anchor = AnchorStyles.Right;
             lblMiddleName.AutoSize = true;
             lblMiddleName.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMiddleName.Location = new Point(126, 104);
+            lblMiddleName.Location = new Point(303, 104);
             lblMiddleName.Name = "lblMiddleName";
             lblMiddleName.Size = new Size(133, 30);
             lblMiddleName.TabIndex = 0;
@@ -223,13 +223,14 @@
             txtBxPasscodeFill.PasswordChar = '•';
             txtBxPasscodeFill.Size = new Size(256, 28);
             txtBxPasscodeFill.TabIndex = 0;
+            txtBxPasscodeFill.TextAlign = HorizontalAlignment.Right;
             // 
             // lblFirstName
             // 
             lblFirstName.Anchor = AnchorStyles.Right;
             lblFirstName.AutoSize = true;
             lblFirstName.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblFirstName.Location = new Point(148, 70);
+            lblFirstName.Location = new Point(325, 70);
             lblFirstName.Name = "lblFirstName";
             lblFirstName.Size = new Size(111, 30);
             lblFirstName.TabIndex = 0;
@@ -240,7 +241,7 @@
             lblUsername.Anchor = AnchorStyles.Right;
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUsername.Location = new Point(154, 2);
+            lblUsername.Location = new Point(331, 2);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(105, 30);
             lblUsername.TabIndex = 0;
@@ -251,7 +252,7 @@
             lblAccountAlias.Anchor = AnchorStyles.Right;
             lblAccountAlias.AutoSize = true;
             lblAccountAlias.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAccountAlias.Location = new Point(124, 274);
+            lblAccountAlias.Location = new Point(301, 274);
             lblAccountAlias.Name = "lblAccountAlias";
             lblAccountAlias.Size = new Size(135, 30);
             lblAccountAlias.TabIndex = 0;
@@ -262,7 +263,7 @@
             lblAccountNumber.Anchor = AnchorStyles.Right;
             lblAccountNumber.AutoSize = true;
             lblAccountNumber.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAccountNumber.Location = new Point(96, 240);
+            lblAccountNumber.Location = new Point(273, 240);
             lblAccountNumber.Name = "lblAccountNumber";
             lblAccountNumber.Size = new Size(163, 30);
             lblAccountNumber.TabIndex = 0;
@@ -273,7 +274,7 @@
             lblMobileNumber.Anchor = AnchorStyles.Right;
             lblMobileNumber.AutoSize = true;
             lblMobileNumber.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMobileNumber.Location = new Point(108, 206);
+            lblMobileNumber.Location = new Point(285, 206);
             lblMobileNumber.Name = "lblMobileNumber";
             lblMobileNumber.Size = new Size(151, 30);
             lblMobileNumber.TabIndex = 0;
@@ -284,7 +285,7 @@
             lblEmailAddress.Anchor = AnchorStyles.Right;
             lblEmailAddress.AutoSize = true;
             lblEmailAddress.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblEmailAddress.Location = new Point(116, 172);
+            lblEmailAddress.Location = new Point(293, 172);
             lblEmailAddress.Name = "lblEmailAddress";
             lblEmailAddress.Size = new Size(143, 30);
             lblEmailAddress.TabIndex = 0;
@@ -295,7 +296,7 @@
             lblLastName.Anchor = AnchorStyles.Right;
             lblLastName.AutoSize = true;
             lblLastName.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblLastName.Location = new Point(149, 138);
+            lblLastName.Location = new Point(326, 138);
             lblLastName.Name = "lblLastName";
             lblLastName.Size = new Size(110, 30);
             lblLastName.TabIndex = 0;
@@ -308,7 +309,7 @@
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancel.ForeColor = Color.FromArgb(0, 26, 136);
-            btnCancel.Location = new Point(377, 374);
+            btnCancel.Location = new Point(399, 374);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(261, 49);
             btnCancel.TabIndex = 2;
@@ -323,7 +324,7 @@
             btnNext.FlatStyle = FlatStyle.Flat;
             btnNext.Font = new Font("Gothic A1", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnNext.ForeColor = Color.Transparent;
-            btnNext.Location = new Point(730, 374);
+            btnNext.Location = new Point(726, 374);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(261, 49);
             btnNext.TabIndex = 1;
@@ -341,11 +342,11 @@
             lblsTablePanel.Controls.Add(LBLONLY3, 0, 2);
             lblsTablePanel.Controls.Add(LBLONLY1, 0, 0);
             lblsTablePanel.Controls.Add(LBLONLY9, 0, 8);
-            lblsTablePanel.Controls.Add(LBLONLY8, 0, 7);
             lblsTablePanel.Controls.Add(LBLONLY7, 0, 6);
             lblsTablePanel.Controls.Add(LBLONLY6, 0, 5);
             lblsTablePanel.Controls.Add(LBLONLY5, 0, 4);
-            lblsTablePanel.Location = new Point(377, 13);
+            lblsTablePanel.Controls.Add(LBLONLY8, 0, 7);
+            lblsTablePanel.Location = new Point(323, 13);
             lblsTablePanel.Name = "lblsTablePanel";
             lblsTablePanel.RowCount = 10;
             lblsTablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0000992F));

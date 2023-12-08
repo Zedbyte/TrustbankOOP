@@ -615,7 +615,7 @@
             txtBxEmailAddress.BorderStyle = BorderStyle.None;
             txtBxEmailAddress.Font = new Font("Gothic A1", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxEmailAddress.Location = new Point(476, 452);
-            txtBxEmailAddress.MaxLength = 25;
+            txtBxEmailAddress.MaxLength = 45;
             txtBxEmailAddress.Multiline = true;
             txtBxEmailAddress.Name = "txtBxEmailAddress";
             txtBxEmailAddress.Size = new Size(459, 36);

@@ -46,6 +46,7 @@ namespace Trustbank
         //Used for when user clicks the back button. (Save the state of the last panel)
         DetailsUserControl detailsPanel;
 
+        //Used for when user clicks the back button. (Save the state of the last panel)
         PasscodeUserControl passcodeUserControl;
 
         Panel parentRegistrationPanel;
@@ -110,6 +111,27 @@ namespace Trustbank
             this.Deposit = Deposit;
             this.encryptedPassword = encryptedPassword;
 
+            this.detailsPanel = detailsPanel;
+            this.passcodeUserControl = passcodeUserControl;
+            this.parentRegistrationPanel = parentRegistrationPanel;
+
+            this.LINE1 = LINE1;
+            this.LINE2 = LINE2;
+            this.LINE3 = LINE3;
+            this.LINE4 = LINE4;
+
+            this.prtBtn1 = prtBtn1;
+            this.prtBtn2 = prtBtn2;
+            this.prtBtn3 = prtBtn3;
+            this.prtBtn4 = prtBtn4;
+            this.prtBtn5 = prtBtn5;
+
+            this.lblPasscode = lblPasscode;
+            this.lblConfirmation = lblConfirmation;
+            this.lblVerification = lblVerification;
+            this.lblDone = lblDone;
+
+
             InitializeLabelConfirmation();
         }
 
@@ -132,21 +154,65 @@ namespace Trustbank
             if (Savings == 1)
             {
                 btnSavingsOrDeposit.Text = "Savings Account";
+                btnSavingsOrDeposit.ForeColor = Color.White;
             }
             else
             {
                 btnSavingsOrDeposit.Text = "Deposit Account";
+                btnSavingsOrDeposit.ForeColor = Color.White;
             }
+        }
+        private void removePanel(Control panel)
+        {
+            parentRegistrationPanel.Controls.Remove(panel);
+        }
+
+        private void repaintParentPanel()
+        {
+            parentRegistrationPanel.Refresh();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            removePanel(this);
+            repaintParentPanel();
 
+
+            colorProgressBar(LINE3, prtBtn4, lblVerification);
+
+
+        }
+
+        private void colorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
+        {
+            prtBtn.BackgroundColor = Color.FromArgb(7, 166, 234);
+            lbl.ForeColor = Color.FromArgb(7, 166, 234);
+
+            LINE.BackColor = Color.FromArgb(7, 166, 234);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            removePanel(this);
+            //Dispose this panel and any state
+            this.Dispose();
 
+            //Add the previous detail panel
+            parentRegistrationPanel.Controls.Add(passcodeUserControl);
+            //Unhide it
+            passcodeUserControl.Show();
+            //Repaint the parent registration panel
+            repaintParentPanel();
+
+            removeColorProgressBar(LINE2, prtBtn3, lblConfirmation);
+        }
+
+        private void removeColorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
+        {
+            prtBtn.BackgroundColor = Color.FromArgb(149, 149, 149);
+            lbl.ForeColor = Color.FromArgb(149, 149, 149);
+
+            LINE.BackColor = Color.FromArgb(149, 149, 149);
         }
 
         private void btnShowPasscode_Click(object sender, EventArgs e)

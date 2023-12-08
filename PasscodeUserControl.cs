@@ -183,14 +183,14 @@ namespace Trustbank
             {
                 foreach (TextBox txtbx in passcodeTextboxesPanel.Controls)
                 {
-                    txtbx.PasswordChar = '\u2022';
+                    txtbx.PasswordChar = '\0';
                 }
             }
             else
             {
                 foreach (TextBox txtbx in passcodeTextboxesPanel.Controls)
                 {
-                    txtbx.PasswordChar = '\0';
+                    txtbx.PasswordChar = '\u2022';
                 }
             }
         }
@@ -238,7 +238,7 @@ namespace Trustbank
             confirmationUserControl.Show();
             parentRegistrationPanel.Controls.Add(confirmationUserControl);
 
-            //Save this panel's state
+            //Hide this panel, so if user went back from confirmation to passcode, the state will not be removed.
             this.Hide();
         }
 
@@ -263,7 +263,7 @@ namespace Trustbank
             //Repaint the parent registration panel
             repaintParentPanel();
 
-            removeColorProgressBar(LINE2, prtBtn3, lblConfirmation);
+            removeColorProgressBar(LINE1, prtBtn2, lblPasscode);
         }
 
         private void removeColorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
