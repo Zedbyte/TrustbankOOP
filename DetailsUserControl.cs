@@ -18,11 +18,28 @@ namespace Trustbank
 
         RegisterForm registerForm;
 
+        ReaLTaiizor.Controls.ParrotButton prtBtn1;
+
         ReaLTaiizor.Controls.ParrotButton prtBtn2;
+
+        ReaLTaiizor.Controls.ParrotButton prtBtn3;
+
+        ReaLTaiizor.Controls.ParrotButton prtBtn4;
+
+        ReaLTaiizor.Controls.ParrotButton prtBtn5;
 
         Label lblPasscode;
 
+        Label lblConfirmation;
+
+        Label lblVerification;
+
+        Label lblDone;
+
         Panel LINE1;
+        Panel LINE2;
+        Panel LINE3;
+        Panel LINE4;
 
         bool validData = true;
 
@@ -58,7 +75,21 @@ namespace Trustbank
         int viewPasswordCount = 1;
 
 
-        public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY, Panel LINE1, ReaLTaiizor.Controls.ParrotButton prtBtn2, Label lblPasscode, RegisterForm registerForm)
+        public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY,
+            Panel LINE1,
+            Panel LINE2,
+            Panel LINE3,
+            Panel LINE4,
+            ReaLTaiizor.Controls.ParrotButton prtBtn1,
+            ReaLTaiizor.Controls.ParrotButton prtBtn2,
+            ReaLTaiizor.Controls.ParrotButton prtBtn3,
+            ReaLTaiizor.Controls.ParrotButton prtBtn4,
+            ReaLTaiizor.Controls.ParrotButton prtBtn5,
+            Label lblPasscode,
+            Label lblConfirmation,
+            Label lblVerification,
+            Label lblDone,
+            RegisterForm registerForm)
         {
             InitializeComponent();
 
@@ -66,11 +97,31 @@ namespace Trustbank
 
             this.registerForm = registerForm;
 
+            this.prtBtn1 = prtBtn1;
+
             this.prtBtn2 = prtBtn2;
+
+            this.prtBtn3 = prtBtn3;
+
+            this.prtBtn4 = prtBtn4;
+
+            this.prtBtn5 = prtBtn5;
 
             this.lblPasscode = lblPasscode;
 
+            this.lblConfirmation = lblConfirmation;
+
+            this.lblVerification = lblVerification;
+
+            this.lblDone = lblDone;
+
             this.LINE1 = LINE1;
+
+            this.LINE2 = LINE2;
+
+            this.LINE3 = LINE3;
+
+            this.LINE4 = LINE4;
 
             setSavingsValueDefault();
 
@@ -137,6 +188,7 @@ namespace Trustbank
                 encryptedPassword = hashPassword(Password);
 
                 //Add the details to the database
+
                 //AddtoDatabase();
                 MessageBox.Show("Loading.. Next.");
 
@@ -148,14 +200,25 @@ namespace Trustbank
 
                 //Register form progress line
                 //=====================================================================
-                prtBtn2.BackgroundColor = Color.FromArgb(7, 166, 234);
-                lblPasscode.ForeColor = Color.FromArgb(7, 166, 234);
-
-                LINE1.BackColor = Color.FromArgb(7, 166, 234);
+                colorProgressBar(LINE1, prtBtn2, lblPasscode);
                 //=====================================================================
 
                 //Generate passcode panel
-                PasscodeUserControl passcodeUserControl = new PasscodeUserControl(this, parentRegistrationPanel, Username, Password, FirstName, MiddleName, LastName, EmailAddress, MobileNumber, AccountNumber, AccountAlias, Savings, Deposit, encryptedPassword);
+                PasscodeUserControl passcodeUserControl = new PasscodeUserControl(this, parentRegistrationPanel, Username, Password, FirstName, MiddleName, LastName, EmailAddress, MobileNumber, AccountNumber, AccountAlias, Savings, Deposit, encryptedPassword,
+                    LINE1,
+                    LINE2,
+                    LINE3,
+                    LINE4,
+                    prtBtn1,
+                    prtBtn2, 
+                    prtBtn3,
+                    prtBtn4,
+                    prtBtn5,
+                    lblPasscode,
+                    lblConfirmation,
+                    lblVerification,
+                    lblDone
+                    );
                 parentRegistrationPanel.Controls.Add(passcodeUserControl);
 
                 //If user clicked the back button from passcode UC, the previous state will not be disposed.
@@ -165,6 +228,14 @@ namespace Trustbank
             {
                 MessageBox.Show("Please make sure your details are correct.");
             }
+        }
+
+        private void colorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
+        {
+            prtBtn.BackgroundColor = Color.FromArgb(7, 166, 234);
+            lbl.ForeColor = Color.FromArgb(7, 166, 234);
+
+            LINE.BackColor = Color.FromArgb(7, 166, 234);
         }
 
         private void AddtoDatabase()

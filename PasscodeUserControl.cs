@@ -24,6 +24,29 @@ namespace Trustbank
 
         Panel parentRegistrationPanel;
 
+        ReaLTaiizor.Controls.ParrotButton prtBtn1;
+
+        ReaLTaiizor.Controls.ParrotButton prtBtn2;
+
+        ReaLTaiizor.Controls.ParrotButton prtBtn3;
+
+        ReaLTaiizor.Controls.ParrotButton prtBtn4;
+
+        ReaLTaiizor.Controls.ParrotButton prtBtn5;
+
+        Label lblPasscode;
+
+        Label lblConfirmation;
+
+        Label lblVerification;
+
+        Label lblDone;
+
+        Panel LINE1;
+        Panel LINE2;
+        Panel LINE3;
+        Panel LINE4;
+
 
         //Last Panel data
         string? Username { get; set; }
@@ -52,8 +75,22 @@ namespace Trustbank
         string? encryptedPassword { get; set; }
 
 
-        public PasscodeUserControl(DetailsUserControl detailsPanel, Panel parentRegistrationPanel, String Username, String Password, String FirstName, 
-            String MiddleName, String LastName, String EmailAddress, String MobileNumber, String AccountNumber, String AccountAlias, int Savings, int Deposit, String encryptedPassword)
+        public PasscodeUserControl(DetailsUserControl detailsPanel, Panel parentRegistrationPanel, string Username, string Password, string FirstName, 
+            string MiddleName, string LastName, string EmailAddress, string MobileNumber, string AccountNumber, string AccountAlias, int Savings, int Deposit, string encryptedPassword,
+            Panel LINE1,
+            Panel LINE2,
+            Panel LINE3,
+            Panel LINE4,
+            ReaLTaiizor.Controls.ParrotButton prtBtn1,
+            ReaLTaiizor.Controls.ParrotButton prtBtn2,
+            ReaLTaiizor.Controls.ParrotButton prtBtn3,
+            ReaLTaiizor.Controls.ParrotButton prtBtn4,
+            ReaLTaiizor.Controls.ParrotButton prtBtn5,
+            Label lblPasscode,
+            Label lblConfirmation,
+            Label lblVerification,
+            Label lblDone
+            )
         {
             InitializeComponent();
             btnNextDisable();
@@ -74,6 +111,28 @@ namespace Trustbank
             this.Savings = Savings;
             this.Deposit = Deposit;
             this.encryptedPassword = encryptedPassword;
+
+            this.LINE1 = LINE1;
+            this.LINE2 = LINE2;
+            this.LINE3 = LINE3;
+            this.LINE4 = LINE4;
+
+            this.prtBtn1 = prtBtn1;
+            this.prtBtn2 = prtBtn2;
+            this.prtBtn3 = prtBtn3;
+            this.prtBtn4 = prtBtn4;
+            this.prtBtn5 = prtBtn5;
+
+            this.lblPasscode = lblPasscode;
+
+            this.lblConfirmation = lblConfirmation;
+
+            this.lblVerification = lblVerification;
+
+            this.lblDone = lblDone;
+
+
+           
         }
 
         private void btnNextDisable()
@@ -149,6 +208,46 @@ namespace Trustbank
         private void btnNext_Click(object sender, EventArgs e)
         {
             Passcode = txtBxPasscode1.Text + txtBxPasscode2.Text + txtBxPasscode3.Text + txtBxPasscode4.Text + txtBxPasscode5.Text + txtBxPasscode6.Text;
+
+            removePanel(this);
+            repaintParentPanel();
+
+
+            colorProgressBar(LINE2, prtBtn3, lblConfirmation);
+
+            ConfirmationUserControl confirmationUserControl = new ConfirmationUserControl(Username, Password, FirstName, MiddleName, LastName, 
+                EmailAddress, MobileNumber, AccountNumber, AccountAlias, Passcode, Savings, Deposit, encryptedPassword, 
+                detailsPanel,
+                this,
+                parentRegistrationPanel,
+                LINE1,
+                LINE2,
+                LINE3,
+                LINE4,
+                prtBtn1,
+                prtBtn2,
+                prtBtn3,
+                prtBtn4,
+                prtBtn5,
+                lblPasscode,
+                lblConfirmation,
+                lblVerification,
+                lblDone
+                );
+
+            confirmationUserControl.Show();
+            parentRegistrationPanel.Controls.Add(confirmationUserControl);
+
+            //Save this panel's state
+            this.Hide();
+        }
+
+        private void colorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
+        {
+            prtBtn.BackgroundColor = Color.FromArgb(7, 166, 234);
+            lbl.ForeColor = Color.FromArgb(7, 166, 234);
+
+            LINE.BackColor = Color.FromArgb(7, 166, 234);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -163,6 +262,16 @@ namespace Trustbank
             detailsPanel.Show();
             //Repaint the parent registration panel
             repaintParentPanel();
+
+            removeColorProgressBar(LINE2, prtBtn3, lblConfirmation);
+        }
+
+        private void removeColorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
+        {
+            prtBtn.BackgroundColor = Color.FromArgb(149, 149, 149);
+            lbl.ForeColor = Color.FromArgb(149, 149, 149);
+
+            LINE.BackColor = Color.FromArgb(149, 149, 149);
         }
     }
 }
