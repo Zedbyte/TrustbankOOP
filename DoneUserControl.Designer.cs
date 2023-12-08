@@ -45,7 +45,7 @@
             btnCheck.IconColor = Color.PaleGreen;
             btnCheck.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCheck.IconSize = 250;
-            btnCheck.Location = new Point(441, 13);
+            btnCheck.Location = new Point(577, 14);
             btnCheck.Name = "btnCheck";
             btnCheck.Size = new Size(271, 236);
             btnCheck.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Gothic A1", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(436, 233);
+            label1.Location = new Point(577, 233);
             label1.Name = "label1";
             label1.Size = new Size(276, 51);
             label1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(411, 284);
+            label2.Location = new Point(557, 284);
             label2.Name = "label2";
             label2.Size = new Size(318, 25);
             label2.TabIndex = 1;
@@ -77,9 +77,9 @@
             btnStart.FlatStyle = FlatStyle.Flat;
             btnStart.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnStart.ForeColor = Color.White;
-            btnStart.Location = new Point(411, 326);
+            btnStart.Location = new Point(556, 326);
             btnStart.Name = "btnStart";
-            btnStart.Size = new Size(301, 62);
+            btnStart.Size = new Size(318, 62);
             btnStart.TabIndex = 2;
             btnStart.Text = "Let's get started";
             btnStart.UseVisualStyleBackColor = false;
@@ -95,7 +95,7 @@
             Controls.Add(label1);
             Controls.Add(btnCheck);
             Name = "DoneUserControl";
-            Size = new Size(1171, 403);
+            Size = new Size(1421, 438);
             ResumeLayout(false);
             PerformLayout();
         }

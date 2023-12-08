@@ -45,6 +45,7 @@
             pictureBox1 = new PictureBox();
             btnShutdown = new FontAwesome.Sharp.IconButton();
             btnAbout = new FontAwesome.Sharp.IconButton();
+            btnViewPassword = new FontAwesome.Sharp.IconButton();
             LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGO).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -64,6 +65,7 @@
             // LoginPanel
             // 
             LoginPanel.BackColor = Color.FromArgb(230, 230, 230);
+            LoginPanel.Controls.Add(btnViewPassword);
             LoginPanel.Controls.Add(btnLblRecoverAccess);
             LoginPanel.Controls.Add(btnLblSignUp);
             LoginPanel.Controls.Add(btnParrotLogin);
@@ -192,6 +194,7 @@
             txtBxPassword.ForeColor = Color.Black;
             txtBxPassword.Location = new Point(72, 181);
             txtBxPassword.Name = "txtBxPassword";
+            txtBxPassword.PasswordChar = '•';
             txtBxPassword.PlaceholderText = "Password";
             txtBxPassword.Size = new Size(490, 20);
             txtBxPassword.TabIndex = 2;
@@ -270,6 +273,24 @@
             btnAbout.TabIndex = 4;
             btnAbout.UseVisualStyleBackColor = true;
             // 
+            // btnViewPassword
+            // 
+            btnViewPassword.BackColor = Color.FromArgb(230, 230, 230);
+            btnViewPassword.FlatAppearance.BorderSize = 0;
+            btnViewPassword.FlatAppearance.MouseDownBackColor = Color.FromArgb(244, 244, 244);
+            btnViewPassword.FlatAppearance.MouseOverBackColor = Color.FromArgb(244, 244, 244);
+            btnViewPassword.FlatStyle = FlatStyle.Flat;
+            btnViewPassword.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            btnViewPassword.IconColor = Color.Black;
+            btnViewPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnViewPassword.IconSize = 35;
+            btnViewPassword.Location = new Point(518, 176);
+            btnViewPassword.Name = "btnViewPassword";
+            btnViewPassword.Size = new Size(46, 31);
+            btnViewPassword.TabIndex = 53;
+            btnViewPassword.UseVisualStyleBackColor = false;
+            btnViewPassword.Click += btnViewPassword_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -312,5 +333,6 @@
         private FontAwesome.Sharp.IconButton btnAbout;
         private Label btnLblRecoverAccess;
         private Label btnLblSignUp;
+        private FontAwesome.Sharp.IconButton btnViewPassword;
     }
 }
