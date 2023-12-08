@@ -12,6 +12,8 @@ namespace Trustbank
 {
     public partial class ConfirmationUserControl : UserControl
     {
+        //Used to close the register form when done
+        RegisterForm registerForm;
         string? Username { get; set; }
 
         string? Password { get; set; }
@@ -92,7 +94,8 @@ namespace Trustbank
             Label lblPasscode,
             Label lblConfirmation,
             Label lblVerification,
-            Label lblDone
+            Label lblDone,
+            RegisterForm registerForm
             )
         {
             InitializeComponent();
@@ -130,6 +133,8 @@ namespace Trustbank
             this.lblConfirmation = lblConfirmation;
             this.lblVerification = lblVerification;
             this.lblDone = lblDone;
+
+            this.registerForm = registerForm;
 
 
             InitializeLabelConfirmation();
@@ -198,7 +203,8 @@ namespace Trustbank
                 lblPasscode,
                 lblConfirmation,
                 lblVerification,
-                lblDone
+                lblDone,
+                registerForm
                 );
 
 

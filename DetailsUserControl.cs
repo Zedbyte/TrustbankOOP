@@ -217,7 +217,8 @@ namespace Trustbank
                     lblPasscode,
                     lblConfirmation,
                     lblVerification,
-                    lblDone
+                    lblDone,
+                    registerForm
                     );
                 parentRegistrationPanel.Controls.Add(passcodeUserControl);
 
@@ -236,33 +237,6 @@ namespace Trustbank
             lbl.ForeColor = Color.FromArgb(7, 166, 234);
 
             LINE.BackColor = Color.FromArgb(7, 166, 234);
-        }
-
-        private void AddtoDatabase()
-        {
-         /*   SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
-            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsTable] 
-                (
-                [Username], 
-                [Password], 
-                [FirstName], 
-                [MiddleName], 
-                [LastName],
-                [EmailAddress], 
-                [MobileNumber], 
-                [Savings],
-                [Deposit],
-                [AccountNumber],
-                [AccountAlias],
-                [Passcode]
-                )
-                VALUES
-                ('" + Username + "', '" + encryptedPassword + "', '" +
-                FirstName + "', '" + MiddleName + "', '" + LastName + "', '" +
-                EmailAddress + "', '" + MobileNumber + "', '" + Savings + "', '" + Deposit + "', '" + AccountNumber + "', '" + AccountAlias + "', '"  + Passcode + "')", con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();*/
         }
 
         private void isDataValid()

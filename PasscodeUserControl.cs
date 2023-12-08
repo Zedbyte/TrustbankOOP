@@ -18,6 +18,8 @@ namespace Trustbank
 
         string? Passcode { get; set; }
 
+        //Used to close the register form 
+        RegisterForm registerForm;
 
         //Used for when user clicks the back button. (Save the state of the last panel)
         DetailsUserControl detailsPanel;
@@ -75,7 +77,8 @@ namespace Trustbank
         string? encryptedPassword { get; set; }
 
 
-        public PasscodeUserControl(DetailsUserControl detailsPanel, Panel parentRegistrationPanel, string Username, string Password, string FirstName, 
+
+        public PasscodeUserControl(DetailsUserControl detailsPanel, Panel parentRegistrationPanel, string Username, string Password, string FirstName,
             string MiddleName, string LastName, string EmailAddress, string MobileNumber, string AccountNumber, string AccountAlias, int Savings, int Deposit, string encryptedPassword,
             Panel LINE1,
             Panel LINE2,
@@ -89,7 +92,8 @@ namespace Trustbank
             Label lblPasscode,
             Label lblConfirmation,
             Label lblVerification,
-            Label lblDone
+            Label lblDone,
+            RegisterForm registerForm
             )
         {
             InitializeComponent();
@@ -131,8 +135,10 @@ namespace Trustbank
 
             this.lblDone = lblDone;
 
+            this.registerForm = registerForm;
 
-           
+
+
         }
 
         private void btnNextDisable()
@@ -215,8 +221,8 @@ namespace Trustbank
 
             colorProgressBar(LINE2, prtBtn3, lblConfirmation);
 
-            ConfirmationUserControl confirmationUserControl = new ConfirmationUserControl(Username, Password, FirstName, MiddleName, LastName, 
-                EmailAddress, MobileNumber, AccountNumber, AccountAlias, Passcode, Savings, Deposit, encryptedPassword, 
+            ConfirmationUserControl confirmationUserControl = new ConfirmationUserControl(Username, Password, FirstName, MiddleName, LastName,
+                EmailAddress, MobileNumber, AccountNumber, AccountAlias, Passcode, Savings, Deposit, encryptedPassword,
                 detailsPanel,
                 this,
                 parentRegistrationPanel,
@@ -232,7 +238,8 @@ namespace Trustbank
                 lblPasscode,
                 lblConfirmation,
                 lblVerification,
-                lblDone
+                lblDone,
+                registerForm
                 );
 
             confirmationUserControl.Show();
@@ -272,6 +279,16 @@ namespace Trustbank
             lbl.ForeColor = Color.FromArgb(149, 149, 149);
 
             LINE.BackColor = Color.FromArgb(149, 149, 149);
+        }
+
+        private void btnShowPasscode_MouseEnter(object sender, EventArgs e)
+        {
+            btnShowPasscode.ForeColor = Color.DimGray;
+        }
+
+        private void btnShowPasscode_MouseLeave(object sender, EventArgs e)
+        {
+            btnShowPasscode.ForeColor = Color.FromArgb(149, 149, 149);
         }
     }
 }

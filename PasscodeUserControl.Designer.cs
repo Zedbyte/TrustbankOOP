@@ -163,6 +163,8 @@
             btnShowPasscode.Text = "Show";
             btnShowPasscode.UseVisualStyleBackColor = true;
             btnShowPasscode.Click += btnShowPasscode_Click;
+            btnShowPasscode.MouseEnter += btnShowPasscode_MouseEnter;
+            btnShowPasscode.MouseLeave += btnShowPasscode_MouseLeave;
             // 
             // LBLNEVERONLY
             // 

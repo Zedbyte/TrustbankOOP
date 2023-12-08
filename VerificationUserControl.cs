@@ -12,12 +12,13 @@ using System.Windows.Forms;
 using Vonage;
 using Vonage.Request;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace Trustbank
 {
     public partial class VerificationUserControl : UserControl
     {
-
+        RegisterForm registerForm;
         string? Username { get; set; }
 
         string? Password { get; set; }
@@ -83,7 +84,7 @@ namespace Trustbank
         int expirationEmail;
 
         //For show OTP button
-        int count;
+        int count = 1;
 
         string? generatedOTPEmail;
 
@@ -106,7 +107,8 @@ namespace Trustbank
             Label lblPasscode,
             Label lblConfirmation,
             Label lblVerification,
-            Label lblDone
+            Label lblDone,
+            RegisterForm registerForm
             )
         {
             //Save the details
@@ -147,6 +149,8 @@ namespace Trustbank
             this.lblVerification = lblVerification;
             this.lblDone = lblDone;
 
+            this.registerForm = registerForm;
+
             InitializeComponent();
             setEmailPlaceholder();
             btnNextDisable();
@@ -175,8 +179,28 @@ namespace Trustbank
 
         private void lblSendAnotherOTP_Click(object sender, EventArgs e)
         {
-            MobileVerification mobileVerification = new MobileVerification();
+            MobileVerification mobileVerification = new MobileVerification(MobileNumber);
             mobileVerification.ShowDialog();
+
+            if (mobileVerification.IsUserMatchOTP)
+            {
+                removePanel(this);
+                repaintParentPanel();
+                AddtoDatabase();
+
+                colorProgressBar(LINE4, prtBtn5, lblDone);
+                DoneUserControl doneUserControl = new DoneUserControl(registerForm);
+
+                doneUserControl.Show();
+                parentRegistrationPanel.Controls.Add(doneUserControl);
+
+                //Dispose this panel.
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Invalid OTP.");
+            }
         }
 
         private void SendOTPToEmai()
@@ -212,6 +236,32 @@ namespace Trustbank
             }
         }
 
+        private void AddtoDatabase()
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsTable] 
+                   (
+                   [Username], 
+                   [Password], 
+                   [FirstName], 
+                   [MiddleName], 
+                   [LastName],
+                   [EmailAddress], 
+                   [MobileNumber], 
+                   [Savings],
+                   [Deposit],
+                   [AccountNumber],
+                   [AccountAlias],
+                   [Passcode]
+                   )
+                   VALUES
+                   ('" + Username + "', '" + encryptedPassword + "', '" +
+                FirstName + "', '" + MiddleName + "', '" + LastName + "', '" +
+                EmailAddress + "', '" + MobileNumber + "', '" + Savings + "', '" + Deposit + "', '" + AccountNumber + "', '" + AccountAlias + "', '" + Passcode + "')", con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
 
 
         private void timerEmail_Tick(object sender, EventArgs e)
@@ -238,7 +288,20 @@ namespace Trustbank
             string userInputOTP = txtBxOTP1.Text + txtBxOTP2.Text + txtBxOTP3.Text + txtBxOTP4.Text + txtBxOTP5.Text + txtBxOTP6.Text;
             if (generatedOTPEmail != null && userInputOTP.Equals(generatedOTPEmail))
             {
-                //Done Form
+                removePanel(this);
+                repaintParentPanel();
+
+                AddtoDatabase();
+
+                colorProgressBar(LINE4, prtBtn5, lblDone);
+
+                DoneUserControl doneUserControl = new DoneUserControl(registerForm);
+
+                doneUserControl.Show();
+                parentRegistrationPanel.Controls.Add(doneUserControl);
+
+                //Dispose this panel.
+                this.Dispose();
 
             }
             else
@@ -247,9 +310,36 @@ namespace Trustbank
             }
         }
 
+        private void colorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
+        {
+            prtBtn.BackgroundColor = Color.FromArgb(7, 166, 234);
+            lbl.ForeColor = Color.FromArgb(7, 166, 234);
+
+            LINE.BackColor = Color.FromArgb(7, 166, 234);
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
+            removePanel(this);
+            //Dispose this panel and any state
+            this.Dispose();
 
+            //Add the previous detail panel
+            parentRegistrationPanel.Controls.Add(confirmationUserControl);
+            //Unhide it
+            confirmationUserControl.Show();
+            //Repaint the parent registration panel
+            repaintParentPanel();
+
+            removeColorProgressBar(LINE3, prtBtn4, lblVerification);
+        }
+
+        private void removeColorProgressBar(Panel LINE, ReaLTaiizor.Controls.ParrotButton prtBtn, Label lbl)
+        {
+            prtBtn.BackgroundColor = Color.FromArgb(149, 149, 149);
+            lbl.ForeColor = Color.FromArgb(149, 149, 149);
+
+            LINE.BackColor = Color.FromArgb(149, 149, 149);
         }
 
         private void btnNextDisable()
@@ -322,6 +412,39 @@ namespace Trustbank
             }
         }
 
+        private void lblSendEmailAgain_Click(object sender, EventArgs e)
+        {
+            SendOTPToEmai();
+        }
 
+        private void btnShowOTP_MouseEnter(object sender, EventArgs e)
+        {
+            btnShowOTP.ForeColor = Color.DimGray;
+        }
+
+        private void btnShowOTP_MouseLeave(object sender, EventArgs e)
+        {
+            btnShowOTP.ForeColor = Color.FromArgb(149, 149, 149);
+        }
+
+        private void lblSendEmailAgain_MouseEnter(object sender, EventArgs e)
+        {
+            lblSendEmailAgain.ForeColor = Color.DarkBlue;
+        }
+
+        private void lblSendEmailAgain_MouseLeave(object sender, EventArgs e)
+        {
+            lblSendEmailAgain.ForeColor = Color.FromArgb(7, 166, 234);
+        }
+
+        private void lblSendAnotherOTP_MouseEnter(object sender, EventArgs e)
+        {
+            lblSendAnotherOTP.ForeColor = Color.DarkBlue;
+        }
+
+        private void lblSendAnotherOTP_MouseLeave(object sender, EventArgs e)
+        {
+            lblSendAnotherOTP.ForeColor = Color.FromArgb(7, 166, 234);
+        }
     }
 }

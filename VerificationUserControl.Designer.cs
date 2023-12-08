@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             verificationPanel = new Panel();
+            lblSendEmailAgain = new Label();
             lblSendAnotherOTP = new Label();
             LBLDIDNOTONLY = new Label();
             btnBack = new Button();
@@ -54,6 +55,7 @@
             // verificationPanel
             // 
             verificationPanel.BackColor = Color.White;
+            verificationPanel.Controls.Add(lblSendEmailAgain);
             verificationPanel.Controls.Add(lblSendAnotherOTP);
             verificationPanel.Controls.Add(LBLDIDNOTONLY);
             verificationPanel.Controls.Add(btnBack);
@@ -68,17 +70,33 @@
             verificationPanel.Size = new Size(1421, 438);
             verificationPanel.TabIndex = 0;
             // 
+            // lblSendEmailAgain
+            // 
+            lblSendEmailAgain.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSendEmailAgain.ForeColor = Color.FromArgb(7, 166, 234);
+            lblSendEmailAgain.Location = new Point(721, 271);
+            lblSendEmailAgain.Name = "lblSendEmailAgain";
+            lblSendEmailAgain.Size = new Size(197, 40);
+            lblSendEmailAgain.TabIndex = 14;
+            lblSendEmailAgain.Text = "Send another one.";
+            lblSendEmailAgain.TextAlign = ContentAlignment.MiddleCenter;
+            lblSendEmailAgain.Click += lblSendEmailAgain_Click;
+            lblSendEmailAgain.MouseEnter += lblSendEmailAgain_MouseEnter;
+            lblSendEmailAgain.MouseLeave += lblSendEmailAgain_MouseLeave;
+            // 
             // lblSendAnotherOTP
             // 
             lblSendAnotherOTP.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblSendAnotherOTP.ForeColor = Color.FromArgb(7, 166, 234);
-            lblSendAnotherOTP.Location = new Point(728, 272);
+            lblSendAnotherOTP.Location = new Point(619, 311);
             lblSendAnotherOTP.Name = "lblSendAnotherOTP";
             lblSendAnotherOTP.Size = new Size(197, 40);
             lblSendAnotherOTP.TabIndex = 13;
-            lblSendAnotherOTP.Text = "Send another one.";
+            lblSendAnotherOTP.Text = "Try another way.";
             lblSendAnotherOTP.TextAlign = ContentAlignment.MiddleCenter;
             lblSendAnotherOTP.Click += lblSendAnotherOTP_Click;
+            lblSendAnotherOTP.MouseEnter += lblSendAnotherOTP_MouseEnter;
+            lblSendAnotherOTP.MouseLeave += lblSendAnotherOTP_MouseLeave;
             // 
             // LBLDIDNOTONLY
             // 
@@ -97,7 +115,7 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Gothic A1", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnBack.ForeColor = Color.FromArgb(0, 26, 136);
-            btnBack.Location = new Point(389, 343);
+            btnBack.Location = new Point(389, 361);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(288, 55);
             btnBack.TabIndex = 11;
@@ -112,7 +130,7 @@
             btnNext.FlatStyle = FlatStyle.Flat;
             btnNext.Font = new Font("Gothic A1", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnNext.ForeColor = Color.White;
-            btnNext.Location = new Point(758, 343);
+            btnNext.Location = new Point(759, 361);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(288, 55);
             btnNext.TabIndex = 10;
@@ -135,6 +153,8 @@
             btnShowOTP.Text = "Show";
             btnShowOTP.UseVisualStyleBackColor = true;
             btnShowOTP.Click += btnShowOTP_Click_1;
+            btnShowOTP.MouseEnter += btnShowOTP_MouseEnter;
+            btnShowOTP.MouseLeave += btnShowOTP_MouseLeave;
             // 
             // passcodeTextboxesPanel
             // 
@@ -274,6 +294,7 @@
             // lblEmailPlaceholder
             // 
             lblEmailPlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblEmailPlaceholder.ForeColor = Color.FromArgb(7, 166, 234);
             lblEmailPlaceholder.Location = new Point(810, 75);
             lblEmailPlaceholder.Name = "lblEmailPlaceholder";
             lblEmailPlaceholder.Size = new Size(466, 40);
@@ -334,5 +355,6 @@
         private Button button3;
         private System.Windows.Forms.Timer timerEmail;
         private System.Windows.Forms.Timer expiration;
+        private Label lblSendEmailAgain;
     }
 }
