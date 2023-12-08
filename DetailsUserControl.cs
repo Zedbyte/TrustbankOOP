@@ -47,6 +47,8 @@ namespace Trustbank
         //Check if password has one uppercase, number, and a special character
         bool isPasswordValid = false;
 
+        int viewPasswordCount = 1;
+
 
         public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY)
         {
@@ -55,9 +57,58 @@ namespace Trustbank
             this.parentRegistrationPanel = parentRegistrationPanel;
 
             setSavingsValueDefault();
+
+            //The next button must be disabled first.
+            btnNextDisable();
         }
 
         //Set the parent property of the label and picture box above. This is for the transparent property.
+
+        private void btnNextDisable()
+        {
+            btnNext.Enabled = false;
+            btnNext.BackColor = Color.DimGray;
+            btnNext.ForeColor = Color.White;
+        }
+
+        private void btnNextEnable()
+        {
+            btnNext.Enabled = true;
+            btnNext.BackColor = Color.FromArgb(0, 26, 136);
+            btnNext.ForeColor = Color.White;
+        }
+
+        //For keypresses, every time user presses a key on the textboxes, check for button validation.
+        private void btnNextIsValid(object sender, KeyEventArgs e)
+        {
+            if (keyPressDataValidation())
+            {
+                btnNextEnable();
+            }
+            else
+            {
+                btnNextDisable();
+            }
+        }
+
+        private bool keyPressDataValidation()
+        {
+            if (txtBxUsername.Text != null && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername) &&
+                txtBxPassword.Text != null && txtBxPassword.Text.Length >= 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword) &&
+                txtBxFirstName.Text != null && checkIsBlankTextBox(txtBxFirstName) && !containsDigits(txtBxFirstName) &&
+                txtBxLastName.Text != null && checkIsBlankTextBox(txtBxLastName) && !containsDigits(txtBxLastName) &&
+                txtBxEmailAddress.Text != null && txtBxEmailAddress.Text.Contains("@") && checkIsBlankTextBox(txtBxEmailAddress) &&
+                txtBxMobileNumber.Text != null && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && checkIsBlankTextBox(txtBxMobileNumber) &&
+                txtBxAccountNumber.Text != null && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber) && !containsCharacters(txtBxAccountNumber) &&
+                txtBxAccountAlias.Text != null && txtBxAccountAlias.Text.Length > 1 && checkIsBlankTextBox(txtBxAccountAlias) &&
+                checkBxMetroTermsAndService.Checked)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -91,7 +142,7 @@ namespace Trustbank
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Loading.. Next.");
+                MessageBox.Show("Loading.. Success.. Next.");
 
                 removePanel(this);
                 repaintParentPanel();
@@ -109,6 +160,7 @@ namespace Trustbank
 
         private void isDataValid()
         {
+            //validData at first, is true, then execute conditions that CAN make validData to false.
             validData = true;
 
             if (txtBxUsername.Text != null && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername))
@@ -340,26 +392,84 @@ namespace Trustbank
             bool hasNumber = Regex.IsMatch(txtBxPassword.Text, "[0-9]");
             bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[@$&#/~^]");
 
+            //==========================================================================
             if (txtBxPassword.Text.Length >= 12)
             {
                 lblNumberOfCharactersReq.ForeColor = Color.Green;
-            }
 
+                btnCheck.IconColor = Color.Green;
+                btnCheck.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+
+            }
+            else
+            {
+                lblNumberOfCharactersReq.ForeColor = Color.Firebrick;
+
+                btnCheck.IconColor = Color.Firebrick;
+                btnCheck.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            }
+            //==========================================================================
+
+
+
+            //==========================================================================
             if (hasUppercase)
             {
                 lblUppercaseReq.ForeColor = Color.Green;
-            }
 
+                btnCheck2.IconColor = Color.Green;
+                btnCheck2.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            }
+            else
+            {
+                lblUppercaseReq.ForeColor = Color.Firebrick;
+
+                btnCheck2.IconColor = Color.Firebrick;
+                btnCheck2.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            }
+            //==========================================================================
+
+
+
+            //==========================================================================
             if (hasNumber)
             {
                 lblDigitReq.ForeColor = Color.Green;
-            }
 
+                btnCheck3.IconColor = Color.Green;
+                btnCheck3.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            }
+            else
+            {
+                lblDigitReq.ForeColor = Color.Firebrick;
+
+                btnCheck3.IconColor = Color.Firebrick;
+                btnCheck3.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            }
+            //==========================================================================
+
+
+
+            //==========================================================================
             if (hasSpecialChar)
             {
                 lblSpecialCharacterReq.ForeColor = Color.Green;
-            }
 
+                btnCheck4.IconColor = Color.Green;
+                btnCheck4.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            }
+            else
+            {
+                lblSpecialCharacterReq.ForeColor = Color.Firebrick;
+
+                btnCheck4.IconColor = Color.Firebrick;
+                btnCheck4.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            }
+            //==========================================================================
+
+
+
+            //==========================================================================
             if (txtBxPassword.Text.Length >= 12 && hasUppercase && hasNumber && hasSpecialChar)
             {
                 isPasswordValid = true;
@@ -367,11 +477,6 @@ namespace Trustbank
         }
 
         //Checks if password meets the requirements
-        /*        private void txtBxPassword_KeyPress(object sender, KeyPressEventArgs e)
-                {
-                    doesPasswordMeetRequirements();
-                }*/
-
         private void txtBxPassword_KeyDown(object sender, KeyEventArgs e)
         {
             doesPasswordMeetRequirements();
@@ -380,6 +485,36 @@ namespace Trustbank
         private void txtBxPassword_KeyUp(object sender, KeyEventArgs e)
         {
             doesPasswordMeetRequirements();
+        }
+
+        private void btnViewPassword_Click(object sender, EventArgs e)
+        {
+            viewPasswordCount += 1;
+            //If count is even, unhide password
+            if (viewPasswordCount % 2 == 0)
+            {
+                txtBxPassword.PasswordChar = '\0';
+                btnViewPassword.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            }
+            //else hide it
+            else
+            {
+                txtBxPassword.PasswordChar = '\u2022';
+                btnViewPassword.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+        }
+
+        //For Checkbox click
+        private void btnNextIsValid(object sender, EventArgs e)
+        {
+            if (keyPressDataValidation())
+            {
+                btnNextEnable();
+            }
+            else
+            {
+                btnNextDisable();
+            }
         }
     }
 }
