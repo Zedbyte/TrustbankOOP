@@ -51,7 +51,7 @@
             label1 = new Label();
             txtBxUsername = new TextBox();
             txtBxPassword = new TextBox();
-            button1 = new Button();
+            btnCancel = new Button();
             lblTermsAndService4 = new Label();
             lblTermsAndService3 = new Label();
             lblTermsAndService2 = new Label();
@@ -98,7 +98,7 @@
             detailsPanel.Controls.Add(label1);
             detailsPanel.Controls.Add(txtBxUsername);
             detailsPanel.Controls.Add(txtBxPassword);
-            detailsPanel.Controls.Add(button1);
+            detailsPanel.Controls.Add(btnCancel);
             detailsPanel.Controls.Add(lblTermsAndService4);
             detailsPanel.Controls.Add(lblTermsAndService3);
             detailsPanel.Controls.Add(lblTermsAndService2);
@@ -407,19 +407,20 @@
             txtBxPassword.KeyUp += txtBxPassword_KeyUp;
             txtBxPassword.Leave += IsBlankTextBox;
             // 
-            // button1
+            // btnCancel
             // 
-            button1.BackColor = Color.FromArgb(217, 217, 217);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.FromArgb(0, 26, 136);
-            button1.Location = new Point(476, 908);
-            button1.Name = "button1";
-            button1.Size = new Size(453, 48);
-            button1.TabIndex = 12;
-            button1.Text = "Cancel";
-            button1.UseVisualStyleBackColor = false;
+            btnCancel.BackColor = Color.FromArgb(217, 217, 217);
+            btnCancel.FlatAppearance.BorderSize = 0;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancel.ForeColor = Color.FromArgb(0, 26, 136);
+            btnCancel.Location = new Point(476, 908);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(453, 48);
+            btnCancel.TabIndex = 12;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // lblTermsAndService4
             // 
@@ -772,7 +773,7 @@
         private Label label1;
         private TextBox txtBxUsername;
         private TextBox txtBxPassword;
-        private Button button1;
+        private Button btnCancel;
         private Label lblTermsAndService4;
         private Label lblTermsAndService3;
         private Label lblTermsAndService2;

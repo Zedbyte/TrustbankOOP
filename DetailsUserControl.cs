@@ -16,6 +16,8 @@ namespace Trustbank
     {
         Panel parentRegistrationPanel;
 
+        RegisterForm registerForm;
+
         bool validData = true;
 
         //? stands for non-null, these variables must not have a null value (but I am also validating them before applying any values in isDataValid() method)
@@ -50,16 +52,19 @@ namespace Trustbank
         int viewPasswordCount = 1;
 
 
-        public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY)
+        public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY, RegisterForm registerForm)
         {
             InitializeComponent();
 
             this.parentRegistrationPanel = parentRegistrationPanel;
 
+            this.registerForm = registerForm;
+
             setSavingsValueDefault();
 
             //The next button must be disabled first.
             btnNextDisable();
+
         }
 
         //Set the parent property of the label and picture box above. This is for the transparent property.
@@ -170,7 +175,7 @@ namespace Trustbank
             else
             {
                 validData = false;
-                MessageBox.Show("U Invalid");
+                MessageBox.Show("Username Invalid. Please try again.");
             }
 
             if (txtBxPassword.Text != null && txtBxPassword.Text.Length >= 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword))
@@ -181,21 +186,21 @@ namespace Trustbank
             else
             {
                 validData = false;
-                MessageBox.Show("P Invalid");
+                MessageBox.Show("Password Invalid. Please try again.");
             }
 
             if (txtBxFirstName.Text != null && checkIsBlankTextBox(txtBxFirstName) && !containsDigits(txtBxFirstName))
             {
                 FirstName = txtBxFirstName.Text;
             }
-            else { validData = false; MessageBox.Show("Invalid F Name"); }
+            else { validData = false; MessageBox.Show("Invalid First Name. Please try again."); }
 
 
             if (txtBxMiddleName.Text != null)
             {
                 if (containsDigits(txtBxMiddleName))
                 {
-                    MessageBox.Show("Invalid Middle Name");
+                    MessageBox.Show("Invalid Middle Name. Please try again.");
                 }
                 else
                 {
@@ -208,7 +213,7 @@ namespace Trustbank
             {
                 LastName = txtBxLastName.Text;
             }
-            else { validData = false; MessageBox.Show("Invalid L Name"); }
+            else { validData = false; MessageBox.Show("Invalid Last Name. Please try again."); }
 
             if (txtBxEmailAddress.Text != null && txtBxEmailAddress.Text.Contains("@") && checkIsBlankTextBox(txtBxEmailAddress))
             {
@@ -218,7 +223,7 @@ namespace Trustbank
             else
             {
                 validData = false;
-                MessageBox.Show("@ Invalid");
+                MessageBox.Show("Invalid Email Address. Please try again.");
             }
 
             if (txtBxMobileNumber.Text != null && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && checkIsBlankTextBox(txtBxMobileNumber))
@@ -229,7 +234,7 @@ namespace Trustbank
             else
             {
                 validData = false;
-                MessageBox.Show("Mobile Invalid");
+                MessageBox.Show("Invalid Mobile Number. Please try again.");
             }
 
             if (txtBxAccountNumber.Text != null && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber) && !containsCharacters(txtBxAccountNumber))
@@ -240,7 +245,7 @@ namespace Trustbank
             else
             {
                 validData = false;
-                MessageBox.Show("AcN Invalid");
+                MessageBox.Show("Invalid Account Number. Please try again.");
             }
 
             if (txtBxAccountAlias.Text != null && txtBxAccountAlias.Text.Length > 1 && checkIsBlankTextBox(txtBxAccountAlias))
@@ -251,12 +256,12 @@ namespace Trustbank
             else
             {
                 validData = false;
-                MessageBox.Show("AcL Invalid");
+                MessageBox.Show("Invalid Account Alias. Please try again.");
             }
 
             if (!checkBxMetroTermsAndService.Checked)
             {
-                MessageBox.Show("CHKBX Invalid");
+                MessageBox.Show("Terms and Service unchecked.");
                 validData = false;
             }
 
@@ -326,7 +331,7 @@ namespace Trustbank
             }
             return true;
         }
-
+        //If savings button is clicked, set the savings property to 1 and deposit to 0
         private void btnSavings_Click(object sender, EventArgs e)
         {
             Savings = 1;
@@ -337,7 +342,7 @@ namespace Trustbank
             btnDeposit.BackColor = Color.White;
             btnDeposit.ForeColor = Color.FromArgb(0, 26, 136);
         }
-
+        //If deposit button is clicked, set the deposit property to 1 and savings to 0
         private void btnDeposit_Click(object sender, EventArgs e)
         {
             Savings = 0;
@@ -349,7 +354,7 @@ namespace Trustbank
             btnSavings.BackColor = Color.White;
             btnSavings.ForeColor = Color.FromArgb(0, 26, 136);
         }
-
+        //If textbox contains characters return true, else false.
         private bool containsCharacters(TextBox txtbx)
         {
             bool hasChars = Regex.IsMatch(txtbx.Text, "[A-Za-z]");
@@ -361,7 +366,7 @@ namespace Trustbank
 
             return false;
         }
-
+        //If textbox contains Digits (numbers) return true, else false.
         private bool containsDigits(TextBox txtbx)
         {
             bool hasDigits = Regex.IsMatch(txtbx.Text, "[0-9]");
@@ -515,6 +520,14 @@ namespace Trustbank
             {
                 btnNextDisable();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            registerForm.Close();
+
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }

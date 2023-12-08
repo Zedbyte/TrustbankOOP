@@ -60,13 +60,7 @@ namespace Trustbank
         {
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
-            this.Hide();
-
-            if (registerForm.DialogResult == DialogResult.OK)
-            {
-                this.Show();
-            }
-
+            this.Close();
         }
 
         private void btnParrotLogin_Click(object sender, EventArgs e)
