@@ -24,8 +24,6 @@ namespace Trustbank
 
         Panel LINE1;
 
-
-
         bool validData = true;
 
         //? stands for non-null, these variables must not have a null value (but I am also validating them before applying any values in isDataValid() method)
@@ -81,7 +79,6 @@ namespace Trustbank
 
         }
 
-        //Set the parent property of the label and picture box above. This is for the transparent property.
 
         private void btnNextDisable()
         {
@@ -158,10 +155,11 @@ namespace Trustbank
                 //=====================================================================
 
                 //Generate passcode panel
-                PasscodeUserControl passcodeUserControl = new PasscodeUserControl();
+                PasscodeUserControl passcodeUserControl = new PasscodeUserControl(this, parentRegistrationPanel, Username, Password, FirstName, MiddleName, LastName, EmailAddress, MobileNumber, AccountNumber, AccountAlias, Savings, Deposit, encryptedPassword);
                 parentRegistrationPanel.Controls.Add(passcodeUserControl);
 
-                this.Dispose();
+                //If user clicked the back button from passcode UC, the previous state will not be disposed.
+                this.Hide();
             }
             else
             {
@@ -171,8 +169,8 @@ namespace Trustbank
 
         private void AddtoDatabase()
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
-            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsTB] 
+         /*   SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsTable] 
                 (
                 [Username], 
                 [Password], 
@@ -184,15 +182,16 @@ namespace Trustbank
                 [Savings],
                 [Deposit],
                 [AccountNumber],
-                [AccountAlias]
+                [AccountAlias],
+                [Passcode]
                 )
                 VALUES
                 ('" + Username + "', '" + encryptedPassword + "', '" +
                 FirstName + "', '" + MiddleName + "', '" + LastName + "', '" +
-                EmailAddress + "', '" + MobileNumber + "', '" + Savings + "', '" + Deposit + "', '" + AccountNumber + "', '" + AccountAlias + "')", con);
+                EmailAddress + "', '" + MobileNumber + "', '" + Savings + "', '" + Deposit + "', '" + AccountNumber + "', '" + AccountAlias + "', '"  + Passcode + "')", con);
             con.Open();
             cmd.ExecuteNonQuery();
-            con.Close();
+            con.Close();*/
         }
 
         private void isDataValid()
@@ -334,6 +333,9 @@ namespace Trustbank
                 //Change font and font color
                 txtBx.Font = new Font("Gothic A1", 11, FontStyle.Italic);
                 txtBx.ForeColor = Color.Red;
+
+                //Reveal the password box
+                txtBxPassword.PasswordChar = '\0';
 
                 //Invalidate input
                 txtBx.Text = "This field is required.";
