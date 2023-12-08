@@ -86,7 +86,7 @@
             HEADERLBLONLY.Location = new Point(633, 77);
             HEADERLBLONLY.Name = "HEADERLBLONLY";
             HEADERLBLONLY.Size = new Size(215, 21);
-            HEADERLBLONLY.TabIndex = 3;
+            HEADERLBLONLY.TabIndex = 0;
             HEADERLBLONLY.Text = "Where Your Wealth Finds Security";
             // 
             // signUpHeaderImage
@@ -353,7 +353,7 @@
             parentRegistrationPanel.Location = new Point(-1, 352);
             parentRegistrationPanel.Name = "parentRegistrationPanel";
             parentRegistrationPanel.Size = new Size(1424, 441);
-            parentRegistrationPanel.TabIndex = 8;
+            parentRegistrationPanel.TabIndex = 0;
             // 
             // RegisterForm
             // 

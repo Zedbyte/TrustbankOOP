@@ -126,7 +126,7 @@
             detailsPanel.Location = new Point(0, 0);
             detailsPanel.Name = "detailsPanel";
             detailsPanel.Size = new Size(1421, 438);
-            detailsPanel.TabIndex = 8;
+            detailsPanel.TabIndex = 0;
             // 
             // btnViewPassword
             // 
@@ -149,15 +149,16 @@
             // mobileNumberPrefix
             // 
             mobileNumberPrefix.BackColor = Color.FromArgb(244, 244, 244);
+            mobileNumberPrefix.DropDownStyle = ComboBoxStyle.DropDownList;
             mobileNumberPrefix.FlatStyle = FlatStyle.Flat;
             mobileNumberPrefix.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             mobileNumberPrefix.ForeColor = Color.Black;
             mobileNumberPrefix.FormattingEnabled = true;
-            mobileNumberPrefix.Items.AddRange(new object[] { "", "+63" });
+            mobileNumberPrefix.Items.AddRange(new object[] { "+63" });
             mobileNumberPrefix.Location = new Point(477, 538);
             mobileNumberPrefix.Name = "mobileNumberPrefix";
             mobileNumberPrefix.Size = new Size(63, 33);
-            mobileNumberPrefix.TabIndex = 51;
+            mobileNumberPrefix.TabIndex = 7;
             // 
             // passwordRequirementsPanel
             // 
@@ -184,11 +185,11 @@
             btnCheck4.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             btnCheck4.IconColor = Color.Firebrick;
             btnCheck4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCheck4.IconSize = 20;
+            btnCheck4.IconSize = 22;
             btnCheck4.Location = new Point(13, 126);
             btnCheck4.Name = "btnCheck4";
             btnCheck4.Size = new Size(25, 25);
-            btnCheck4.TabIndex = 56;
+            btnCheck4.TabIndex = 0;
             btnCheck4.UseVisualStyleBackColor = true;
             // 
             // btnCheck3
@@ -200,11 +201,11 @@
             btnCheck3.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             btnCheck3.IconColor = Color.Firebrick;
             btnCheck3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCheck3.IconSize = 20;
+            btnCheck3.IconSize = 22;
             btnCheck3.Location = new Point(13, 98);
             btnCheck3.Name = "btnCheck3";
             btnCheck3.Size = new Size(25, 25);
-            btnCheck3.TabIndex = 55;
+            btnCheck3.TabIndex = 0;
             btnCheck3.UseVisualStyleBackColor = true;
             // 
             // btnCheck2
@@ -216,11 +217,11 @@
             btnCheck2.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             btnCheck2.IconColor = Color.Firebrick;
             btnCheck2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCheck2.IconSize = 20;
+            btnCheck2.IconSize = 22;
             btnCheck2.Location = new Point(13, 67);
             btnCheck2.Name = "btnCheck2";
             btnCheck2.Size = new Size(25, 25);
-            btnCheck2.TabIndex = 54;
+            btnCheck2.TabIndex = 0;
             btnCheck2.UseVisualStyleBackColor = true;
             // 
             // btnCheck
@@ -232,65 +233,65 @@
             btnCheck.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             btnCheck.IconColor = Color.Firebrick;
             btnCheck.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCheck.IconSize = 20;
+            btnCheck.IconSize = 22;
             btnCheck.Location = new Point(13, 39);
             btnCheck.Name = "btnCheck";
             btnCheck.Size = new Size(25, 25);
-            btnCheck.TabIndex = 53;
+            btnCheck.TabIndex = 0;
             btnCheck.UseVisualStyleBackColor = true;
             // 
             // lblDigitReq
             // 
             lblDigitReq.AutoSize = true;
-            lblDigitReq.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDigitReq.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblDigitReq.ForeColor = Color.Firebrick;
             lblDigitReq.Location = new Point(39, 100);
             lblDigitReq.Name = "lblDigitReq";
-            lblDigitReq.Size = new Size(84, 19);
+            lblDigitReq.Size = new Size(92, 21);
             lblDigitReq.TabIndex = 0;
             lblDigitReq.Text = "One (1) Digit";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Font = new Font("Gothic A1", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label13.ForeColor = Color.Black;
             label13.Location = new Point(3, 11);
             label13.Name = "label13";
-            label13.Size = new Size(188, 21);
+            label13.Size = new Size(220, 24);
             label13.TabIndex = 0;
             label13.Text = "Password must have atleast;";
             // 
             // lblUppercaseReq
             // 
             lblUppercaseReq.AutoSize = true;
-            lblUppercaseReq.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUppercaseReq.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblUppercaseReq.ForeColor = Color.Firebrick;
             lblUppercaseReq.Location = new Point(39, 69);
             lblUppercaseReq.Name = "lblUppercaseReq";
-            lblUppercaseReq.Size = new Size(119, 19);
+            lblUppercaseReq.Size = new Size(130, 21);
             lblUppercaseReq.TabIndex = 0;
             lblUppercaseReq.Text = "One (1) Uppercase";
             // 
             // lblNumberOfCharactersReq
             // 
             lblNumberOfCharactersReq.AutoSize = true;
-            lblNumberOfCharactersReq.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNumberOfCharactersReq.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblNumberOfCharactersReq.ForeColor = Color.Firebrick;
             lblNumberOfCharactersReq.Location = new Point(39, 40);
             lblNumberOfCharactersReq.Name = "lblNumberOfCharactersReq";
-            lblNumberOfCharactersReq.Size = new Size(141, 19);
+            lblNumberOfCharactersReq.Size = new Size(154, 21);
             lblNumberOfCharactersReq.TabIndex = 0;
             lblNumberOfCharactersReq.Text = "12 characters in length";
             // 
             // lblSpecialCharacterReq
             // 
             lblSpecialCharacterReq.AutoSize = true;
-            lblSpecialCharacterReq.Font = new Font("Gothic A1", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSpecialCharacterReq.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblSpecialCharacterReq.ForeColor = Color.Firebrick;
             lblSpecialCharacterReq.Location = new Point(39, 127);
             lblSpecialCharacterReq.Name = "lblSpecialCharacterReq";
-            lblSpecialCharacterReq.Size = new Size(160, 19);
+            lblSpecialCharacterReq.Size = new Size(172, 21);
             lblSpecialCharacterReq.TabIndex = 0;
             lblSpecialCharacterReq.Text = "One (1) Special Character";
             // 
@@ -485,6 +486,7 @@
             checkBxMetroTermsAndService.ThemeAuthor = "Taiizor";
             checkBxMetroTermsAndService.ThemeName = "MetroLight";
             checkBxMetroTermsAndService.Click += btnNextIsValid;
+            checkBxMetroTermsAndService.MouseClick += btnNextIsValid;
             // 
             // lblAccountAliasFillUp
             // 

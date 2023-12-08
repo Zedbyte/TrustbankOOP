@@ -18,6 +18,14 @@ namespace Trustbank
 
         RegisterForm registerForm;
 
+        ReaLTaiizor.Controls.ParrotButton prtBtn2;
+
+        Label lblPasscode;
+
+        Panel LINE1;
+
+
+
         bool validData = true;
 
         //? stands for non-null, these variables must not have a null value (but I am also validating them before applying any values in isDataValid() method)
@@ -52,13 +60,19 @@ namespace Trustbank
         int viewPasswordCount = 1;
 
 
-        public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY, RegisterForm registerForm)
+        public DetailsUserControl(Panel parentRegistrationPanel, Label HEADERLBLONLY, Panel LINE1, ReaLTaiizor.Controls.ParrotButton prtBtn2, Label lblPasscode, RegisterForm registerForm)
         {
             InitializeComponent();
 
             this.parentRegistrationPanel = parentRegistrationPanel;
 
             this.registerForm = registerForm;
+
+            this.prtBtn2 = prtBtn2;
+
+            this.lblPasscode = lblPasscode;
+
+            this.LINE1 = LINE1;
 
             setSavingsValueDefault();
 
@@ -122,11 +136,43 @@ namespace Trustbank
 
             if (validData)
             {
+                //Encrypts the password using SHA-384
                 encryptedPassword = hashPassword(Password);
 
+                //Add the details to the database
+                //AddtoDatabase();
+                MessageBox.Show("Loading.. Next.");
 
-                SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
-                SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsTB] 
+                //Remove the details panel
+                removePanel(this);
+
+                //Repaint Parent
+                repaintParentPanel();
+
+                //Register form progress line
+                //=====================================================================
+                prtBtn2.BackgroundColor = Color.FromArgb(7, 166, 234);
+                lblPasscode.ForeColor = Color.FromArgb(7, 166, 234);
+
+                LINE1.BackColor = Color.FromArgb(7, 166, 234);
+                //=====================================================================
+
+                //Generate passcode panel
+                PasscodeUserControl passcodeUserControl = new PasscodeUserControl();
+                parentRegistrationPanel.Controls.Add(passcodeUserControl);
+
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Please make sure your details are correct.");
+            }
+        }
+
+        private void AddtoDatabase()
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsTB] 
                 (
                 [Username], 
                 [Password], 
@@ -142,25 +188,11 @@ namespace Trustbank
                 )
                 VALUES
                 ('" + Username + "', '" + encryptedPassword + "', '" +
-                    FirstName + "', '" + MiddleName + "', '" + LastName + "', '" +
-                    EmailAddress + "', '" + MobileNumber + "', '" + Savings + "', '" + Deposit + "', '" + AccountNumber + "', '" + AccountAlias + "')", con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Loading.. Success.. Next.");
-
-                removePanel(this);
-                repaintParentPanel();
-
-                PasscodeUserControl passcodeUserControl = new PasscodeUserControl();
-                parentRegistrationPanel.Controls.Add(passcodeUserControl);
-
-                this.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Please make sure your details are correct.");
-            }
+                FirstName + "', '" + MiddleName + "', '" + LastName + "', '" +
+                EmailAddress + "', '" + MobileNumber + "', '" + Savings + "', '" + Deposit + "', '" + AccountNumber + "', '" + AccountAlias + "')", con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void isDataValid()
@@ -511,6 +543,18 @@ namespace Trustbank
 
         //For Checkbox click
         private void btnNextIsValid(object sender, EventArgs e)
+        {
+            if (keyPressDataValidation())
+            {
+                btnNextEnable();
+            }
+            else
+            {
+                btnNextDisable();
+            }
+        }
+        //For Checkbox MouseClick
+        private void btnNextIsValid(object sender, MouseEventArgs e)
         {
             if (keyPressDataValidation())
             {

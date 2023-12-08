@@ -21,7 +21,7 @@ namespace Trustbank
             InitializeComponent();
             setParent();
 
-            DetailsUserControl detailPanel = new DetailsUserControl(parentRegistrationPanel, HEADERLBLONLY, this);
+            DetailsUserControl detailPanel = new DetailsUserControl(parentRegistrationPanel, HEADERLBLONLY, LINE1, prtBtn2, lblPasscode, this);
             parentRegistrationPanel.Controls.Add(detailPanel);
             parentRegistrationPanel.Refresh();
         }
