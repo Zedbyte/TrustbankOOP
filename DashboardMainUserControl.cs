@@ -14,14 +14,19 @@ namespace Trustbank
 {
     public partial class DashboardMainUserControl : UserControl
     {
+        Panel parentContainerPanel;
+
         string date { get; set; }
         string id { get; set; } //Used to get the current user name
 
 
 
-        public DashboardMainUserControl(string id, string date)
+        public DashboardMainUserControl(Panel parentContainerPanel, string id, string date)
         {
             InitializeComponent();
+
+            this.parentContainerPanel = parentContainerPanel;
+
             this.date = date;
             this.id = id;
 
@@ -63,6 +68,28 @@ namespace Trustbank
             }
 
             return currentUser;
+        }
+
+        private void removePanel(Control panel)
+        {
+            parentContainerPanel.Controls.Remove(panel);
+        }
+
+        private void repaintParentPanel()
+        {
+            parentContainerPanel.Refresh();
+        }
+
+        private void btnAccounts_Click(object sender, EventArgs e)
+        {
+            removePanel(this);
+            repaintParentPanel();
+
+            AccountsMainUserControl accountsMainUserControl = new AccountsMainUserControl(id);
+            accountsMainUserControl.Show();
+            parentContainerPanel.Controls.Add(accountsMainUserControl);
+
+            this.Dispose();
         }
     }
 }

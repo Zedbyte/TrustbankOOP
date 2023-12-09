@@ -30,8 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             mainFormPanel = new Panel();
-            parentContainerPanel = new Panel();
             slidingPanel = new ReaLTaiizor.Controls.ParrotSlidingPanel();
+            parentContainerPanel = new Panel();
+            label2 = new Label();
+            btnAccounts = new FontAwesome.Sharp.IconButton();
+            btnDashboard = new FontAwesome.Sharp.IconButton();
             HEADERPANEL = new Panel();
             SUBHEADERLBLONLY = new Label();
             HEADERLBLONLY = new Label();
@@ -42,7 +45,7 @@
             lblTrustbankTitle = new Label();
             btnLogOut = new FontAwesome.Sharp.IconButton();
             btnHamburger = new FontAwesome.Sharp.IconButton();
-            btnDashboard = new FontAwesome.Sharp.IconButton();
+            btnSettings = new FontAwesome.Sharp.IconButton();
             mainFormPanel.SuspendLayout();
             slidingPanel.SuspendLayout();
             HEADERPANEL.SuspendLayout();
@@ -61,6 +64,34 @@
             mainFormPanel.Size = new Size(1405, 753);
             mainFormPanel.TabIndex = 0;
             // 
+            // slidingPanel
+            // 
+            slidingPanel.BottomLeft = Color.Black;
+            slidingPanel.BottomRight = Color.DodgerBlue;
+            slidingPanel.CollapseControl = parentContainerPanel;
+            slidingPanel.Collapsed = true;
+            slidingPanel.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            slidingPanel.Controls.Add(label2);
+            slidingPanel.Controls.Add(btnAccounts);
+            slidingPanel.Controls.Add(btnDashboard);
+            slidingPanel.Controls.Add(HEADERPANEL);
+            slidingPanel.Dock = DockStyle.Left;
+            slidingPanel.HideControls = false;
+            slidingPanel.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            slidingPanel.Location = new Point(0, 0);
+            slidingPanel.Name = "slidingPanel";
+            slidingPanel.PanelWidthCollapsed = 1;
+            slidingPanel.PanelWidthExpanded = 251;
+            slidingPanel.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            slidingPanel.PrimerColor = Color.White;
+            slidingPanel.Size = new Size(1, 753);
+            slidingPanel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            slidingPanel.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Horizontal;
+            slidingPanel.TabIndex = 0;
+            slidingPanel.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            slidingPanel.TopLeft = Color.FromArgb(0, 26, 136);
+            slidingPanel.TopRight = Color.FromArgb(0, 26, 136);
+            // 
             // parentContainerPanel
             // 
             parentContainerPanel.Font = new Font("Gothic A1 SemiBold", 18F, FontStyle.Bold, GraphicsUnit.Point);
@@ -69,31 +100,58 @@
             parentContainerPanel.Size = new Size(1405, 616);
             parentContainerPanel.TabIndex = 3;
             // 
-            // slidingPanel
+            // label2
             // 
-            slidingPanel.BottomLeft = Color.Black;
-            slidingPanel.BottomRight = Color.DodgerBlue;
-            slidingPanel.CollapseControl = parentContainerPanel;
-            slidingPanel.Collapsed = true;
-            slidingPanel.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            slidingPanel.Controls.Add(btnDashboard);
-            slidingPanel.Controls.Add(HEADERPANEL);
-            slidingPanel.Dock = DockStyle.Left;
-            slidingPanel.HideControls = false;
-            slidingPanel.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            slidingPanel.Location = new Point(0, 0);
-            slidingPanel.Name = "slidingPanel";
-            slidingPanel.PanelWidthCollapsed = 251;
-            slidingPanel.PanelWidthExpanded = 251;
-            slidingPanel.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            slidingPanel.PrimerColor = Color.White;
-            slidingPanel.Size = new Size(251, 753);
-            slidingPanel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            slidingPanel.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Horizontal;
-            slidingPanel.TabIndex = 0;
-            slidingPanel.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            slidingPanel.TopLeft = Color.FromArgb(0, 26, 136);
-            slidingPanel.TopRight = Color.FromArgb(0, 26, 136);
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(0, 26, 136);
+            label2.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(152, 224, 255);
+            label2.Location = new Point(36, 260);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 25);
+            label2.TabIndex = 5;
+            label2.Text = "RECIPIENTS";
+            // 
+            // btnAccounts
+            // 
+            btnAccounts.BackColor = Color.FromArgb(0, 26, 136);
+            btnAccounts.FlatAppearance.BorderSize = 0;
+            btnAccounts.FlatStyle = FlatStyle.Flat;
+            btnAccounts.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAccounts.ForeColor = Color.White;
+            btnAccounts.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            btnAccounts.IconColor = Color.White;
+            btnAccounts.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAccounts.IconSize = 27;
+            btnAccounts.Location = new Point(18, 201);
+            btnAccounts.Name = "btnAccounts";
+            btnAccounts.Size = new Size(195, 52);
+            btnAccounts.TabIndex = 4;
+            btnAccounts.Text = "Accounts";
+            btnAccounts.TextAlign = ContentAlignment.MiddleLeft;
+            btnAccounts.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAccounts.UseVisualStyleBackColor = false;
+            // 
+            // btnDashboard
+            // 
+            btnDashboard.BackColor = Color.FromArgb(0, 26, 136);
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDashboard.ForeColor = Color.White;
+            btnDashboard.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
+            btnDashboard.IconColor = Color.White;
+            btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnDashboard.IconSize = 27;
+            btnDashboard.Location = new Point(24, 151);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(195, 52);
+            btnDashboard.TabIndex = 3;
+            btnDashboard.Text = "Dashboard";
+            btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // HEADERPANEL
             // 
@@ -215,24 +273,25 @@
             btnHamburger.TabIndex = 1;
             btnHamburger.UseVisualStyleBackColor = false;
             // 
-            // btnDashboard
+            // btnSettings
             // 
-            btnDashboard.BackColor = Color.FromArgb(0, 26, 136);
-            btnDashboard.FlatAppearance.BorderSize = 0;
-            btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDashboard.ForeColor = Color.White;
-            btnDashboard.IconChar = FontAwesome.Sharp.IconChar.H;
-            btnDashboard.IconColor = Color.White;
-            btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnDashboard.Location = new Point(25, 190);
-            btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(195, 52);
-            btnDashboard.TabIndex = 3;
-            btnDashboard.Text = "Dashboard";
-            btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
-            btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDashboard.UseVisualStyleBackColor = false;
+            btnSettings.Anchor = AnchorStyles.None;
+            btnSettings.BackColor = Color.FromArgb(241, 241, 241);
+            btnSettings.FlatAppearance.BorderSize = 0;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Font = new Font("Gothic A1 SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSettings.ForeColor = Color.FromArgb(0, 26, 136);
+            btnSettings.IconChar = FontAwesome.Sharp.IconChar.Gear;
+            btnSettings.IconColor = Color.FromArgb(0, 26, 136);
+            btnSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSettings.ImageAlign = ContentAlignment.BottomCenter;
+            btnSettings.Location = new Point(168, 3);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(29, 94);
+            btnSettings.TabIndex = 6;
+            btnSettings.Text = "Settings";
+            btnSettings.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnSettings.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -247,6 +306,7 @@
             Text = "MainForm";
             mainFormPanel.ResumeLayout(false);
             slidingPanel.ResumeLayout(false);
+            slidingPanel.PerformLayout();
             HEADERPANEL.ResumeLayout(false);
             HEADERPANEL.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGOONLY).EndInit();
@@ -272,5 +332,8 @@
         private FontAwesome.Sharp.IconButton btnLogOut;
         private Label label1;
         private FontAwesome.Sharp.IconButton btnDashboard;
+        private FontAwesome.Sharp.IconButton btnAccounts;
+        private Label label2;
+        private FontAwesome.Sharp.IconButton btnSettings;
     }
 }

@@ -32,11 +32,12 @@ namespace Trustbank
             slidingPanel.CollapseControl = btnHamburger;
             slidingPanel.CollapseControl = headerContainerPanel;
 
+            //Bring the sliding bar to front as it gets overlapped by the nested panels
             slidingPanel.BringToFront();
 
 
-            //Create the dashboard
-            DashboardMainUserControl dashboardMainUserControl = new DashboardMainUserControl(id, date);
+            //Create the dashboard at startup
+            DashboardMainUserControl dashboardMainUserControl = new DashboardMainUserControl(parentContainerPanel, id, date);
             dashboardMainUserControl.Show();
 
             //Add the dashboard to the container and refresh
@@ -67,11 +68,25 @@ namespace Trustbank
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Log out.", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-               this.Dispose();
+                this.Dispose();
             }
 
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Create the dashboard
+            DashboardMainUserControl dashboardMainUserControl = new DashboardMainUserControl(parentContainerPanel, id, date);
+            dashboardMainUserControl.Show();
+
+            //Clear the parent container of controls
+            parentContainerPanel.Controls.Clear();
+
+            //Add the dashboard to the container and refresh
+            parentContainerPanel.Controls.Add(dashboardMainUserControl);
+            repaintParentPanel();
         }
     }
 }

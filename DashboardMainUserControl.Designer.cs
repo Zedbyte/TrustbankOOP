@@ -33,19 +33,19 @@
             lblUsernamePlaceholder = new Label();
             label2 = new Label();
             lblDatePlaceholder = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            btnsLayoutPanel = new TableLayoutPanel();
             btnSettings = new FontAwesome.Sharp.IconButton();
             btnBillsPayment = new FontAwesome.Sharp.IconButton();
             btnTransactionHistory = new FontAwesome.Sharp.IconButton();
             btnTransferMoney = new FontAwesome.Sharp.IconButton();
             btnEnrolledContacts = new FontAwesome.Sharp.IconButton();
             footerPanel = new Panel();
-            label3 = new Label();
-            BLUELINE = new Panel();
-            label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
-            tableLayoutPanel1.SuspendLayout();
+            label5 = new Label();
+            label4 = new Label();
+            BLUELINE = new Panel();
+            label3 = new Label();
+            btnsLayoutPanel.SuspendLayout();
             footerPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             btnAccounts.Text = "Accounts";
             btnAccounts.TextImageRelation = TextImageRelation.ImageAboveText;
             btnAccounts.UseVisualStyleBackColor = false;
+            btnAccounts.Click += btnAccounts_Click;
             // 
             // label1
             // 
@@ -113,27 +114,27 @@
             lblDatePlaceholder.TabIndex = 2;
             lblDatePlaceholder.Text = "date placeholder";
             // 
-            // tableLayoutPanel1
+            // btnsLayoutPanel
             // 
-            tableLayoutPanel1.ColumnCount = 6;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.Controls.Add(btnSettings, 5, 0);
-            tableLayoutPanel1.Controls.Add(btnBillsPayment, 4, 0);
-            tableLayoutPanel1.Controls.Add(btnTransactionHistory, 3, 0);
-            tableLayoutPanel1.Controls.Add(btnTransferMoney, 2, 0);
-            tableLayoutPanel1.Controls.Add(btnEnrolledContacts, 1, 0);
-            tableLayoutPanel1.Controls.Add(btnAccounts, 0, 0);
-            tableLayoutPanel1.Location = new Point(72, 155);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1244, 190);
-            tableLayoutPanel1.TabIndex = 3;
+            btnsLayoutPanel.ColumnCount = 6;
+            btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            btnsLayoutPanel.Controls.Add(btnSettings, 5, 0);
+            btnsLayoutPanel.Controls.Add(btnBillsPayment, 4, 0);
+            btnsLayoutPanel.Controls.Add(btnTransactionHistory, 3, 0);
+            btnsLayoutPanel.Controls.Add(btnTransferMoney, 2, 0);
+            btnsLayoutPanel.Controls.Add(btnEnrolledContacts, 1, 0);
+            btnsLayoutPanel.Controls.Add(btnAccounts, 0, 0);
+            btnsLayoutPanel.Location = new Point(72, 155);
+            btnsLayoutPanel.Name = "btnsLayoutPanel";
+            btnsLayoutPanel.RowCount = 1;
+            btnsLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            btnsLayoutPanel.Size = new Size(1244, 190);
+            btnsLayoutPanel.TabIndex = 3;
             // 
             // btnSettings
             // 
@@ -248,35 +249,16 @@
             footerPanel.Size = new Size(1234, 213);
             footerPanel.TabIndex = 4;
             // 
-            // label3
+            // label6
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.FromArgb(0, 26, 136);
-            label3.Location = new Point(21, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(303, 38);
-            label3.TabIndex = 5;
-            label3.Text = "Service Announcements:";
-            // 
-            // BLUELINE
-            // 
-            BLUELINE.BackColor = Color.FromArgb(0, 26, 136);
-            BLUELINE.Location = new Point(21, 63);
-            BLUELINE.Name = "BLUELINE";
-            BLUELINE.Size = new Size(1188, 1);
-            BLUELINE.TabIndex = 6;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.FromArgb(0, 26, 136);
-            label4.Location = new Point(21, 67);
-            label4.Name = "label4";
-            label4.Size = new Size(365, 30);
-            label4.TabIndex = 7;
-            label4.Text = "Know your PESONet crediting schedule";
+            label6.AutoSize = true;
+            label6.Font = new Font("Gothic A1", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = Color.FromArgb(0, 26, 136);
+            label6.Location = new Point(21, 157);
+            label6.Name = "label6";
+            label6.Size = new Size(277, 42);
+            label6.TabIndex = 9;
+            label6.Text = "Transactions done before 3:00 PM cut-off:\r\nFunds will be credited on the next banking day";
             // 
             // label5
             // 
@@ -289,16 +271,35 @@
             label5.TabIndex = 8;
             label5.Text = "Transactions done before 3:00 PM cut-off:\r\nFunds will be credited before 11:00 PM, same day";
             // 
-            // label6
+            // label4
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Gothic A1", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ForeColor = Color.FromArgb(0, 26, 136);
-            label6.Location = new Point(21, 157);
-            label6.Name = "label6";
-            label6.Size = new Size(277, 42);
-            label6.TabIndex = 9;
-            label6.Text = "Transactions done before 3:00 PM cut-off:\r\nFunds will be credited on the next banking day";
+            label4.AutoSize = true;
+            label4.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.FromArgb(0, 26, 136);
+            label4.Location = new Point(21, 67);
+            label4.Name = "label4";
+            label4.Size = new Size(365, 30);
+            label4.TabIndex = 7;
+            label4.Text = "Know your PESONet crediting schedule";
+            // 
+            // BLUELINE
+            // 
+            BLUELINE.BackColor = Color.FromArgb(0, 26, 136);
+            BLUELINE.Location = new Point(21, 63);
+            BLUELINE.Name = "BLUELINE";
+            BLUELINE.Size = new Size(1188, 1);
+            BLUELINE.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(0, 26, 136);
+            label3.Location = new Point(21, 18);
+            label3.Name = "label3";
+            label3.Size = new Size(303, 38);
+            label3.TabIndex = 5;
+            label3.Text = "Service Announcements:";
             // 
             // DashboardMainUserControl
             // 
@@ -306,14 +307,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(footerPanel);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(btnsLayoutPanel);
             Controls.Add(lblDatePlaceholder);
             Controls.Add(label2);
             Controls.Add(lblUsernamePlaceholder);
             Controls.Add(label1);
             Name = "DashboardMainUserControl";
             Size = new Size(1405, 616);
-            tableLayoutPanel1.ResumeLayout(false);
+            btnsLayoutPanel.ResumeLayout(false);
             footerPanel.ResumeLayout(false);
             footerPanel.PerformLayout();
             ResumeLayout(false);
@@ -327,7 +328,7 @@
         private Label lblUsernamePlaceholder;
         private Label label2;
         private Label lblDatePlaceholder;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel btnsLayoutPanel;
         private FontAwesome.Sharp.IconButton btnSettings;
         private FontAwesome.Sharp.IconButton btnBillsPayment;
         private FontAwesome.Sharp.IconButton btnTransactionHistory;
