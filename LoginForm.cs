@@ -85,46 +85,85 @@ namespace Trustbank
         {
             string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
 
-            /*string query = "SELECT COUNT(*) FROM AccountsTable WHERE Username = @Username";
-
-            *//*SqlConnection connection = new SqlConnection(connectionString);
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@Username", username);*//*
-
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connectionString);
-
-            DataTable dtable =  new DataTable();
-            adapter.Fill(dtable);
-
-            MessageBox.Show(dtable.Rows.Count.ToString());*/
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(*) FROM AccountsTable WHERE Username = @Username";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+               try
                 {
-                    command.Parameters.AddWithValue("@Username", username);
+                    string query = "SELECT id FROM AccountsTable WHERE Username = @Username";
 
-
-                    connection.Open();
-
-                    int count = (int)command.ExecuteScalar(); // Retrieves the count of matching rows
-
-                    if (count > 0)
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Credentials are correct
-                        MessageBox.Show(count.ToString());
-                        return true;
+                        command.Parameters.AddWithValue("@Username", username);
+                        connection.Open();
+
+                        List<string> ids = new List<string>();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ids.Add(reader["id"].ToString());
+                            }
+                        }
+
+                        // Do something with the retrieved IDs
+                        foreach (string id in ids)
+                        {
+                            CheckPassword(id, password);
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Username/Password does not exist.");
                 }
             }
 
 
-                // Credentials are incorrect or user doesn't exist
-                return false;
+           // Credentials are incorrect or user doesn't exist
+           return false;
+        }
+
+
+        public bool CheckPassword(string id, string password)
+        {
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string getEncryptedPassword = "SELECT Password FROM AccountsTable WHERE id = @id";
+
+
+                using (SqlCommand command = new SqlCommand(getEncryptedPassword, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    connection.Open();
+
+                    List<string> passwords = new List<string>();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            passwords.Add(reader["Password"].ToString());
+                        }
+                    }
+
+                    // Verify the retrieved Passwords
+                    foreach (string pass in passwords)
+                    {
+                        bool passMatch = BCrypt.Net.BCrypt.EnhancedVerify(password, pass);
+
+                        if (passMatch)
+                        {
+                            MainForm mainForm = new MainForm(id);
+                        }
+                    }
+                }
+
+
+            }
+            return false;
         }
 
         private void btnViewPassword_Click(object sender, EventArgs e)

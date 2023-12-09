@@ -12,9 +12,13 @@ namespace Trustbank
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+
+        string id {  get; set; }
+
+        public MainForm(string id)
         {
             InitializeComponent();
+            this.id = id;
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             detailsPanel = new Panel();
+            lblUserExist = new Label();
             btnViewPassword = new FontAwesome.Sharp.IconButton();
             mobileNumberPrefix = new ComboBox();
             passwordRequirementsPanel = new Panel();
@@ -85,6 +86,7 @@
             detailsPanel.AutoScroll = true;
             detailsPanel.AutoScrollMargin = new Size(0, 100);
             detailsPanel.BackColor = Color.White;
+            detailsPanel.Controls.Add(lblUserExist);
             detailsPanel.Controls.Add(btnViewPassword);
             detailsPanel.Controls.Add(mobileNumberPrefix);
             detailsPanel.Controls.Add(passwordRequirementsPanel);
@@ -127,6 +129,15 @@
             detailsPanel.Name = "detailsPanel";
             detailsPanel.Size = new Size(1421, 438);
             detailsPanel.TabIndex = 0;
+            // 
+            // lblUserExist
+            // 
+            lblUserExist.AutoSize = true;
+            lblUserExist.Location = new Point(658, 42);
+            lblUserExist.Name = "lblUserExist";
+            lblUserExist.Size = new Size(38, 15);
+            lblUserExist.TabIndex = 53;
+            lblUserExist.Text = "label4";
             // 
             // btnViewPassword
             // 
@@ -805,5 +816,6 @@
         private FontAwesome.Sharp.IconButton btnCheck4;
         private FontAwesome.Sharp.IconButton btnCheck3;
         private FontAwesome.Sharp.IconButton btnCheck2;
+        private Label lblUserExist;
     }
 }
