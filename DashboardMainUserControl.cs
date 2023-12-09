@@ -86,8 +86,20 @@ namespace Trustbank
             repaintParentPanel();
 
             AccountsMainUserControl accountsMainUserControl = new AccountsMainUserControl(parentContainerPanel, id);
-            accountsMainUserControl.Show(); 
+            accountsMainUserControl.Show();
             parentContainerPanel.Controls.Add(accountsMainUserControl);
+
+            this.Dispose();
+        }
+
+        private void btnEnrolledContacts_Click(object sender, EventArgs e)
+        {
+            removePanel(this);
+            repaintParentPanel();
+
+            EnrolledContactsMainUserControl enrolledContactsMainUserControl = new EnrolledContactsMainUserControl(id);
+            enrolledContactsMainUserControl.Show();
+            parentContainerPanel.Controls.Add(enrolledContactsMainUserControl);
 
             this.Dispose();
         }

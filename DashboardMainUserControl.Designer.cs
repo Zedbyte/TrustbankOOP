@@ -235,6 +235,7 @@
             btnEnrolledContacts.Text = "Enrolled Contacts";
             btnEnrolledContacts.TextImageRelation = TextImageRelation.ImageAboveText;
             btnEnrolledContacts.UseVisualStyleBackColor = false;
+            btnEnrolledContacts.Click += btnEnrolledContacts_Click;
             // 
             // footerPanel
             // 

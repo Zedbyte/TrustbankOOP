@@ -21,6 +21,8 @@ namespace Trustbank
 
             //Remove automatic focus to child controls (textbox)
             this.ActiveControl = HEADERLBLONLY;
+
+            btnNextDisable();
         }
 
         private void setFocusToOther(object sender, EventArgs e)
@@ -37,6 +39,44 @@ namespace Trustbank
                 Application.Exit();
             }
         }
+
+
+        private void btnNextDisable()
+        {
+            btnParrotLogin.Enabled = false;
+            btnParrotLogin.BackgroundColor = Color.DimGray;
+            btnParrotLogin.TextColor = Color.White;
+        }
+
+        private void btnNextEnable()
+        {
+            btnParrotLogin.Enabled = true;
+            btnParrotLogin.BackgroundColor = Color.FromArgb(0, 26, 136);
+            btnParrotLogin.TextColor = Color.White;
+        }
+
+        //For keypresses, every time user presses a key on the textboxes, check for button validation.
+        private void btnNextIsValid(object sender, KeyEventArgs e)
+        {
+            if (keyPressDataValidation())
+            {
+                btnNextEnable();
+            }
+            else
+            {
+                btnNextDisable();
+            }
+        }
+
+        private bool keyPressDataValidation()
+        {
+            if (txtBxUsername.Text != "" && txtBxPassword.Text != "")
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         //When hovering the Sign Up label, change the color.
         private void btnLblSignUp_MouseEnter(object sender, EventArgs e)

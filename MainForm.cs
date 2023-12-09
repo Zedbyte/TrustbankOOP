@@ -28,7 +28,9 @@ namespace Trustbank
 
             //Set the controllers for sliding panel
             slidingPanel.CollapseControl = btnHamburger;
+            slidingPanel.CollapseControl = btnSidePanelClose;
             slidingPanel.CollapseControl = headerContainerPanel;
+
 
             //Bring the sliding bar to front as it gets overlapped by the nested panels
             slidingPanel.BringToFront();
@@ -95,6 +97,16 @@ namespace Trustbank
 
             parentContainerPanel.Controls.Clear();
             parentContainerPanel.Controls.Add(accountsMainUserControl);
+            repaintParentPanel();
+        }
+
+        private void btnEnrolledContacts_Click(object sender, EventArgs e)
+        {
+            EnrolledContactsMainUserControl enrolledContactsMainUserControl = new EnrolledContactsMainUserControl(id);
+            enrolledContactsMainUserControl.Show();
+
+            parentContainerPanel.Controls.Clear();
+            parentContainerPanel.Controls.Add(enrolledContactsMainUserControl);
             repaintParentPanel();
         }
     }

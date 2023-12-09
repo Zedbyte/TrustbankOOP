@@ -32,6 +32,8 @@
             mainFormPanel = new Panel();
             slidingPanel = new ReaLTaiizor.Controls.ParrotSlidingPanel();
             parentContainerPanel = new Panel();
+            btnEnrolledContacts = new FontAwesome.Sharp.IconButton();
+            btnSidePanelClose = new FontAwesome.Sharp.IconButton();
             label2 = new Label();
             btnAccounts = new FontAwesome.Sharp.IconButton();
             btnDashboard = new FontAwesome.Sharp.IconButton();
@@ -71,6 +73,8 @@
             slidingPanel.CollapseControl = parentContainerPanel;
             slidingPanel.Collapsed = true;
             slidingPanel.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            slidingPanel.Controls.Add(btnEnrolledContacts);
+            slidingPanel.Controls.Add(btnSidePanelClose);
             slidingPanel.Controls.Add(label2);
             slidingPanel.Controls.Add(btnAccounts);
             slidingPanel.Controls.Add(btnDashboard);
@@ -100,16 +104,52 @@
             parentContainerPanel.Size = new Size(1405, 616);
             parentContainerPanel.TabIndex = 3;
             // 
+            // btnEnrolledContacts
+            // 
+            btnEnrolledContacts.BackColor = Color.FromArgb(0, 26, 136);
+            btnEnrolledContacts.FlatAppearance.BorderSize = 0;
+            btnEnrolledContacts.FlatStyle = FlatStyle.Flat;
+            btnEnrolledContacts.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEnrolledContacts.ForeColor = Color.White;
+            btnEnrolledContacts.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            btnEnrolledContacts.IconColor = Color.White;
+            btnEnrolledContacts.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEnrolledContacts.IconSize = 27;
+            btnEnrolledContacts.Location = new Point(18, 329);
+            btnEnrolledContacts.Name = "btnEnrolledContacts";
+            btnEnrolledContacts.Size = new Size(211, 52);
+            btnEnrolledContacts.TabIndex = 3;
+            btnEnrolledContacts.Text = "Enrolled Contacts";
+            btnEnrolledContacts.TextAlign = ContentAlignment.MiddleLeft;
+            btnEnrolledContacts.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEnrolledContacts.UseVisualStyleBackColor = false;
+            btnEnrolledContacts.Click += btnEnrolledContacts_Click;
+            // 
+            // btnSidePanelClose
+            // 
+            btnSidePanelClose.BackColor = Color.FromArgb(0, 26, 136);
+            btnSidePanelClose.FlatAppearance.BorderSize = 0;
+            btnSidePanelClose.FlatStyle = FlatStyle.Flat;
+            btnSidePanelClose.IconChar = FontAwesome.Sharp.IconChar.X;
+            btnSidePanelClose.IconColor = Color.White;
+            btnSidePanelClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSidePanelClose.IconSize = 25;
+            btnSidePanelClose.Location = new Point(204, 4);
+            btnSidePanelClose.Name = "btnSidePanelClose";
+            btnSidePanelClose.Size = new Size(47, 37);
+            btnSidePanelClose.TabIndex = 6;
+            btnSidePanelClose.UseVisualStyleBackColor = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(0, 26, 136);
             label2.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(152, 224, 255);
-            label2.Location = new Point(36, 260);
+            label2.Location = new Point(18, 292);
             label2.Name = "label2";
             label2.Size = new Size(107, 25);
-            label2.TabIndex = 5;
+            label2.TabIndex = 0;
             label2.Text = "RECIPIENTS";
             // 
             // btnAccounts
@@ -123,10 +163,10 @@
             btnAccounts.IconColor = Color.White;
             btnAccounts.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAccounts.IconSize = 27;
-            btnAccounts.Location = new Point(18, 201);
+            btnAccounts.Location = new Point(0, 228);
             btnAccounts.Name = "btnAccounts";
             btnAccounts.Size = new Size(195, 52);
-            btnAccounts.TabIndex = 4;
+            btnAccounts.TabIndex = 2;
             btnAccounts.Text = "Accounts";
             btnAccounts.TextAlign = ContentAlignment.MiddleLeft;
             btnAccounts.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -144,10 +184,10 @@
             btnDashboard.IconColor = Color.White;
             btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDashboard.IconSize = 27;
-            btnDashboard.Location = new Point(24, 151);
+            btnDashboard.Location = new Point(3, 183);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Size = new Size(195, 52);
-            btnDashboard.TabIndex = 3;
+            btnDashboard.TabIndex = 1;
             btnDashboard.Text = "Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -159,7 +199,7 @@
             HEADERPANEL.Controls.Add(SUBHEADERLBLONLY);
             HEADERPANEL.Controls.Add(HEADERLBLONLY);
             HEADERPANEL.Controls.Add(TRUSTBANKLOGOONLY);
-            HEADERPANEL.Location = new Point(0, 39);
+            HEADERPANEL.Location = new Point(0, 71);
             HEADERPANEL.Name = "HEADERPANEL";
             HEADERPANEL.Size = new Size(251, 95);
             HEADERPANEL.TabIndex = 1;
@@ -336,5 +376,7 @@
         private FontAwesome.Sharp.IconButton btnAccounts;
         private Label label2;
         private FontAwesome.Sharp.IconButton btnSettings;
+        private FontAwesome.Sharp.IconButton btnSidePanelClose;
+        private FontAwesome.Sharp.IconButton btnEnrolledContacts;
     }
 }
