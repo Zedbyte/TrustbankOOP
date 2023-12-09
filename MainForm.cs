@@ -16,8 +16,6 @@ namespace Trustbank
         string? id { get; set; }
         string? date { get; set; }
 
-        int hamburgerCount = 1;
-
         public MainForm(string id, string date)
         {
             InitializeComponent();
@@ -86,6 +84,17 @@ namespace Trustbank
 
             //Add the dashboard to the container and refresh
             parentContainerPanel.Controls.Add(dashboardMainUserControl);
+            repaintParentPanel();
+        }
+
+        private void btnAccounts_Click(object sender, EventArgs e)
+        {
+            //Create the accounts
+            AccountsMainUserControl accountsMainUserControl = new AccountsMainUserControl(parentContainerPanel, id);
+            accountsMainUserControl.Show();
+
+            parentContainerPanel.Controls.Clear();
+            parentContainerPanel.Controls.Add(accountsMainUserControl);
             repaintParentPanel();
         }
     }

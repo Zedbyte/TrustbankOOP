@@ -250,12 +250,19 @@ namespace Trustbank
                         }
 
                         //Get the last login date of the ID
-                        lastLogin = dates[dates.Count - 1];
+                        try
+                        {
+                            lastLogin = dates[dates.Count - 1];
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Your first login! Yay!");
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Username/Password does not exist.");
+                    MessageBox.Show("Something went wrong when adding your login history to the database");
                 }
 
 
