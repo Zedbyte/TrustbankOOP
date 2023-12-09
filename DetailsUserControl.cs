@@ -190,8 +190,8 @@ namespace Trustbank
 
                 //Add the details to the database
 
-                //AddtoDatabase();
-                MessageBox.Show("Loading.. Next.");
+               
+                MessageBox.Show("Loading.. Success. Next.");
 
                 //Remove the details panel
                 removePanel(this);
@@ -643,9 +643,11 @@ namespace Trustbank
                     if (count > 0)
                     {
                         lblUserExist.Text = "Username exists already.";
+                        lblUserExist.ForeColor = Color.Firebrick;
                         return true;
                     }
                     lblUserExist.Text = "Username is unique.";
+                    lblUserExist.ForeColor = Color.LimeGreen;
                     return false; 
                 }
             }

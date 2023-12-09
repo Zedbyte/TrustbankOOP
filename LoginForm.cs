@@ -81,6 +81,23 @@ namespace Trustbank
             CheckCredentials(txtBxUsername.Text, txtBxPassword.Text);
         }
 
+        private void AddtoDatabase(string id, string date)
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[LoginHistory] 
+                   (
+                   [id], 
+                   [date]
+                   )
+                   VALUES
+                   (@Id, @Date)", con);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Date", date);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
         public bool CheckCredentials(string username, string password)
         {
             string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
@@ -96,8 +113,12 @@ namespace Trustbank
                         command.Parameters.AddWithValue("@Username", username);
                         connection.Open();
 
+                        //This can be a string as I added username verification (existing username error)
                         List<string> ids = new List<string>();
 
+                        //I used a list when there was no username verification, the command returns a list of ids that matches the username.
+
+                        //Select the ID from Table where Username matches the Username input by user.
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -106,16 +127,23 @@ namespace Trustbank
                             }
                         }
 
+                        if (ids.Count == 0) 
+                        {
+                            MessageBox.Show("Username/Password does not exist.");
+                            return false;
+                        }
+
                         // Do something with the retrieved IDs
                         foreach (string id in ids)
                         {
                             CheckPassword(id, password);
                         }
+                        
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Username/Password does not exist.");
+                    MessageBox.Show("Username/Password does not exist.");  
                 }
             }
 
@@ -131,39 +159,108 @@ namespace Trustbank
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string getEncryptedPassword = "SELECT Password FROM AccountsTable WHERE id = @id";
-
-
-                using (SqlCommand command = new SqlCommand(getEncryptedPassword, connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@id", id);
-                    connection.Open();
+                    //Select all passwords in table where ID matches the IDS given by the CheckCredentials method
+                    string getEncryptedPassword = "SELECT Password FROM AccountsTable WHERE id = @id";
 
-                    List<string> passwords = new List<string>();
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(getEncryptedPassword, connection))
                     {
-                        while (reader.Read())
+                        command.Parameters.AddWithValue("@id", id);
+                        connection.Open();
+
+                        //This can be a string as I added username verification (existing username error)
+                        List<string> passwords = new List<string>();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            passwords.Add(reader["Password"].ToString());
+
+                            while (reader.Read())
+                            {
+                                passwords.Add(reader["Password"].ToString());
+                            }
+                        }
+
+                        // Verify the retrieved Password
+                        foreach (string pass in passwords)
+                        {
+                            bool passMatch = BCrypt.Net.BCrypt.EnhancedVerify(password, pass);
+
+                            if (passMatch)
+                            {
+
+                                string lastLogin = getLastLoginFromDB(id);
+                                MainForm mainForm = new MainForm(id, lastLogin);
+                                mainForm.Show();
+
+                                DateTime now = DateTime.Now;
+                                string formattedDateTime = now.ToString("MMMM dd, yyyy hh:mm:ss tt");
+
+                                AddtoDatabase(id, formattedDateTime);
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Username/Password does not exist.");
+                                return false;
+                            }
                         }
                     }
-
-                    // Verify the retrieved Passwords
-                    foreach (string pass in passwords)
-                    {
-                        bool passMatch = BCrypt.Net.BCrypt.EnhancedVerify(password, pass);
-
-                        if (passMatch)
-                        {
-                            MainForm mainForm = new MainForm(id);
-                        }
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Username/Password does not exist.");
                 }
 
 
             }
             return false;
+        }
+
+        private string getLastLoginFromDB(string id)
+        {
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            string lastLogin = "";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    //Select all passwords in table where ID matches the IDS given by the CheckCredentials method
+                    string getEncryptedPassword = "SELECT date FROM LoginHistory WHERE id = @id";
+
+
+                    using (SqlCommand command = new SqlCommand(getEncryptedPassword, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        connection.Open();
+
+                        //Add all the dates of the ID here
+                        List<string> dates = new List<string>();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                dates.Add(reader["date"].ToString());
+                            }
+                        }
+
+                        //Get the last login date of the ID
+                        lastLogin = dates[dates.Count - 1];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Username/Password does not exist.");
+                }
+
+
+            }
+            return lastLogin;
         }
 
         private void btnViewPassword_Click(object sender, EventArgs e)

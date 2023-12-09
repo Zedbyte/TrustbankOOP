@@ -132,12 +132,12 @@
             // 
             // lblUserExist
             // 
-            lblUserExist.AutoSize = true;
-            lblUserExist.Location = new Point(658, 42);
+            lblUserExist.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUserExist.Location = new Point(764, 38);
             lblUserExist.Name = "lblUserExist";
-            lblUserExist.Size = new Size(38, 15);
+            lblUserExist.Size = new Size(170, 25);
             lblUserExist.TabIndex = 53;
-            lblUserExist.Text = "label4";
+            lblUserExist.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnViewPassword
             // 
