@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             label1 = new Label();
             txtBxName = new TextBox();
             txtBxAccountNumber = new TextBox();
@@ -55,7 +55,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(43, 52);
+            label1.Location = new Point(43, 100);
             label1.Name = "label1";
             label1.Size = new Size(62, 25);
             label1.TabIndex = 0;
@@ -66,7 +66,7 @@
             txtBxName.BackColor = Color.FromArgb(217, 217, 217);
             txtBxName.BorderStyle = BorderStyle.None;
             txtBxName.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxName.Location = new Point(43, 80);
+            txtBxName.Location = new Point(43, 128);
             txtBxName.MaxLength = 35;
             txtBxName.Multiline = true;
             txtBxName.Name = "txtBxName";
@@ -78,7 +78,7 @@
             txtBxAccountNumber.BackColor = Color.FromArgb(217, 217, 217);
             txtBxAccountNumber.BorderStyle = BorderStyle.None;
             txtBxAccountNumber.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxAccountNumber.Location = new Point(43, 186);
+            txtBxAccountNumber.Location = new Point(43, 220);
             txtBxAccountNumber.MaxLength = 35;
             txtBxAccountNumber.Multiline = true;
             txtBxAccountNumber.Name = "txtBxAccountNumber";
@@ -89,7 +89,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(43, 158);
+            label2.Location = new Point(43, 192);
             label2.Name = "label2";
             label2.Size = new Size(144, 25);
             label2.TabIndex = 0;
@@ -100,7 +100,7 @@
             txtBxEmailAddress.BackColor = Color.FromArgb(217, 217, 217);
             txtBxEmailAddress.BorderStyle = BorderStyle.None;
             txtBxEmailAddress.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxEmailAddress.Location = new Point(43, 292);
+            txtBxEmailAddress.Location = new Point(43, 306);
             txtBxEmailAddress.MaxLength = 35;
             txtBxEmailAddress.Multiline = true;
             txtBxEmailAddress.Name = "txtBxEmailAddress";
@@ -111,7 +111,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(43, 264);
+            label3.Location = new Point(43, 278);
             label3.Name = "label3";
             label3.Size = new Size(126, 25);
             label3.TabIndex = 0;
@@ -213,30 +213,30 @@
             // 
             // contactsDataGrid
             // 
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.LightGray;
-            dataGridViewCellStyle4.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            contactsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.LightGray;
+            dataGridViewCellStyle13.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            contactsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             contactsDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             contactsDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             contactsDataGrid.BackgroundColor = Color.White;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            contactsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = SystemColors.Control;
+            dataGridViewCellStyle14.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            contactsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             contactsDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            contactsDataGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = SystemColors.Window;
+            dataGridViewCellStyle15.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
+            contactsDataGrid.DefaultCellStyle = dataGridViewCellStyle15;
             contactsDataGrid.Location = new Point(398, 118);
             contactsDataGrid.Name = "contactsDataGrid";
             contactsDataGrid.RowTemplate.Height = 25;
@@ -268,11 +268,11 @@
             btnCancelEdit.BackColor = Color.DimGray;
             btnCancelEdit.FlatAppearance.BorderSize = 0;
             btnCancelEdit.FlatStyle = FlatStyle.Flat;
-            btnCancelEdit.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancelEdit.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancelEdit.ForeColor = Color.White;
-            btnCancelEdit.Location = new Point(43, 3);
+            btnCancelEdit.Location = new Point(43, 35);
             btnCancelEdit.Name = "btnCancelEdit";
-            btnCancelEdit.Size = new Size(298, 46);
+            btnCancelEdit.Size = new Size(298, 40);
             btnCancelEdit.TabIndex = 14;
             btnCancelEdit.Text = "Cancel Edit";
             btnCancelEdit.UseVisualStyleBackColor = false;

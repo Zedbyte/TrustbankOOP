@@ -379,23 +379,28 @@ namespace Trustbank
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
         {
-            btnCancelEdit.Enabled = false;
-            btnCancelEdit.Visible = false;
 
-            editClickCount = 0;
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Discard Edits.", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                btnCancelEdit.Enabled = false;
+                btnCancelEdit.Visible = false;
 
-            btnAdd.Enabled = true;
-            btnAdd.BackColor = Color.FromArgb(0, 147, 68);
+                editClickCount = 0;
+
+                btnAdd.Enabled = true;
+                btnAdd.BackColor = Color.FromArgb(0, 147, 68);
 
 
-            btnDelete.Enabled = true;
-            btnDelete.BackColor = Color.Firebrick;
+                btnDelete.Enabled = true;
+                btnDelete.BackColor = Color.Firebrick;
 
-            btnEdit.Text = "Edit";
-            btnEdit.ForeColor = Color.White;
-            btnEdit.BackColor = Color.FromArgb(0, 26, 136);
+                btnEdit.Text = "Edit";
+                btnEdit.ForeColor = Color.White;
+                btnEdit.BackColor = Color.FromArgb(0, 26, 136);
 
-            clearTextbox();
+                clearTextbox();
+            }
         }
     }
 }
