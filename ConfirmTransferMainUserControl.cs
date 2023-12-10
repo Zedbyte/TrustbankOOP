@@ -12,31 +12,33 @@ namespace Trustbank
 {
     public partial class ConfirmTransferMainUserControl : UserControl
     {
-        string? id {  get; set; }
+        string? id { get; set; }
 
-        string? Contact_ID {  get; set; }
+        string? Contact_ID { get; set; }
 
-        string? CompleteName {  get; set; }
+        string? CompleteName { get; set; }
 
-        string AccountNumber {  get; set; }
+        string? AccountNumber { get; set; }
+        
+        string? EmailAddress { get; set; }
 
-        double Amount {  get; set; }
+        double Amount { get; set; }
 
-        double ChargeFee {  get; set; }
+        double ChargeFee { get; set; }
 
-        string? RecipientName {  get; set; }
+        string? RecipientName { get; set; }
 
-        string? RecipientBankName {  get; set; }
+        string? RecipientBankName { get; set; }
 
-        string? RecipientAccountNumber {  get; set; }
+        string? RecipientAccountNumber { get; set; }
 
-        string? RecipientEmailAddress {  get; set; }
+        string? RecipientEmailAddress { get; set; }
 
-        string? Purpose {  get; set; }
+        string? Purpose { get; set; }
 
-        public ConfirmTransferMainUserControl(string id, string contact_id, string completeName, string accountNumber, double amount, double chargeFee, 
-            string recipientName, 
-            string recipientBankName, 
+        public ConfirmTransferMainUserControl(string id, string contact_id, string completeName, string accountNumber, string emailAddress, double amount, double chargeFee,
+            string recipientName,
+            string recipientBankName,
             string recipientAccountNumber,
             string recipientEmailAddress,
             string purpose)
@@ -50,6 +52,8 @@ namespace Trustbank
             this.CompleteName = completeName;
 
             this.AccountNumber = accountNumber;
+
+            this.EmailAddress = emailAddress;
 
             this.Amount = amount;
 
@@ -69,7 +73,7 @@ namespace Trustbank
             setUserLabelDetails();
             setAmountAndChargeLabelDetails();
             setRecipientLabelDetails();
-        
+
         }
 
 
@@ -93,6 +97,21 @@ namespace Trustbank
             lblRecipientAccountNumber.Text = RecipientAccountNumber;
             lblRecipientEmailAddress.Text = RecipientEmailAddress;
 
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            OTPConfirmTransaction confirmTransaction = new OTPConfirmTransaction(id, EmailAddress);
+            var result = confirmTransaction.ShowDialog();
+
+            if (result == DialogResult.OK) 
+            {
+                MessageBox.Show("NICE WAN LODICAKEZ!!!!");
+            }
+            else
+            {
+                MessageBox.Show("OTP did not match");
+            }
         }
     }
 }

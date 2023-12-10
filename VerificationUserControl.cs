@@ -155,7 +155,7 @@ namespace Trustbank
             setEmailPlaceholder();
             btnNextDisable();
 
-            SendOTPToEmai();
+            SendOTPToEmail();
         }
 
         private void setEmailPlaceholder()
@@ -203,7 +203,7 @@ namespace Trustbank
             }
         }
 
-        private void SendOTPToEmai()
+        private void SendOTPToEmail()
         {
 
             generatedOTPEmail = $"{DateTime.Now.Second:D2}{DateTime.Now.Millisecond:D4}";
@@ -414,7 +414,7 @@ namespace Trustbank
 
         private void lblSendEmailAgain_Click(object sender, EventArgs e)
         {
-            SendOTPToEmai();
+            SendOTPToEmail();
         }
 
         private void btnShowOTP_MouseEnter(object sender, EventArgs e)

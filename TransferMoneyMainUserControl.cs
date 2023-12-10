@@ -37,6 +37,8 @@ namespace Trustbank
 
         string? AccountNumber { get; set; }
 
+        string? EmailAddress {  get; set; }
+
 
         string contact_id { get; set; }
 
@@ -151,6 +153,7 @@ namespace Trustbank
                                 MiddleName = reader.GetString(reader.GetOrdinal("MiddleName"));
                                 LastName = reader.GetString(reader.GetOrdinal("LastName"));
                                 AccountNumber = reader.GetString(reader.GetOrdinal("AccountNumber"));
+                                EmailAddress = reader.GetString(reader.GetOrdinal("EmailAddress"));
                             }
                         }
 
@@ -258,7 +261,7 @@ namespace Trustbank
 
                 repaintParentPanel();
 
-                ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(id, contact_id, completeName, AccountNumber,
+                ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(id, contact_id, completeName, AccountNumber, EmailAddress,
                     Amount, chargeFee, contactName, contactBankName, contactAccountNumber, contactEmailAddress, Purpose);
 
                 MessageBox.Show(id + " " + contact_id + " " + completeName + " " + AccountNumber + " " + Amount + " " + chargeFee + " " + contactName + " " + contactBankName + " " + contactAccountNumber + " " + contactEmailAddress + " " + Purpose);

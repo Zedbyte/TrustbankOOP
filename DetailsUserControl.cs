@@ -161,18 +161,149 @@ namespace Trustbank
 
         private bool keyPressDataValidation()
         {
-            if (!CheckIfUsernameExists(txtBxUsername.Text) && txtBxUsername.Text != null && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername) &&
-                txtBxPassword.Text != null && txtBxPassword.Text.Length >= 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword) &&
-                txtBxFirstName.Text != null && checkIsBlankTextBox(txtBxFirstName) && !containsDigits(txtBxFirstName) &&
-                txtBxLastName.Text != null && checkIsBlankTextBox(txtBxLastName) && !containsDigits(txtBxLastName) &&
-                txtBxEmailAddress.Text != null && txtBxEmailAddress.Text.Contains("@") && checkIsBlankTextBox(txtBxEmailAddress) &&
-                txtBxMobileNumber.Text != null && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && checkIsBlankTextBox(txtBxMobileNumber) &&
-                txtBxAccountNumber.Text != null && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber) && !containsCharacters(txtBxAccountNumber) &&
-                txtBxAccountAlias.Text != null && txtBxAccountAlias.Text.Length > 1 && checkIsBlankTextBox(txtBxAccountAlias) &&
+            if (
+                txtBxPassword.Text != "" && txtBxPassword.Text.Length >= 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword) &&
+                txtBxFirstName.Text != "" && checkIsBlankTextBox(txtBxFirstName) && !containsDigits(txtBxFirstName) &&
+                txtBxLastName.Text != "" && checkIsBlankTextBox(txtBxLastName) && !containsDigits(txtBxLastName) &&
+                
+                txtBxMobileNumber.Text != "" && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && checkIsBlankTextBox(txtBxMobileNumber) &&
+                
+                txtBxAccountAlias.Text != "" && txtBxAccountAlias.Text.Length > 1 && checkIsBlankTextBox(txtBxAccountAlias) &&
+                !AccountNumberExist(txtBxAccountNumber.Text) &&
+                !AccountEmailExist(txtBxEmailAddress.Text) &&
                 checkBxMetroTermsAndService.Checked)
             {
                 return true;
             }
+            return false;
+        }
+
+        private void btnNextIsValidUsername(object sender, KeyEventArgs e)
+        {
+            if (keyPressValidationUsername())
+            {
+                btnNextEnable();
+            }
+            else
+            {
+                btnNextDisable();
+            }
+        }
+
+        private void btnNextIsValidAccountNumber(object sender, KeyEventArgs e)
+        {
+            if (keyPressValidationAccountNumber())
+            {
+                btnNextEnable();
+            }
+            else
+            {
+                btnNextDisable();
+            }
+        }
+
+        private void btnNextIsValidEmailAddress(object sender, KeyEventArgs e)
+        {
+            if (keyPressValidationEmailAddress())
+            {
+                btnNextEnable();
+            }
+            else
+            {
+                btnNextDisable();
+            }
+        }
+
+        private bool keyPressValidationUsername()
+        {
+            if (!CheckIfUsernameExists(txtBxUsername.Text) && txtBxUsername.Text != "" && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool keyPressValidationAccountNumber()
+        {
+            if (!AccountNumberExist(txtBxAccountNumber.Text) && txtBxAccountNumber.Text != "" && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber) && !containsCharacters(txtBxAccountNumber))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool keyPressValidationEmailAddress()
+        {
+            if (!AccountEmailExist(txtBxEmailAddress.Text) && txtBxEmailAddress.Text != "" && txtBxEmailAddress.Text.Contains("@") && checkIsBlankTextBox(txtBxEmailAddress))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool AccountNumberExist(string accountNumber)
+        {
+
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM AccountsTable WHERE AccountNumber = @account_number";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@account_number", accountNumber);
+
+                    connection.Open();
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // If count > 0, username exists; otherwise, it doesn't
+                    if (count > 0)
+                    {
+                        lblAccountNumberExist.Text = "Account Number exists already.";
+                        lblAccountNumberExist.ForeColor = Color.Firebrick;
+                        return true;
+                    }
+                }
+            }
+
+            // Strings not found in any row
+            lblAccountNumberExist.Text = "Account Number is unique.";
+            lblAccountNumberExist.ForeColor = Color.LimeGreen;
+            return false;
+        }
+
+        private bool AccountEmailExist(string emailAddress)
+        {
+
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM AccountsTable WHERE EmailAddress = @email_address";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email_address", emailAddress);
+
+                    connection.Open();
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // If count > 0, username exists; otherwise, it doesn't
+                    if (count > 0)
+                    {
+                        lblEmailExist.Text = "Email Address exists already.";
+                        lblEmailExist.ForeColor = Color.Firebrick;
+                        return true;
+                    }
+                }
+            }
+
+            // Strings not found in any row
+            lblEmailExist.Text = "Email Address is ready to use.";
+            lblEmailExist.ForeColor = Color.LimeGreen;
             return false;
         }
 

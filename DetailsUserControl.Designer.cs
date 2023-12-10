@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             detailsPanel = new Panel();
+            lblAccountNumberExist = new Label();
+            lblEmailExist = new Label();
             lblUserExist = new Label();
             btnViewPassword = new FontAwesome.Sharp.IconButton();
             mobileNumberPrefix = new ComboBox();
@@ -86,6 +88,8 @@
             detailsPanel.AutoScroll = true;
             detailsPanel.AutoScrollMargin = new Size(0, 100);
             detailsPanel.BackColor = Color.White;
+            detailsPanel.Controls.Add(lblAccountNumberExist);
+            detailsPanel.Controls.Add(lblEmailExist);
             detailsPanel.Controls.Add(lblUserExist);
             detailsPanel.Controls.Add(btnViewPassword);
             detailsPanel.Controls.Add(mobileNumberPrefix);
@@ -129,6 +133,24 @@
             detailsPanel.Name = "detailsPanel";
             detailsPanel.Size = new Size(1421, 438);
             detailsPanel.TabIndex = 0;
+            // 
+            // lblAccountNumberExist
+            // 
+            lblAccountNumberExist.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAccountNumberExist.Location = new Point(704, 636);
+            lblAccountNumberExist.Name = "lblAccountNumberExist";
+            lblAccountNumberExist.Size = new Size(230, 25);
+            lblAccountNumberExist.TabIndex = 54;
+            lblAccountNumberExist.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblEmailExist
+            // 
+            lblEmailExist.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblEmailExist.Location = new Point(704, 425);
+            lblEmailExist.Name = "lblEmailExist";
+            lblEmailExist.Size = new Size(230, 25);
+            lblEmailExist.TabIndex = 0;
+            lblEmailExist.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblUserExist
             // 
@@ -398,8 +420,8 @@
             txtBxUsername.Size = new Size(459, 36);
             txtBxUsername.TabIndex = 1;
             txtBxUsername.Enter += EnterText;
-            txtBxUsername.KeyDown += btnNextIsValid;
-            txtBxUsername.KeyUp += btnNextIsValid;
+            txtBxUsername.KeyDown += btnNextIsValidUsername;
+            txtBxUsername.KeyUp += btnNextIsValidUsername;
             txtBxUsername.Leave += IsBlankTextBox;
             // 
             // txtBxPassword
@@ -549,8 +571,8 @@
             txtBxAccountNumber.Size = new Size(459, 36);
             txtBxAccountNumber.TabIndex = 8;
             txtBxAccountNumber.Enter += EnterText;
-            txtBxAccountNumber.KeyDown += btnNextIsValid;
-            txtBxAccountNumber.KeyUp += btnNextIsValid;
+            txtBxAccountNumber.KeyDown += btnNextIsValidAccountNumber;
+            txtBxAccountNumber.KeyUp += btnNextIsValidAccountNumber;
             txtBxAccountNumber.Leave += IsBlankTextBox;
             // 
             // lblMobileNumberFillUp
@@ -632,8 +654,8 @@
             txtBxEmailAddress.Size = new Size(459, 36);
             txtBxEmailAddress.TabIndex = 6;
             txtBxEmailAddress.Enter += EnterText;
-            txtBxEmailAddress.KeyDown += btnNextIsValid;
-            txtBxEmailAddress.KeyUp += btnNextIsValid;
+            txtBxEmailAddress.KeyDown += btnNextIsValidEmailAddress;
+            txtBxEmailAddress.KeyUp += btnNextIsValidEmailAddress;
             txtBxEmailAddress.Leave += IsBlankTextBox;
             // 
             // lblLastNameFillUp
@@ -817,5 +839,7 @@
         private FontAwesome.Sharp.IconButton btnCheck3;
         private FontAwesome.Sharp.IconButton btnCheck2;
         private Label lblUserExist;
+        private Label lblEmailExist;
+        private Label lblAccountNumberExist;
     }
 }

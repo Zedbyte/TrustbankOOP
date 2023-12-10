@@ -86,9 +86,7 @@ namespace Trustbank
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Log out.", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Dispose();
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
+                Application.Restart();
             }
         }
 

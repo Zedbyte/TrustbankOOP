@@ -136,7 +136,8 @@ namespace Trustbank
         {
             if (!containsCharacters(txtBxAccountNumber) && !containsDigits(txtBxName) && txtBxName.Text != "" && txtBxAccountNumber.Text != "" && txtBxEmailAddress.Text != "" && txtBxBankName.Text != "")
             {
-                if (!contactExistsAlready())
+                //Check if contact exists already in your contact record and make sure it is not your own account number
+                if (!contactExistsAlready() && !ownAccountNumber())
                 {
                     contactName = txtBxName.Text;
                     contactAccountNumber = txtBxAccountNumber.Text;
@@ -156,6 +157,40 @@ namespace Trustbank
             {
                 MessageBox.Show("Invalid input. Please try again.");
             }
+        }
+
+        private bool ownAccountNumber()
+        {
+
+            string emailAddress = txtBxEmailAddress.Text;
+            string accountNumber = txtBxAccountNumber.Text;
+
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM AccountsTable WHERE id = @id AND AccountNumber = @account_number OR EmailAddress = @email_address";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@account_number", accountNumber);
+                    command.Parameters.AddWithValue("@email_address", emailAddress);
+
+                    connection.Open();
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // If count > 0, username exists; otherwise, it doesn't
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // Strings not found in any row
+            return false;
         }
 
         private void AddtoDatabase(string id, string contactName, string contactAccountNumber, string contactEmailAddress, string contactBankAccount)
