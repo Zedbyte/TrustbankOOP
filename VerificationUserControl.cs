@@ -46,6 +46,8 @@ namespace Trustbank
 
         string? Passcode { get; set; }
 
+        int newAccountID {  get; set; }
+
         //Used for when user clicks the back button. (Save the state of the last panel)
         DetailsUserControl detailsPanel;
 
@@ -188,6 +190,10 @@ namespace Trustbank
                 repaintParentPanel();
                 AddtoDatabase();
 
+                getNewAccountID();
+
+                AddBalanceMinimum();
+
                 colorProgressBar(LINE4, prtBtn5, lblDone);
                 DoneUserControl doneUserControl = new DoneUserControl(registerForm);
 
@@ -263,6 +269,60 @@ namespace Trustbank
             con.Close();
         }
 
+        private void getNewAccountID()
+        {
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    string query = "SELECT id FROM AccountsTable WHERE AccountNumber = @account_number";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@account_number", AccountNumber);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                newAccountID = reader.GetInt32(reader.GetOrdinal("id"));
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void AddBalanceMinimum()
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            try
+            {
+                SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsBalance] 
+                   (
+                   [user_id], 
+                   [balance]
+                   )
+                   VALUES
+                   ('" + newAccountID + "', '" + 10000 + "')", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
 
         private void timerEmail_Tick(object sender, EventArgs e)
         {
@@ -292,6 +352,10 @@ namespace Trustbank
                 repaintParentPanel();
 
                 AddtoDatabase();
+
+                getNewAccountID();
+
+                AddBalanceMinimum();
 
                 colorProgressBar(LINE4, prtBtn5, lblDone);
 

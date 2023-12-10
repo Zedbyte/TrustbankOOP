@@ -45,7 +45,7 @@ namespace Trustbank
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!containsCharacters(txtBxAccountNumber) && !containsDigits(txtBxName) && txtBxName.Text != "" && txtBxAccountNumber.Text != "" && txtBxEmailAddress.Text != "" && txtBxBankName.Text != "")
+            if (!containsCharacters(txtBxAccountNumber) && !containsDigits(txtBxName) && txtBxName.Text != "" && txtBxAccountNumber.Text != "" && txtBxEmailAddress.Text != "" && txtBxEmailAddress.Text.Contains("@") && txtBxBankName.Text != "")
             {
                 //Make sure the contact is not already in your contact and it is not your own account number and email address
                 if (!contactExistsAlready() && !ownAccountNumber())

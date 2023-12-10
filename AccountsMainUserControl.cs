@@ -108,12 +108,12 @@ namespace Trustbank
             if (Savings == 1)
             {
                 lblTypeOfAccountPlaceholder.Text = "Savings Account: ";
-                lblAccTypeAccountInfo.Text = "Savings Account: ";
+                lblAccTypeAccountInfo.Text = "Savings Account ";
             }
             else
             {
                 lblTypeOfAccountPlaceholder.Text = "Deposit Account: ";
-                lblAccTypeAccountInfo.Text = "Deposit Account: ";
+                lblAccTypeAccountInfo.Text = "Deposit Account ";
             }
 
             if (Username != null)

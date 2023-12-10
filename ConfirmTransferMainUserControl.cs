@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -113,5 +114,104 @@ namespace Trustbank
                 MessageBox.Show("OTP did not match");
             }
         }
+
+
+
+
+
+        private void AddtoTransactionHistory(string id, string contactName, string contactAccountNumber, string contactEmailAddress, string contactBankAccount)
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[EnrolledContacts] 
+                   (
+                   [owner_id], 
+                   [name],
+                   [account_number],
+                   [email_address],
+                   [bank_name]
+                   )
+                   VALUES
+                   (@id, @name, @account_number, @email_address, @bank_name)", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", contactName);
+            cmd.Parameters.AddWithValue("@account_number", contactAccountNumber);
+            cmd.Parameters.AddWithValue("@email_address", contactEmailAddress);
+            cmd.Parameters.AddWithValue("@bank_name", contactBankAccount);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void UpdateUserBalance()
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
+            {
+                using (SqlCommand cmd = new SqlCommand(@"SELECT name, account_number, email_address, bank_name FROM EnrolledContacts WHERE owner_id = @id AND contact_id = @contact_id", connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@contact_id", EditInputContactID);
+                    connection.Open();
+
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        txtBxName.Text = reader.GetValue(0).ToString();
+                        txtBxAccountNumber.Text = reader.GetValue(1).ToString();
+                        txtBxEmailAddress.Text = reader.GetValue(2).ToString();
+                        txtBxBankName.Text = reader.GetValue(3).ToString();
+
+                    }
+
+                }
+            }
+        }
+
+        private void UpdateRecipientBalance()
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
+            {
+                using (SqlCommand cmd = new SqlCommand(@"SELECT name, account_number, email_address, bank_name FROM EnrolledContacts WHERE owner_id = @id AND contact_id = @contact_id", connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@contact_id", EditInputContactID);
+                    connection.Open();
+
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        txtBxName.Text = reader.GetValue(0).ToString();
+                        txtBxAccountNumber.Text = reader.GetValue(1).ToString();
+                        txtBxEmailAddress.Text = reader.GetValue(2).ToString();
+                        txtBxBankName.Text = reader.GetValue(3).ToString();
+
+                    }
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
     }
 }
