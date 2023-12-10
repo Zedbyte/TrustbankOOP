@@ -69,10 +69,9 @@ namespace Trustbank
             if (dialogResult == DialogResult.Yes)
             {
                 this.Dispose();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
             }
-
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

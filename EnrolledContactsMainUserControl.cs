@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vonage.Voice.EventWebhooks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Trustbank
@@ -26,11 +27,18 @@ namespace Trustbank
 
         string? id { get; set; }
 
+
+        string EditInputContactID = "";
+        int editClickCount = 0;
+
         public EnrolledContactsMainUserControl(string id)
         {
             InitializeComponent();
 
             this.id = id;
+
+            btnCancelEdit.Enabled = false;
+            btnCancelEdit.Visible = false;
 
             //ViewContacts(); //Uncomment for automatic viewing of contacts
         }
@@ -48,6 +56,7 @@ namespace Trustbank
 
                     AddtoDatabase(id, contactName, contactAccountNumber, contactEmailAddress, contactBankAccount);
                     ViewContacts();
+                    clearTextbox();
                 }
                 else
                 {
@@ -91,10 +100,11 @@ namespace Trustbank
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(*) FROM EnrolledContacts WHERE account_number = @account_number OR email_address = @email_address";
+                string query = "SELECT COUNT(*) FROM EnrolledContacts WHERE owner_id = @id AND account_number = @account_number OR email_address = @email_address";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@account_number", searchStrings[1]);
                     command.Parameters.AddWithValue("@email_address", searchStrings[2]);
 
@@ -157,7 +167,13 @@ namespace Trustbank
 
 
 
-
+        private void clearTextbox()
+        {
+            txtBxName.Clear();
+            txtBxAccountNumber.Clear();
+            txtBxEmailAddress.Clear();
+            txtBxBankName.Clear();
+        }
 
 
         private void btnView_Click(object sender, EventArgs e)
@@ -186,17 +202,46 @@ namespace Trustbank
             }
         }
 
+        private bool doesInputExist(string input)
+        {
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM EnrolledContacts WHERE owner_id = @id AND contact_id = @contact_id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@contact_id", input);
+
+                    connection.Open();
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // If count > 0, username exists; otherwise, it doesn't
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            editClickCount = 0;
+            return false;
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //Center the input box
-            int x = this.Left + (this.Width / 2) - 200;
-            int y = this.Top + (this.Height / 2) - 100;
+            int x = this.Left + (this.Width / 2);
+            int y = this.Top + (this.Height / 2) + 50;
             string input = Microsoft.VisualBasic.Interaction.InputBox("NOTE:\nYOU ARE DELETING A CONTACT. DELETING A CONTACT IS IRREVERSIBLE.\n\n\nEnter Contact ID.",
                        "Enter Contact ID",
-                       "Contact ID",
+                       "",
                        x,
                        y);
-            if (!containsCharacters(input))
+
+            if (!containsCharacters(input) && doesInputExist(input))
             {
                 using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
                 {
@@ -204,13 +249,10 @@ namespace Trustbank
                     {
                         cmd.Parameters.AddWithValue("@contact_id", input);
                         connection.Open();
-                        cmd.ExecuteNonQuery();
+                        /*cmd.ExecuteNonQuery();*/
 
+                        SqlDataReader dr = cmd.ExecuteReader();
 
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
-                        contactsDataGrid.DataSource = dt;
                         ViewContacts();
                     }
                 }
@@ -219,6 +261,141 @@ namespace Trustbank
             {
                 MessageBox.Show("Invalid Input!");
             }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //Center the input box
+
+            editClickCount++;
+
+            if (editClickCount == 1)
+            {
+                int x = this.Left + (this.Width / 2);
+                int y = this.Top + (this.Height / 2) + 50;
+                EditInputContactID = Microsoft.VisualBasic.Interaction.InputBox("NOTE:\nYou are editing contact details. \n\n\nEnter Contact ID.",
+                            "Enter Contact ID",
+                            "",
+                            x,
+                            y);
+
+                if (!containsCharacters(EditInputContactID) && doesInputExist(EditInputContactID))
+                {
+
+                    btnAdd.Enabled = false;
+                    btnAdd.BackColor = Color.DimGray;
+
+
+                    btnDelete.Enabled = false;
+                    btnDelete.BackColor = Color.DimGray;
+
+
+                    btnEdit.Text = "Save";
+                    btnEdit.ForeColor = Color.Black;
+                    btnEdit.BackColor = Color.LightGreen;
+
+                    btnCancelEdit.Enabled = true;
+                    btnCancelEdit.Visible = true;
+
+                    using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand(@"SELECT name, account_number, email_address, bank_name FROM EnrolledContacts WHERE owner_id = @id AND contact_id = @contact_id", connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.Parameters.AddWithValue("@contact_id", EditInputContactID);
+                            connection.Open();
+
+
+                            SqlDataReader reader = cmd.ExecuteReader();
+
+                            while (reader.Read())
+                            {
+                                txtBxName.Text = reader.GetValue(0).ToString();
+                                txtBxAccountNumber.Text = reader.GetValue(1).ToString();
+                                txtBxEmailAddress.Text = reader.GetValue(2).ToString();
+                                txtBxBankName.Text = reader.GetValue(3).ToString();
+
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Your input might be invalid or empty!");
+                }
+            }
+            else if (editClickCount == 2)
+            {
+                if (!containsCharacters(txtBxAccountNumber) && !containsDigits(txtBxName) && txtBxName.Text != "" && txtBxAccountNumber.Text != "" && txtBxEmailAddress.Text != "" && txtBxBankName.Text != "")
+                {
+                    using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand(@"UPDATE EnrolledContacts SET name = @name, account_number = @account_number, email_address = @email_address, bank_name = @bank_name WHERE owner_id = @id AND contact_id = @contact_id", connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.Parameters.AddWithValue("@contact_id", EditInputContactID);
+                            cmd.Parameters.AddWithValue("@name", txtBxName.Text);
+                            cmd.Parameters.AddWithValue("@account_number", txtBxAccountNumber.Text);
+                            cmd.Parameters.AddWithValue("@email_address", txtBxEmailAddress.Text);
+                            cmd.Parameters.AddWithValue("@bank_name", txtBxBankName.Text);
+                            connection.Open();
+
+                            SqlDataReader reader = cmd.ExecuteReader();
+
+                            MessageBox.Show("Contact: " + EditInputContactID + "Update Successfully!");
+
+                            ViewContacts();
+                        }
+                    }
+
+                    clearTextbox();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Data!");
+                }
+
+                btnAdd.Enabled = true;
+                btnAdd.BackColor = Color.FromArgb(0, 147, 68);
+
+
+                btnDelete.Enabled = true;
+                btnDelete.BackColor = Color.Firebrick;
+
+                btnEdit.Text = "Edit";
+                btnEdit.ForeColor = Color.White;
+                btnEdit.BackColor = Color.FromArgb(0, 26, 136);
+
+                btnCancelEdit.Enabled = false;
+                btnCancelEdit.Visible = false;
+
+
+                //Reset the count after saving
+                editClickCount = 0;
+            }
+
+        }
+
+        private void btnCancelEdit_Click(object sender, EventArgs e)
+        {
+            btnCancelEdit.Enabled = false;
+            btnCancelEdit.Visible = false;
+
+            editClickCount = 0;
+
+            btnAdd.Enabled = true;
+            btnAdd.BackColor = Color.FromArgb(0, 147, 68);
+
+
+            btnDelete.Enabled = true;
+            btnDelete.BackColor = Color.Firebrick;
+
+            btnEdit.Text = "Edit";
+            btnEdit.ForeColor = Color.White;
+            btnEdit.BackColor = Color.FromArgb(0, 26, 136);
+
+            clearTextbox();
         }
     }
 }
