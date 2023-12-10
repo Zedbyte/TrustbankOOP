@@ -70,9 +70,6 @@ namespace Trustbank
 
         string? encryptedPassword { get; set; }
 
-        //Check if password has one uppercase, number, and a special character
-        bool isPasswordValid = false;
-
         int viewPasswordCount = 1;
 
 
@@ -160,17 +157,16 @@ namespace Trustbank
         }
 
         private bool keyPressDataValidation()
-        {
-            if ((keyPressValidationUsername() & keyPressValidationAccountNumber() & keyPressValidationEmailAddress() & doesPasswordMeetRequirements()) &&
+        {   
+            //Single & will validate the right side even if it is already false, to not let the labels show yet, check if textbox is not empty
+            if ((keyPressValidationUsername() & keyPressValidationAccountNumber() & keyPressValidationEmailAddress() & doesPasswordMeetRequirements() & keyPressValidationMobileNumber()) &&
                 txtBxPassword.Text != ""  && txtBxPassword.Text.Length >= 12 && checkIsBlankTextBox(txtBxPassword) &&
                 txtBxFirstName.Text != "" && checkIsBlankTextBox(txtBxFirstName) && !containsDigits(txtBxFirstName) &&
                 txtBxLastName.Text != "" && checkIsBlankTextBox(txtBxLastName) && !containsDigits(txtBxLastName) &&
                 
-                txtBxMobileNumber.Text != "" && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && checkIsBlankTextBox(txtBxMobileNumber) &&
+                
                 
                 txtBxAccountAlias.Text != "" && txtBxAccountAlias.Text.Length > 1 && checkIsBlankTextBox(txtBxAccountAlias) &&
-                !AccountNumberExist(txtBxAccountNumber.Text) &&
-                !AccountEmailExist(txtBxEmailAddress.Text) &&
                 checkBxMetroTermsAndService.Checked)
             {
                 return true;
@@ -178,8 +174,10 @@ namespace Trustbank
             return false;
         }
 
+        //To not show the labels yet, check if the text boxes are empty, if they are, then && will not validate the right side of the condition
         private bool keyPressValidationUsername()
-        {
+        {   
+            
             if (txtBxUsername.Text != "" && !CheckIfUsernameExists(txtBxUsername.Text) && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername))
             {
                 return true;
@@ -202,6 +200,48 @@ namespace Trustbank
             {
                 return true;
             }
+            return false;
+        }
+
+        private bool keyPressValidationMobileNumber()
+        {
+            if (txtBxMobileNumber.Text != "" && txtBxMobileNumber.Text.Length > 1 && isMobileNumberValid() && !MobileNumberExist(txtBxMobileNumber.Text) && checkIsBlankTextBox(txtBxMobileNumber))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool MobileNumberExist(string mobileNumber)
+        {
+
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM AccountsTable WHERE MobileNumber = @mobile_number";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@mobile_number", "+63"+mobileNumber);
+
+                    connection.Open();
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // If count > 0, username exists; otherwise, it doesn't
+                    if (count > 0)
+                    {
+                        lblMobileNumberExist.Text = "Mobile Number exists already.";
+                        lblMobileNumberExist.ForeColor = Color.Firebrick;
+                        return true;
+                    }
+                }
+            }
+
+            // Strings not found in any row
+            lblMobileNumberExist.Text = "Mobile Number is unique.";
+            lblMobileNumberExist.ForeColor = Color.LimeGreen;
             return false;
         }
 
@@ -350,7 +390,7 @@ namespace Trustbank
                 MessageBox.Show("Username Invalid. Please try again.");
             }
 
-            if (txtBxPassword.Text != null && txtBxPassword.Text.Length >= 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword))
+            if (txtBxPassword.Text != null && txtBxPassword.Text.Length >= 12 && doesPasswordMeetRequirements() && checkIsBlankTextBox(txtBxPassword))
             {
                 Password = txtBxPassword.Text;
 

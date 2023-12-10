@@ -79,6 +79,7 @@
             lblPasswordFillUp = new Label();
             lblUsernameFillUp = new Label();
             btnNext = new Button();
+            lblMobileNumberExist = new Label();
             detailsPanel.SuspendLayout();
             passwordRequirementsPanel.SuspendLayout();
             SuspendLayout();
@@ -88,6 +89,7 @@
             detailsPanel.AutoScroll = true;
             detailsPanel.AutoScrollMargin = new Size(0, 100);
             detailsPanel.BackColor = Color.White;
+            detailsPanel.Controls.Add(lblMobileNumberExist);
             detailsPanel.Controls.Add(lblAccountNumberExist);
             detailsPanel.Controls.Add(lblEmailExist);
             detailsPanel.Controls.Add(lblUserExist);
@@ -774,6 +776,15 @@
             btnNext.UseVisualStyleBackColor = false;
             btnNext.Click += btnNext_Click;
             // 
+            // lblMobileNumberExist
+            // 
+            lblMobileNumberExist.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMobileNumberExist.Location = new Point(705, 510);
+            lblMobileNumberExist.Name = "lblMobileNumberExist";
+            lblMobileNumberExist.Size = new Size(230, 25);
+            lblMobileNumberExist.TabIndex = 55;
+            lblMobileNumberExist.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // DetailsUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -841,5 +852,6 @@
         private Label lblUserExist;
         private Label lblEmailExist;
         private Label lblAccountNumberExist;
+        private Label lblMobileNumberExist;
     }
 }
