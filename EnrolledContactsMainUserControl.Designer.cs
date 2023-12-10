@@ -44,10 +44,6 @@
             btnDelete = new FontAwesome.Sharp.IconButton();
             btnView = new FontAwesome.Sharp.IconButton();
             contactsDataGrid = new DataGridView();
-            colName = new DataGridViewTextBoxColumn();
-            colAccountNumber = new DataGridViewTextBoxColumn();
-            colEmailAddress = new DataGridViewTextBoxColumn();
-            colBankName = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)contactsDataGrid).BeginInit();
@@ -193,6 +189,7 @@
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnView
             // 
@@ -210,6 +207,7 @@
             btnView.TabIndex = 8;
             btnView.Text = "View";
             btnView.UseVisualStyleBackColor = false;
+            btnView.Click += btnView_Click;
             // 
             // contactsDataGrid
             // 
@@ -229,7 +227,6 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             contactsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             contactsDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            contactsDataGrid.Columns.AddRange(new DataGridViewColumn[] { colName, colAccountNumber, colEmailAddress, colBankName });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -243,26 +240,6 @@
             contactsDataGrid.RowTemplate.Height = 25;
             contactsDataGrid.Size = new Size(965, 479);
             contactsDataGrid.TabIndex = 12;
-            // 
-            // colName
-            // 
-            colName.HeaderText = "Name";
-            colName.Name = "colName";
-            // 
-            // colAccountNumber
-            // 
-            colAccountNumber.HeaderText = "Account Number";
-            colAccountNumber.Name = "colAccountNumber";
-            // 
-            // colEmailAddress
-            // 
-            colEmailAddress.HeaderText = "Email Address";
-            colEmailAddress.Name = "colEmailAddress";
-            // 
-            // colBankName
-            // 
-            colBankName.HeaderText = "Bank Name";
-            colBankName.Name = "colBankName";
             // 
             // panel1
             // 
@@ -329,9 +306,5 @@
         private DataGridView contactsDataGrid;
         private Panel panel1;
         private Label label5;
-        private DataGridViewTextBoxColumn colName;
-        private DataGridViewTextBoxColumn colAccountNumber;
-        private DataGridViewTextBoxColumn colEmailAddress;
-        private DataGridViewTextBoxColumn colBankName;
     }
 }

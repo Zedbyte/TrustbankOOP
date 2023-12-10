@@ -2,29 +2,37 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Trustbank
 {
     public partial class EnrolledContactsMainUserControl : UserControl
     {
 
-        string? contactName {  get; set; }
+        string? contactName { get; set; }
 
         string? contactAccountNumber { get; set; }
 
-        string? contactEmailAddress {  get; set; }
+        string? contactEmailAddress { get; set; }
 
-        string? contactBankAccount {  get; set; }
+        string? contactBankAccount { get; set; }
+
+        string? id { get; set; }
 
         public EnrolledContactsMainUserControl(string id)
         {
             InitializeComponent();
+
+            this.id = id;
+
+            //ViewContacts(); //Uncomment for automatic viewing of contacts
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -38,22 +46,8 @@ namespace Trustbank
                     contactEmailAddress = txtBxEmailAddress.Text;
                     contactBankAccount = txtBxBankName.Text;
 
-
-                    //Create the new row first and get the index of the new row
-                    int rowIndex = contactsDataGrid.Rows.Add();
-
-                    //Obtain a reference to the newly created DataGridViewRow 
-                    var row = contactsDataGrid.Rows[rowIndex];
-
-                    //Now this won't fail since the row and columns exist 
-                    row.Cells["colName"].Value = contactName;
-                    row.Cells["colAccountNumber"].Value = contactAccountNumber;
-                    row.Cells["colEmailAddress"].Value = contactEmailAddress;
-                    row.Cells["colBankName"].Value = contactBankAccount;
-
-                    //OR
-
-                    //contactsDataGrid.Rows.Add(txtBxName.Text, txtBxAccountNumber.Text, txtBxEmailAddress.Text, txtBxBankName.Text);
+                    AddtoDatabase(id, contactName, contactAccountNumber, contactEmailAddress, contactBankAccount);
+                    ViewContacts();
                 }
                 else
                 {
@@ -66,33 +60,51 @@ namespace Trustbank
             }
         }
 
+        private void AddtoDatabase(string id, string contactName, string contactAccountNumber, string contactEmailAddress, string contactBankAccount)
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[EnrolledContacts] 
+                   (
+                   [owner_id], 
+                   [name],
+                   [account_number],
+                   [email_address],
+                   [bank_name]
+                   )
+                   VALUES
+                   (@id, @name, @account_number, @email_address, @bank_name)", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", contactName);
+            cmd.Parameters.AddWithValue("@account_number", contactAccountNumber);
+            cmd.Parameters.AddWithValue("@email_address", contactEmailAddress);
+            cmd.Parameters.AddWithValue("@bank_name", contactBankAccount);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
         private bool contactExistsAlready()
         {
             string[] searchStrings = { txtBxName.Text, txtBxAccountNumber.Text, txtBxEmailAddress.Text, txtBxBankName.Text };
 
-            foreach (DataGridViewRow row in contactsDataGrid.Rows)
+            string connectionString = "Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                if (!row.IsNewRow)
+                string query = "SELECT COUNT(*) FROM EnrolledContacts WHERE account_number = @account_number OR email_address = @email_address";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    bool nameMatch = row.Cells[0].Value != null && row.Cells[0].Value.ToString() == searchStrings[0];
-                    bool accNumMatch = row.Cells[1].Value != null && row.Cells[1].Value.ToString() == searchStrings[1];
-                    bool emailMatch = row.Cells[2].Value != null && row.Cells[2].Value.ToString() == searchStrings[2];
-                    bool bankNameMatch = row.Cells[3].Value != null && row.Cells[3].Value.ToString() == searchStrings[3];
+                    command.Parameters.AddWithValue("@account_number", searchStrings[1]);
+                    command.Parameters.AddWithValue("@email_address", searchStrings[2]);
 
-                    // Debugging statements
-                    MessageBox.Show($"Row {row.Index}: NameMatch: {nameMatch}, AccNumMatch: {accNumMatch}, EmailMatch: {emailMatch}, BankNameMatch: {bankNameMatch}");
+                    connection.Open();
 
-                    // If account number and email match, return true
-                    if (accNumMatch || emailMatch)
+                    int count = (int)command.ExecuteScalar();
+
+                    // If count > 0, username exists; otherwise, it doesn't
+                    if (count > 0)
                     {
-                        Console.WriteLine("Account number and email matched in this row.");
-                        return true;
-                    }
-
-                    // If all strings match, return true
-                    if (nameMatch && accNumMatch && emailMatch && bankNameMatch)
-                    {
-                        Console.WriteLine("All strings matched in this row.");
                         return true;
                     }
                 }
@@ -100,63 +112,6 @@ namespace Trustbank
 
             // Strings not found in any row
             return false;
-            /*string[] searchStrings = {txtBxName.Text, txtBxAccountNumber.Text, txtBxEmailAddress.Text, txtBxBankName.Text };
-
-            int currentCell = 0;
-
-            foreach (DataGridViewRow row in contactsDataGrid.Rows)
-            {
-                if (!row.IsNewRow) // Skip the new row if present
-                {
-                    int stringMatches = 0;
-
-                    foreach (string searchString in searchStrings)
-                    {
-                        bool found = false;
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            //If a string matches in the account number and email address cell, immediately return true.
-                            currentCell += 1;
-                            if (currentCell == 2)
-                            {
-                                if (cell.Value != null && cell.Value.ToString() == searchString)
-                                {
-                                    return true;
-                                }
-                            }
-
-                            if (currentCell == 3)
-                            {
-                                if (cell.Value != null && cell.Value.ToString() == searchString)
-                                {
-                                    return true;
-                                }
-                            }
-
-                            if (cell.Value != null && cell.Value.ToString() == searchString)
-                            {
-                                found = true;
-                                break;
-                            }
-                        }
-
-                        if (found)
-                        {
-                            stringMatches++;
-                        }
-                    }
-
-                    if (stringMatches == searchStrings.Length)
-                    {
-                        // All strings found in this row
-                        return true;
-                    }
-                }
-                //Reset the current cell number after a row
-                currentCell = 0;
-            }
-            // Strings not found in any row
-            return false;*/
         }
 
         //If textbox contains characters return true, else false.
@@ -171,6 +126,22 @@ namespace Trustbank
 
             return false;
         }
+
+        //Overload the method for strings
+        private bool containsCharacters(String input)
+        {
+            bool hasChars = Regex.IsMatch(input, "[A-Za-z]");
+
+            if (hasChars)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+
         //If textbox contains Digits (numbers) return true, else false.
         private bool containsDigits(TextBox txtbx)
         {
@@ -182,6 +153,72 @@ namespace Trustbank
             }
 
             return false;
+        }
+
+
+
+
+
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            ViewContacts();
+        }
+
+
+        private void ViewContacts()
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
+            {
+                using (SqlCommand cmd = new SqlCommand(@"SELECT contact_id AS 'Contact ID', name AS 'Name', account_number AS 'Account Number', email_address AS 'Email Address', bank_name AS 'Bank Name' FROM EnrolledContacts WHERE owner_id = @id", connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    contactsDataGrid.DataSource = dt;
+
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //Center the input box
+            int x = this.Left + (this.Width / 2) - 200;
+            int y = this.Top + (this.Height / 2) - 100;
+            string input = Microsoft.VisualBasic.Interaction.InputBox("NOTE:\nYOU ARE DELETING A CONTACT. DELETING A CONTACT IS IRREVERSIBLE.\n\n\nEnter Contact ID.",
+                       "Enter Contact ID",
+                       "Contact ID",
+                       x,
+                       y);
+            if (!containsCharacters(input))
+            {
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(@"DELETE FROM EnrolledContacts WHERE contact_id = @contact_id", connection))
+                    {
+                        cmd.Parameters.AddWithValue("@contact_id", input);
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        contactsDataGrid.DataSource = dt;
+                        ViewContacts();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid Input!");
+            }
         }
     }
 }
