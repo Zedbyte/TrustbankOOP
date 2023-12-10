@@ -103,7 +103,7 @@ namespace Trustbank
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(*) FROM AccountsTable WHERE id = @id AND AccountNumber = @account_number OR EmailAddress = @email_address";
+                string query = "SELECT COUNT(*) FROM AccountsTable WHERE id = @id AND (AccountNumber = @account_number OR EmailAddress = @email_address)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -118,6 +118,7 @@ namespace Trustbank
                     // If count > 0, username exists; otherwise, it doesn't
                     if (count > 0)
                     {
+                        MessageBox.Show("Own Account Number: " + count + " " + id);
                         return true;
                     }
                 }
@@ -135,7 +136,7 @@ namespace Trustbank
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(*) FROM EnrolledContacts WHERE owner_id = @id AND account_number = @account_number OR email_address = @email_address";
+                string query = "SELECT COUNT(*) FROM EnrolledContacts WHERE owner_id = @id AND (account_number = @account_number OR email_address = @email_address)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -150,6 +151,7 @@ namespace Trustbank
                     // If count > 0, username exists; otherwise, it doesn't
                     if (count > 0)
                     {
+                        MessageBox.Show("Contact Exist Already: " + count);
                         return true;
                     }
                 }

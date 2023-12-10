@@ -116,7 +116,7 @@
             txtBxOTP1.Anchor = AnchorStyles.None;
             txtBxOTP1.BackColor = Color.FromArgb(217, 217, 217);
             txtBxOTP1.BorderStyle = BorderStyle.None;
-            txtBxOTP1.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxOTP1.Font = new Font("Gothic A1", 33F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxOTP1.Location = new Point(15, 11);
             txtBxOTP1.MaxLength = 1;
             txtBxOTP1.Multiline = true;
@@ -154,7 +154,7 @@
             txtBxOTP6.Anchor = AnchorStyles.None;
             txtBxOTP6.BackColor = Color.FromArgb(217, 217, 217);
             txtBxOTP6.BorderStyle = BorderStyle.None;
-            txtBxOTP6.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxOTP6.Font = new Font("Gothic A1", 33F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxOTP6.Location = new Point(635, 11);
             txtBxOTP6.MaxLength = 1;
             txtBxOTP6.Multiline = true;
@@ -170,7 +170,7 @@
             txtBxOTP5.Anchor = AnchorStyles.None;
             txtBxOTP5.BackColor = Color.FromArgb(217, 217, 217);
             txtBxOTP5.BorderStyle = BorderStyle.None;
-            txtBxOTP5.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxOTP5.Font = new Font("Gothic A1", 33F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxOTP5.Location = new Point(511, 11);
             txtBxOTP5.MaxLength = 1;
             txtBxOTP5.Multiline = true;
@@ -186,7 +186,7 @@
             txtBxOTP4.Anchor = AnchorStyles.None;
             txtBxOTP4.BackColor = Color.FromArgb(217, 217, 217);
             txtBxOTP4.BorderStyle = BorderStyle.None;
-            txtBxOTP4.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxOTP4.Font = new Font("Gothic A1", 33F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxOTP4.Location = new Point(387, 11);
             txtBxOTP4.MaxLength = 1;
             txtBxOTP4.Multiline = true;
@@ -202,7 +202,7 @@
             txtBxOTP3.Anchor = AnchorStyles.None;
             txtBxOTP3.BackColor = Color.FromArgb(217, 217, 217);
             txtBxOTP3.BorderStyle = BorderStyle.None;
-            txtBxOTP3.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxOTP3.Font = new Font("Gothic A1", 33F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxOTP3.Location = new Point(263, 11);
             txtBxOTP3.MaxLength = 1;
             txtBxOTP3.Multiline = true;
@@ -218,7 +218,7 @@
             txtBxOTP2.Anchor = AnchorStyles.None;
             txtBxOTP2.BackColor = Color.FromArgb(217, 217, 217);
             txtBxOTP2.BorderStyle = BorderStyle.None;
-            txtBxOTP2.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxOTP2.Font = new Font("Gothic A1", 33F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxOTP2.Location = new Point(139, 11);
             txtBxOTP2.MaxLength = 1;
             txtBxOTP2.Multiline = true;

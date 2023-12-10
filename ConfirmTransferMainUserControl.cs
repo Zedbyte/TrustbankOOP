@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Trustbank
 {
@@ -36,6 +38,17 @@ namespace Trustbank
         string? RecipientEmailAddress { get; set; }
 
         string? Purpose { get; set; }
+
+
+
+
+
+
+        double? UserBalance {  get; set; }
+
+        double? UserBalanceUpdated {  get; set; }
+
+        double? RecipientBalance {  get; set; }
 
         public ConfirmTransferMainUserControl(string id, string contact_id, string completeName, string accountNumber, string emailAddress, double amount, double chargeFee,
             string recipientName,
@@ -102,12 +115,40 @@ namespace Trustbank
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            this.Hide();
             OTPConfirmTransaction confirmTransaction = new OTPConfirmTransaction(id, EmailAddress);
+
+
             var result = confirmTransaction.ShowDialog();
+
 
             if (result == DialogResult.OK) 
             {
-                MessageBox.Show("NICE WAN LODICAKEZ!!!!");
+                this.Show();
+                try
+                {
+                    //Give value to Balance before deduction
+                    getUserBalanceBeforeDeduction();
+
+                    //Give value to RecipientBalance before addition
+                    getRecipientBalanceBeforeAddition();
+
+                    //Update User Balance
+                    UpdateUserBalance();
+
+                    //Update Recipient Balance
+                    UpdateRecipientBalance();
+
+                    //Get user balance after the deduction
+                    getUserBalanceAfterDeduction();
+
+                    //Add the transaction
+                    AddtoTransactionHistory();
+                } 
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
             else
             {
@@ -119,25 +160,73 @@ namespace Trustbank
 
 
 
-        private void AddtoTransactionHistory(string id, string contactName, string contactAccountNumber, string contactEmailAddress, string contactBankAccount)
+        private void AddtoTransactionHistory()
         {
+            DateTime now = DateTime.Now;
+            string formattedDateTime = now.ToString("MMMM dd, yyyy hh:mm:ss tt");
+
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
-            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[EnrolledContacts] 
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[TransactionHistoryTable] 
                    (
-                   [owner_id], 
-                   [name],
-                   [account_number],
-                   [email_address],
-                   [bank_name]
+                   [user_id], 
+                   [UserAccountNumber],
+                   [TransactDate],
+                   [TransactType],
+                   [TransactPurpose],
+                   [recipient_id],
+                   [RecipientName],
+                   [RecipientAccountNumber],
+                   [UserBalance]
                    )
                    VALUES
-                   (@id, @name, @account_number, @email_address, @bank_name)", con);
+                   (@id, @account_number, @date, @type, @purpose, @recipient_id, @recipient_name, @recipient_accountNum, @user_balance)", con);
             cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@name", contactName);
-            cmd.Parameters.AddWithValue("@account_number", contactAccountNumber);
-            cmd.Parameters.AddWithValue("@email_address", contactEmailAddress);
-            cmd.Parameters.AddWithValue("@bank_name", contactBankAccount);
+            cmd.Parameters.AddWithValue("@account_number", AccountNumber);
+            cmd.Parameters.AddWithValue("@date", formattedDateTime);
+            cmd.Parameters.AddWithValue("@type", "Transfer");
+            cmd.Parameters.AddWithValue("@purpose", Purpose);
+            cmd.Parameters.AddWithValue("@recipient_id", Contact_ID);
+            cmd.Parameters.AddWithValue("@recipient_name", RecipientName);
+            cmd.Parameters.AddWithValue("@recipient_accountNum", RecipientAccountNumber);
+            cmd.Parameters.AddWithValue("@user_balance", UserBalanceUpdated);
             con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void getUserBalanceBeforeDeduction()
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"SELECT balance FROM AccountsBalance WHERE user_id = @id", con);
+            cmd.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+            con.Open();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    UserBalance = reader.GetDouble(reader.GetOrdinal("balance"));
+                }
+            }
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void getUserBalanceAfterDeduction()
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            SqlCommand cmd = new SqlCommand(@"SELECT balance FROM AccountsBalance WHERE user_id = @id", con);
+            cmd.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+            con.Open();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    UserBalanceUpdated = reader.GetDouble(reader.GetOrdinal("balance"));
+                }
+            }
+
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -146,50 +235,71 @@ namespace Trustbank
         {
             using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
             {
-                using (SqlCommand cmd = new SqlCommand(@"SELECT name, account_number, email_address, bank_name FROM EnrolledContacts WHERE owner_id = @id AND contact_id = @contact_id", connection))
+                using (SqlCommand cmd = new SqlCommand(@"UPDATE AccountsBalance SET balance = @balance WHERE user_id = @id", connection))
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@contact_id", EditInputContactID);
+                    cmd.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+                    cmd.Parameters.AddWithValue("@balance", UserBalance - (Amount + ChargeFee));
                     connection.Open();
 
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        txtBxName.Text = reader.GetValue(0).ToString();
-                        txtBxAccountNumber.Text = reader.GetValue(1).ToString();
-                        txtBxEmailAddress.Text = reader.GetValue(2).ToString();
-                        txtBxBankName.Text = reader.GetValue(3).ToString();
-
-                    }
-
+                    reader.Close();
                 }
             }
         }
+
+
+
+        private void getRecipientBalanceBeforeAddition()
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False");
+            try
+            {
+                SqlCommand cmd = new SqlCommand(@"SELECT balance FROM AccountsBalance WHERE account_number = @account_number", con);
+                cmd.Parameters.AddWithValue("@account_number", RecipientAccountNumber);
+                con.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        RecipientBalance = reader.GetDouble(reader.GetOrdinal("balance"));
+                    }
+                }
+
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Transfer Success! Note: Recipient is not from Trustbank, please contact the recipient's bank for inquiries.");
+            }
+        }
+
 
         private void UpdateRecipientBalance()
         {
             using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-8SM50HF\\SQLEXPRESS;Initial Catalog=AccountsDB;Integrated Security=True;Encrypt=False"))
             {
-                using (SqlCommand cmd = new SqlCommand(@"SELECT name, account_number, email_address, bank_name FROM EnrolledContacts WHERE owner_id = @id AND contact_id = @contact_id", connection))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@contact_id", EditInputContactID);
-                    connection.Open();
-
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
+                    using (SqlCommand cmd = new SqlCommand(@"UPDATE AccountsBalance SET balance = @balance WHERE account_number = @account_number", connection))
                     {
-                        txtBxName.Text = reader.GetValue(0).ToString();
-                        txtBxAccountNumber.Text = reader.GetValue(1).ToString();
-                        txtBxEmailAddress.Text = reader.GetValue(2).ToString();
-                        txtBxBankName.Text = reader.GetValue(3).ToString();
+                        cmd.Parameters.AddWithValue("@account_number", RecipientAccountNumber);
+                        cmd.Parameters.AddWithValue("@balance", (RecipientBalance + Amount));
+                        connection.Open();
 
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        reader.Close();
                     }
-
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Transfer Success! Note: Recipient is not from Trustbank, please contact the recipient's bank for inquiries.");
                 }
             }
         }
@@ -198,14 +308,6 @@ namespace Trustbank
 
 
 
-
-
-
-
-
-
-
-    }
 
 
 

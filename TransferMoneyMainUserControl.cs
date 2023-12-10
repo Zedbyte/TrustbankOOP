@@ -264,7 +264,8 @@ namespace Trustbank
                 ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(id, contact_id, completeName, AccountNumber, EmailAddress,
                     Amount, chargeFee, contactName, contactBankName, contactAccountNumber, contactEmailAddress, Purpose);
 
-                MessageBox.Show(id + " " + contact_id + " " + completeName + " " + AccountNumber + " " + Amount + " " + chargeFee + " " + contactName + " " + contactBankName + " " + contactAccountNumber + " " + contactEmailAddress + " " + Purpose);
+                //For debugging
+                //MessageBox.Show(id + " " + contact_id + " " + completeName + " " + AccountNumber + " " + Amount + " " + chargeFee + " " + contactName + " " + contactBankName + " " + contactAccountNumber + " " + contactEmailAddress + " " + Purpose);
 
                 confirmTransferMainUserControl.Show();
 

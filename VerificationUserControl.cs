@@ -310,9 +310,10 @@ namespace Trustbank
                    (
                    [user_id], 
                    [balance]
+                   [account_number]
                    )
                    VALUES
-                   ('" + newAccountID + "', '" + 10000 + "')", con);
+                   ('" + newAccountID + "', '" + 10000 + "', '"  + AccountNumber + "')", con);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();

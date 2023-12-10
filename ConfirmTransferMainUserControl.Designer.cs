@@ -103,13 +103,12 @@
             // 
             // lblPurposePlaceholder
             // 
-            lblPurposePlaceholder.AutoSize = true;
             lblPurposePlaceholder.BackColor = Color.Transparent;
             lblPurposePlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblPurposePlaceholder.ForeColor = Color.Black;
-            lblPurposePlaceholder.Location = new Point(1136, 492);
+            lblPurposePlaceholder.Location = new Point(593, 492);
             lblPurposePlaceholder.Name = "lblPurposePlaceholder";
-            lblPurposePlaceholder.Size = new Size(119, 30);
+            lblPurposePlaceholder.Size = new Size(669, 30);
             lblPurposePlaceholder.TabIndex = 0;
             lblPurposePlaceholder.Text = "placeholder";
             lblPurposePlaceholder.TextAlign = ContentAlignment.MiddleRight;
@@ -136,13 +135,12 @@
             // 
             // lblRecipientEmailAddress
             // 
-            lblRecipientEmailAddress.AutoSize = true;
             lblRecipientEmailAddress.BackColor = Color.Transparent;
             lblRecipientEmailAddress.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblRecipientEmailAddress.ForeColor = Color.Black;
-            lblRecipientEmailAddress.Location = new Point(1136, 433);
+            lblRecipientEmailAddress.Location = new Point(593, 433);
             lblRecipientEmailAddress.Name = "lblRecipientEmailAddress";
-            lblRecipientEmailAddress.Size = new Size(119, 30);
+            lblRecipientEmailAddress.Size = new Size(669, 30);
             lblRecipientEmailAddress.TabIndex = 0;
             lblRecipientEmailAddress.Text = "placeholder";
             lblRecipientEmailAddress.TextAlign = ContentAlignment.MiddleRight;
@@ -161,13 +159,12 @@
             // 
             // lblRecipientAccountNumber
             // 
-            lblRecipientAccountNumber.AutoSize = true;
             lblRecipientAccountNumber.BackColor = Color.Transparent;
             lblRecipientAccountNumber.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblRecipientAccountNumber.ForeColor = Color.Black;
-            lblRecipientAccountNumber.Location = new Point(1136, 390);
+            lblRecipientAccountNumber.Location = new Point(593, 390);
             lblRecipientAccountNumber.Name = "lblRecipientAccountNumber";
-            lblRecipientAccountNumber.Size = new Size(119, 30);
+            lblRecipientAccountNumber.Size = new Size(669, 30);
             lblRecipientAccountNumber.TabIndex = 0;
             lblRecipientAccountNumber.Text = "placeholder";
             lblRecipientAccountNumber.TextAlign = ContentAlignment.MiddleRight;
@@ -186,26 +183,24 @@
             // 
             // lblRecipientBankPlaceholder
             // 
-            lblRecipientBankPlaceholder.AutoSize = true;
             lblRecipientBankPlaceholder.BackColor = Color.Transparent;
             lblRecipientBankPlaceholder.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblRecipientBankPlaceholder.ForeColor = Color.Black;
-            lblRecipientBankPlaceholder.Location = new Point(1136, 347);
+            lblRecipientBankPlaceholder.Location = new Point(593, 347);
             lblRecipientBankPlaceholder.Name = "lblRecipientBankPlaceholder";
-            lblRecipientBankPlaceholder.Size = new Size(100, 25);
+            lblRecipientBankPlaceholder.Size = new Size(669, 25);
             lblRecipientBankPlaceholder.TabIndex = 0;
             lblRecipientBankPlaceholder.Text = "placeholder";
             lblRecipientBankPlaceholder.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblRecipientNamePlaceholder
             // 
-            lblRecipientNamePlaceholder.AutoSize = true;
             lblRecipientNamePlaceholder.BackColor = Color.Transparent;
             lblRecipientNamePlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblRecipientNamePlaceholder.ForeColor = Color.Black;
-            lblRecipientNamePlaceholder.Location = new Point(1136, 317);
+            lblRecipientNamePlaceholder.Location = new Point(593, 317);
             lblRecipientNamePlaceholder.Name = "lblRecipientNamePlaceholder";
-            lblRecipientNamePlaceholder.Size = new Size(119, 30);
+            lblRecipientNamePlaceholder.Size = new Size(669, 30);
             lblRecipientNamePlaceholder.TabIndex = 0;
             lblRecipientNamePlaceholder.Text = "placeholder";
             lblRecipientNamePlaceholder.TextAlign = ContentAlignment.MiddleRight;
@@ -244,26 +239,24 @@
             // 
             // lblChargeFee
             // 
-            lblChargeFee.AutoSize = true;
             lblChargeFee.BackColor = Color.Transparent;
             lblChargeFee.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblChargeFee.ForeColor = Color.Black;
-            lblChargeFee.Location = new Point(1136, 259);
+            lblChargeFee.Location = new Point(593, 259);
             lblChargeFee.Name = "lblChargeFee";
-            lblChargeFee.Size = new Size(119, 30);
+            lblChargeFee.Size = new Size(669, 30);
             lblChargeFee.TabIndex = 0;
             lblChargeFee.Text = "placeholder";
             lblChargeFee.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblAmountPlaceholder
             // 
-            lblAmountPlaceholder.AutoSize = true;
             lblAmountPlaceholder.BackColor = Color.Transparent;
             lblAmountPlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblAmountPlaceholder.ForeColor = Color.Black;
-            lblAmountPlaceholder.Location = new Point(1136, 225);
+            lblAmountPlaceholder.Location = new Point(593, 225);
             lblAmountPlaceholder.Name = "lblAmountPlaceholder";
-            lblAmountPlaceholder.Size = new Size(119, 30);
+            lblAmountPlaceholder.Size = new Size(669, 30);
             lblAmountPlaceholder.TabIndex = 0;
             lblAmountPlaceholder.Text = "placeholder";
             lblAmountPlaceholder.TextAlign = ContentAlignment.MiddleRight;
@@ -290,26 +283,24 @@
             // 
             // lblAccountNumberPlaceholder
             // 
-            lblAccountNumberPlaceholder.AutoSize = true;
             lblAccountNumberPlaceholder.BackColor = Color.Transparent;
             lblAccountNumberPlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblAccountNumberPlaceholder.ForeColor = Color.Black;
-            lblAccountNumberPlaceholder.Location = new Point(1136, 178);
+            lblAccountNumberPlaceholder.Location = new Point(593, 178);
             lblAccountNumberPlaceholder.Name = "lblAccountNumberPlaceholder";
-            lblAccountNumberPlaceholder.Size = new Size(119, 30);
+            lblAccountNumberPlaceholder.Size = new Size(669, 30);
             lblAccountNumberPlaceholder.TabIndex = 0;
             lblAccountNumberPlaceholder.Text = "placeholder";
             lblAccountNumberPlaceholder.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblNamePlaceholder
             // 
-            lblNamePlaceholder.AutoSize = true;
             lblNamePlaceholder.BackColor = Color.Transparent;
             lblNamePlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblNamePlaceholder.ForeColor = Color.Black;
-            lblNamePlaceholder.Location = new Point(1136, 144);
+            lblNamePlaceholder.Location = new Point(593, 144);
             lblNamePlaceholder.Name = "lblNamePlaceholder";
-            lblNamePlaceholder.Size = new Size(119, 30);
+            lblNamePlaceholder.Size = new Size(669, 30);
             lblNamePlaceholder.TabIndex = 0;
             lblNamePlaceholder.Text = "placeholder";
             lblNamePlaceholder.TextAlign = ContentAlignment.MiddleRight;
