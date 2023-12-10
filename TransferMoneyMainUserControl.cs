@@ -19,38 +19,38 @@ namespace Trustbank
 
         string? id { get; set; }
 
-        double Amount {  get; set; }
+        double Amount { get; set; }
 
-        string? Purpose {  get; set; }
-
-
-        
+        string? Purpose { get; set; }
 
 
 
 
-        string? FirstName {  get; set; }
+
+
+
+        string? FirstName { get; set; }
 
         string? MiddleName { get; set; }
 
         string? LastName { get; set; }
 
-        string? AccountNumber {  get; set; }
+        string? AccountNumber { get; set; }
 
 
-        int contact_id { get; set; }
+        string contact_id { get; set; }
 
 
 
         string? contactName { get; set; }
 
-        string? contactAccountNumber {  get; set; }
+        string? contactAccountNumber { get; set; }
 
-        string? contactEmailAddress {  get; set; }
+        string? contactEmailAddress { get; set; }
 
         string? contactBankName { get; set; }
 
-        public TransferMoneyMainUserControl(Panel parentContainerPanel, string id, double amount, string purpose, int contact_id)
+        public TransferMoneyMainUserControl(Panel parentContainerPanel, string id, double amount, string purpose, string contact_id)
         {
             InitializeComponent();
 
@@ -63,9 +63,9 @@ namespace Trustbank
             this.Purpose = purpose;
 
             //There are callers to this class that sets the contact_id to 0 only SelectContactUC can give this variable a value 
-            if (contact_id > 0)
+            if (contact_id != "")
             {
-                //Set the contact_id give nby SelectContactUC
+                //Set the contact_id given by SelectContactUC
                 this.contact_id = contact_id;
                 //Query
                 getContactID();
@@ -74,7 +74,7 @@ namespace Trustbank
 
             }
 
-            
+
             setAmountAndPurposeLabel();
 
             //Initialize the variables
@@ -146,10 +146,10 @@ namespace Trustbank
                         {
                             if (reader.Read())
                             {
-                                
+
                                 FirstName = reader.GetString(reader.GetOrdinal("FirstName"));
                                 MiddleName = reader.GetString(reader.GetOrdinal("MiddleName"));
-                                LastName = reader.GetString(reader.GetOrdinal("LastName"));   
+                                LastName = reader.GetString(reader.GetOrdinal("LastName"));
                                 AccountNumber = reader.GetString(reader.GetOrdinal("AccountNumber"));
                             }
                         }
@@ -229,6 +229,61 @@ namespace Trustbank
         private void repaintParentPanel()
         {
             parentContainerPanel.Refresh();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            //If the previous instance has no amount and purpose, get the current instance's amount and purpose.
+            //If the previous has amount and purpose, it doesn't matter since the textbox will have their text and will be assigned here again (the first assignment is in the constructor).
+            Amount = Convert.ToDouble(txtBxAmount.Text);
+            Purpose = txtBxPurpose.Text;
+
+            if (((Amount > 0 && Purpose != "" && FirstName != "" && MiddleName != "" && LastName != "" &&
+                AccountNumber != "" && contact_id != "" && contactName != "" && contactAccountNumber != "" && contactEmailAddress != "" && contactBankName != "")) && (metroRBtnInstaPay.Checked || metroRBtnPesonet.Checked))
+            {
+
+                string completeName = FirstName + " " + MiddleName + " " + LastName;
+                double chargeFee = 0;
+
+                if (metroRBtnInstaPay.Checked)
+                {
+                    chargeFee = 25.00;
+                }
+                else
+                {
+                    chargeFee = 50.00;
+                }
+
+                removePanel(this);
+
+                repaintParentPanel();
+
+                ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(id, contact_id, completeName, AccountNumber,
+                    Amount, chargeFee, contactName, contactBankName, contactAccountNumber, contactEmailAddress, Purpose);
+
+                MessageBox.Show(id + " " + contact_id + " " + completeName + " " + AccountNumber + " " + Amount + " " + chargeFee + " " + contactName + " " + contactBankName + " " + contactAccountNumber + " " + contactEmailAddress + " " + Purpose);
+
+                confirmTransferMainUserControl.Show();
+
+                parentContainerPanel.Controls.Add(confirmTransferMainUserControl);
+
+
+                this.Dispose();
+            }
+            else
+            {       
+                //Debugging purposes
+                //MessageBox.Show(id + " " + contact_id + " " + FirstName + " " + AccountNumber + " " + Amount + " " + " " + contactName + " " + contactBankName + " " + contactAccountNumber + " " + contactEmailAddress + " " + Purpose);
+                MessageBox.Show("There is an invalid data");
+            }
+        }
+
+        private void txtBxAmount_Click(object sender, EventArgs e)
+        {
+            if (txtBxAmount.Text == "0")
+            {
+                txtBxAmount.Text = "";
+            }
         }
     }
 }

@@ -56,12 +56,12 @@
             label13 = new Label();
             label15 = new Label();
             recipientPanel = new Panel();
+            lblRecipientAccountNumberPlaceholder = new Label();
+            lblRecipientNamePlaceholder = new Label();
+            label18 = new Label();
             btnSelectRecipients = new FontAwesome.Sharp.IconButton();
             label16 = new Label();
             transferMoneyPanel = new Panel();
-            lblRecipientAccountNumberPlaceholder = new Label();
-            label18 = new Label();
-            lblRecipientNamePlaceholder = new Label();
             fromPanel.SuspendLayout();
             purposePanel.SuspendLayout();
             amountPanel.SuspendLayout();
@@ -107,9 +107,8 @@
             lblAccountNumPlaceholder.ForeColor = Color.FromArgb(149, 149, 149);
             lblAccountNumPlaceholder.Location = new Point(186, 47);
             lblAccountNumPlaceholder.Name = "lblAccountNumPlaceholder";
-            lblAccountNumPlaceholder.Size = new Size(164, 25);
+            lblAccountNumPlaceholder.Size = new Size(0, 25);
             lblAccountNumPlaceholder.TabIndex = 0;
-            lblAccountNumPlaceholder.Text = "ACCOUNT NUMBER";
             // 
             // label14
             // 
@@ -128,9 +127,8 @@
             lblNamePlaceholder.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblNamePlaceholder.Location = new Point(15, 11);
             lblNamePlaceholder.Name = "lblNamePlaceholder";
-            lblNamePlaceholder.Size = new Size(132, 33);
+            lblNamePlaceholder.Size = new Size(0, 33);
             lblNamePlaceholder.TabIndex = 0;
-            lblNamePlaceholder.Text = "placeholder";
             // 
             // txtBxPurpose
             // 
@@ -157,6 +155,7 @@
             btnNext.TabIndex = 7;
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += btnNext_Click;
             // 
             // label3
             // 
@@ -270,7 +269,7 @@
             label9.Name = "label9";
             label9.Size = new Size(171, 50);
             label9.TabIndex = 0;
-            label9.Text = "✓ PHP 25.00 fee per \r\n    transaction";
+            label9.Text = "✓ PHP 50.00 fee per \r\n    transaction";
             // 
             // label10
             // 
@@ -279,9 +278,9 @@
             label10.ForeColor = Color.FromArgb(217, 217, 217);
             label10.Location = new Point(1123, 362);
             label10.Name = "label10";
-            label10.Size = new Size(182, 50);
+            label10.Size = new Size(191, 50);
             label10.TabIndex = 0;
-            label10.Text = "✓ PHP 50,000.00 only \r\n    transaction limit";
+            label10.Text = "✓ PHP 200,000.00 only \r\n    transaction limit";
             // 
             // label11
             // 
@@ -290,9 +289,9 @@
             label11.ForeColor = Color.FromArgb(217, 217, 217);
             label11.Location = new Point(1123, 325);
             label11.Name = "label11";
-            label11.Size = new Size(168, 25);
+            label11.Size = new Size(171, 25);
             label11.TabIndex = 0;
-            label11.Text = "✓ Real time transfer ";
+            label11.Text = "✓ Same day transfer ";
             // 
             // label12
             // 
@@ -337,25 +336,26 @@
             comboBox1.BackColor = Color.FromArgb(241, 241, 241);
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.Font = new Font("Gothic A1", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            comboBox1.Font = new Font("Gothic A1", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "PHP" });
-            comboBox1.Location = new Point(3, 15);
+            comboBox1.Location = new Point(3, 16);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(104, 63);
+            comboBox1.Size = new Size(104, 54);
             comboBox1.TabIndex = 1;
             // 
             // txtBxAmount
             // 
             txtBxAmount.BackColor = Color.FromArgb(241, 241, 241);
             txtBxAmount.BorderStyle = BorderStyle.None;
-            txtBxAmount.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxAmount.Location = new Point(137, 26);
+            txtBxAmount.Font = new Font("Gothic A1", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxAmount.Location = new Point(137, 15);
             txtBxAmount.Multiline = true;
             txtBxAmount.Name = "txtBxAmount";
             txtBxAmount.PlaceholderText = "Amount";
-            txtBxAmount.Size = new Size(451, 37);
+            txtBxAmount.Size = new Size(451, 63);
             txtBxAmount.TabIndex = 2;
+            txtBxAmount.Click += txtBxAmount_Click;
             // 
             // label13
             // 
@@ -387,6 +387,36 @@
             recipientPanel.Name = "recipientPanel";
             recipientPanel.Size = new Size(475, 93);
             recipientPanel.TabIndex = 0;
+            // 
+            // lblRecipientAccountNumberPlaceholder
+            // 
+            lblRecipientAccountNumberPlaceholder.AutoSize = true;
+            lblRecipientAccountNumberPlaceholder.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblRecipientAccountNumberPlaceholder.ForeColor = Color.FromArgb(149, 149, 149);
+            lblRecipientAccountNumberPlaceholder.Location = new Point(186, 51);
+            lblRecipientAccountNumberPlaceholder.Name = "lblRecipientAccountNumberPlaceholder";
+            lblRecipientAccountNumberPlaceholder.Size = new Size(0, 25);
+            lblRecipientAccountNumberPlaceholder.TabIndex = 1;
+            // 
+            // lblRecipientNamePlaceholder
+            // 
+            lblRecipientNamePlaceholder.AutoSize = true;
+            lblRecipientNamePlaceholder.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblRecipientNamePlaceholder.Location = new Point(15, 15);
+            lblRecipientNamePlaceholder.Name = "lblRecipientNamePlaceholder";
+            lblRecipientNamePlaceholder.Size = new Size(0, 33);
+            lblRecipientNamePlaceholder.TabIndex = 3;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label18.ForeColor = Color.FromArgb(149, 149, 149);
+            label18.Location = new Point(16, 51);
+            label18.Name = "label18";
+            label18.Size = new Size(164, 25);
+            label18.TabIndex = 2;
+            label18.Text = "ACCOUNT NUMBER";
             // 
             // btnSelectRecipients
             // 
@@ -443,38 +473,6 @@
             transferMoneyPanel.Name = "transferMoneyPanel";
             transferMoneyPanel.Size = new Size(1405, 616);
             transferMoneyPanel.TabIndex = 18;
-            // 
-            // lblRecipientAccountNumberPlaceholder
-            // 
-            lblRecipientAccountNumberPlaceholder.AutoSize = true;
-            lblRecipientAccountNumberPlaceholder.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblRecipientAccountNumberPlaceholder.ForeColor = Color.FromArgb(149, 149, 149);
-            lblRecipientAccountNumberPlaceholder.Location = new Point(186, 51);
-            lblRecipientAccountNumberPlaceholder.Name = "lblRecipientAccountNumberPlaceholder";
-            lblRecipientAccountNumberPlaceholder.Size = new Size(164, 25);
-            lblRecipientAccountNumberPlaceholder.TabIndex = 1;
-            lblRecipientAccountNumberPlaceholder.Text = "ACCOUNT NUMBER";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.ForeColor = Color.FromArgb(149, 149, 149);
-            label18.Location = new Point(16, 51);
-            label18.Name = "label18";
-            label18.Size = new Size(164, 25);
-            label18.TabIndex = 2;
-            label18.Text = "ACCOUNT NUMBER";
-            // 
-            // lblRecipientNamePlaceholder
-            // 
-            lblRecipientNamePlaceholder.AutoSize = true;
-            lblRecipientNamePlaceholder.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblRecipientNamePlaceholder.Location = new Point(15, 15);
-            lblRecipientNamePlaceholder.Name = "lblRecipientNamePlaceholder";
-            lblRecipientNamePlaceholder.Size = new Size(132, 33);
-            lblRecipientNamePlaceholder.TabIndex = 3;
-            lblRecipientNamePlaceholder.Text = "placeholder";
             // 
             // TransferMoneyMainUserControl
             // 

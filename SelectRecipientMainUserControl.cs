@@ -18,6 +18,7 @@ namespace Trustbank
 
         TransferMoneyMainUserControl transferMoneyMainUserControl;
 
+        bool permit = false;
 
         string? contactName { get; set; }
 
@@ -32,7 +33,7 @@ namespace Trustbank
 
         string? id { get; set; }
 
-        public int selectedContactID {  get; set; }
+        public string? selectedContactID {  get; set; }
 
         public string? selectedContactName {  get; set; }
         public string? selectedContactAccountNumber { get; set; }
@@ -91,13 +92,13 @@ namespace Trustbank
                 //This essentially highlights/selects the entire row in the grid view.
                 selectContactGrid.CurrentRow.Selected = true;
 
-                selectedContactID = Convert.ToInt32(selectContactGrid.Rows[e.RowIndex].Cells["Contact ID"].FormattedValue);
+                selectedContactID = selectContactGrid.Rows[e.RowIndex].Cells["Contact ID"].FormattedValue.ToString();
                 selectedContactName = selectContactGrid.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
                 selectedContactAccountNumber = selectContactGrid.Rows[e.RowIndex].Cells["Account Number"].FormattedValue.ToString();
                 selectedContactEmailAddress = selectContactGrid.Rows[e.RowIndex].Cells["Email Address"].FormattedValue.ToString();
                 selectedContactBankName = selectContactGrid.Rows[e.RowIndex].Cells["Bank Name"].FormattedValue.ToString();
 
-               
+                permit = true;
             }
 
 
@@ -105,23 +106,30 @@ namespace Trustbank
 
         private void btnSelectTheHighlightedRecipient_Click(object sender, EventArgs e)
         {
-            //Remove this panel after a cell is clicked (a contact is selected)
-            removePanel(this);
+            if (permit)
+            {
+                //Remove this panel after a cell is clicked (a contact is selected)
+                removePanel(this);
 
-            //Dispose this panel
-            this.Dispose();
+                //Dispose this panel
+                this.Dispose();
 
-            //New instance of transferMoney that has the previous Amount and Purpose (if filled out previously) and the selectedContactID from this panel
-            TransferMoneyMainUserControl transferMoneyMainUser = new TransferMoneyMainUserControl(parentContainerPanel, id, Amount, Purpose, selectedContactID);
+                //New instance of transferMoney that has the previous Amount and Purpose (if filled out previously) and the selectedContactID from this panel
+                TransferMoneyMainUserControl transferMoneyMainUser = new TransferMoneyMainUserControl(parentContainerPanel, id, Amount, Purpose, selectedContactID);
 
-            //Add the hidden previous panel
-            parentContainerPanel.Controls.Add(transferMoneyMainUser);
+                //Add the hidden previous panel
+                parentContainerPanel.Controls.Add(transferMoneyMainUser);
 
-            //Show it
-            transferMoneyMainUser.Show();
+                //Show it
+                transferMoneyMainUser.Show();
 
-            //Repaint it
-            repaintParentPanel();
+                //Repaint it
+                repaintParentPanel();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.");
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

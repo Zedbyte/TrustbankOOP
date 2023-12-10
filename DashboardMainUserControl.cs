@@ -109,7 +109,7 @@ namespace Trustbank
             removePanel(this);
             repaintParentPanel();
 
-            TransferMoneyMainUserControl transferMoneyMainUserControl = new TransferMoneyMainUserControl(parentContainerPanel, id, 0, "", 0);
+            TransferMoneyMainUserControl transferMoneyMainUserControl = new TransferMoneyMainUserControl(parentContainerPanel, id, 0, "", "");
             transferMoneyMainUserControl.Show();
             parentContainerPanel.Controls.Add(transferMoneyMainUserControl);
 
