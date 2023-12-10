@@ -103,5 +103,17 @@ namespace Trustbank
 
             this.Dispose();
         }
+
+        private void btnTransferMoney_Click(object sender, EventArgs e)
+        {
+            removePanel(this);
+            repaintParentPanel();
+
+            TransferMoneyMainUserControl transferMoneyMainUserControl = new TransferMoneyMainUserControl(id);
+            transferMoneyMainUserControl.Show();
+            parentContainerPanel.Controls.Add(transferMoneyMainUserControl);
+
+            this.Dispose();
+        }
     }
 }

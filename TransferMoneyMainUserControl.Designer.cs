@@ -32,8 +32,7 @@
             label2 = new Label();
             fromPanel = new Panel();
             txtBxPurpose = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            btnNext = new Button();
             label3 = new Label();
             metroRBtnInstaPay = new ReaLTaiizor.Controls.MetroRadioButton();
             metroRBtnPesonet = new ReaLTaiizor.Controls.MetroRadioButton();
@@ -50,8 +49,19 @@
             amountPanel = new Panel();
             txtBxAmount = new TextBox();
             label13 = new Label();
+            lblNamePlaceholder = new Label();
+            label14 = new Label();
+            lblAccountNumPlaceholder = new Label();
+            comboBox1 = new ComboBox();
+            PANELLINEONLY = new Panel();
+            label15 = new Label();
+            recipientPanel = new Panel();
+            txtRecipient = new TextBox();
+            btnSelectRecipients = new FontAwesome.Sharp.IconButton();
+            fromPanel.SuspendLayout();
             purposePanel.SuspendLayout();
             amountPanel.SuspendLayout();
+            recipientPanel.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -77,6 +87,9 @@
             // fromPanel
             // 
             fromPanel.BackColor = Color.FromArgb(241, 241, 241);
+            fromPanel.Controls.Add(lblAccountNumPlaceholder);
+            fromPanel.Controls.Add(label14);
+            fromPanel.Controls.Add(lblNamePlaceholder);
             fromPanel.Location = new Point(62, 112);
             fromPanel.Name = "fromPanel";
             fromPanel.Size = new Size(600, 93);
@@ -87,30 +100,26 @@
             txtBxPurpose.BackColor = Color.FromArgb(241, 241, 241);
             txtBxPurpose.BorderStyle = BorderStyle.None;
             txtBxPurpose.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxPurpose.Location = new Point(3, 26);
+            txtBxPurpose.Location = new Point(20, 26);
             txtBxPurpose.Multiline = true;
             txtBxPurpose.Name = "txtBxPurpose";
             txtBxPurpose.PlaceholderText = "Purpose";
-            txtBxPurpose.Size = new Size(594, 37);
-            txtBxPurpose.TabIndex = 3;
+            txtBxPurpose.Size = new Size(567, 37);
+            txtBxPurpose.TabIndex = 4;
             // 
-            // button1
+            // btnNext
             // 
-            button1.Location = new Point(62, 469);
-            button1.Name = "button1";
-            button1.Size = new Size(600, 93);
-            button1.TabIndex = 4;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(730, 491);
-            button2.Name = "button2";
-            button2.Size = new Size(600, 71);
-            button2.TabIndex = 7;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnNext.BackColor = Color.FromArgb(0, 26, 136);
+            btnNext.FlatAppearance.BorderSize = 0;
+            btnNext.FlatStyle = FlatStyle.Flat;
+            btnNext.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNext.ForeColor = Color.White;
+            btnNext.Location = new Point(730, 491);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(600, 71);
+            btnNext.TabIndex = 7;
+            btnNext.Text = "Next";
+            btnNext.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -119,7 +128,7 @@
             label3.Location = new Point(730, 239);
             label3.Name = "label3";
             label3.Size = new Size(141, 25);
-            label3.TabIndex = 7;
+            label3.TabIndex = 0;
             label3.Text = "Transfer Service:";
             // 
             // metroRBtnInstaPay
@@ -169,7 +178,7 @@
             label4.Location = new Point(773, 285);
             label4.Name = "label4";
             label4.Size = new Size(77, 25);
-            label4.TabIndex = 10;
+            label4.TabIndex = 0;
             label4.Text = "InstaPay";
             // 
             // label5
@@ -179,7 +188,7 @@
             label5.Location = new Point(1118, 285);
             label5.Name = "label5";
             label5.Size = new Size(82, 25);
-            label5.TabIndex = 11;
+            label5.TabIndex = 0;
             label5.Text = "PESONet";
             // 
             // label6
@@ -265,28 +274,30 @@
             purposePanel.Location = new Point(730, 112);
             purposePanel.Name = "purposePanel";
             purposePanel.Size = new Size(600, 93);
-            purposePanel.TabIndex = 13;
+            purposePanel.TabIndex = 0;
             // 
             // amountPanel
             // 
             amountPanel.BackColor = Color.FromArgb(241, 241, 241);
+            amountPanel.Controls.Add(PANELLINEONLY);
+            amountPanel.Controls.Add(comboBox1);
             amountPanel.Controls.Add(txtBxAmount);
             amountPanel.Location = new Point(62, 289);
             amountPanel.Name = "amountPanel";
             amountPanel.Size = new Size(600, 93);
-            amountPanel.TabIndex = 14;
+            amountPanel.TabIndex = 0;
             // 
             // txtBxAmount
             // 
             txtBxAmount.BackColor = Color.FromArgb(241, 241, 241);
             txtBxAmount.BorderStyle = BorderStyle.None;
             txtBxAmount.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxAmount.Location = new Point(85, 26);
+            txtBxAmount.Location = new Point(137, 26);
             txtBxAmount.Multiline = true;
             txtBxAmount.Name = "txtBxAmount";
             txtBxAmount.PlaceholderText = "Amount";
-            txtBxAmount.Size = new Size(512, 37);
-            txtBxAmount.TabIndex = 3;
+            txtBxAmount.Size = new Size(451, 37);
+            txtBxAmount.TabIndex = 2;
             // 
             // label13
             // 
@@ -298,11 +309,112 @@
             label13.TabIndex = 15;
             label13.Text = "Amount:";
             // 
+            // lblNamePlaceholder
+            // 
+            lblNamePlaceholder.AutoSize = true;
+            lblNamePlaceholder.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNamePlaceholder.Location = new Point(15, 11);
+            lblNamePlaceholder.Name = "lblNamePlaceholder";
+            lblNamePlaceholder.Size = new Size(132, 33);
+            lblNamePlaceholder.TabIndex = 0;
+            lblNamePlaceholder.Text = "placeholder";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label14.ForeColor = Color.FromArgb(149, 149, 149);
+            label14.Location = new Point(16, 47);
+            label14.Name = "label14";
+            label14.Size = new Size(164, 25);
+            label14.TabIndex = 0;
+            label14.Text = "ACCOUNT NUMBER";
+            // 
+            // lblAccountNumPlaceholder
+            // 
+            lblAccountNumPlaceholder.AutoSize = true;
+            lblAccountNumPlaceholder.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAccountNumPlaceholder.ForeColor = Color.FromArgb(149, 149, 149);
+            lblAccountNumPlaceholder.Location = new Point(186, 47);
+            lblAccountNumPlaceholder.Name = "lblAccountNumPlaceholder";
+            lblAccountNumPlaceholder.Size = new Size(164, 25);
+            lblAccountNumPlaceholder.TabIndex = 0;
+            lblAccountNumPlaceholder.Text = "ACCOUNT NUMBER";
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.FromArgb(241, 241, 241);
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.Font = new Font("Gothic A1", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "PHP" });
+            comboBox1.Location = new Point(16, 15);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(71, 63);
+            comboBox1.TabIndex = 1;
+            // 
+            // PANELLINEONLY
+            // 
+            PANELLINEONLY.BackColor = Color.FromArgb(149, 149, 149);
+            PANELLINEONLY.Location = new Point(113, 6);
+            PANELLINEONLY.Name = "PANELLINEONLY";
+            PANELLINEONLY.Size = new Size(1, 80);
+            PANELLINEONLY.TabIndex = 5;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(62, 441);
+            label15.Name = "label15";
+            label15.Size = new Size(36, 25);
+            label15.TabIndex = 16;
+            label15.Text = "To:";
+            // 
+            // recipientPanel
+            // 
+            recipientPanel.BackColor = Color.FromArgb(241, 241, 241);
+            recipientPanel.Controls.Add(txtRecipient);
+            recipientPanel.Location = new Point(62, 469);
+            recipientPanel.Name = "recipientPanel";
+            recipientPanel.Size = new Size(475, 93);
+            recipientPanel.TabIndex = 0;
+            // 
+            // txtRecipient
+            // 
+            txtRecipient.BackColor = Color.FromArgb(241, 241, 241);
+            txtRecipient.BorderStyle = BorderStyle.None;
+            txtRecipient.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtRecipient.Location = new Point(20, 26);
+            txtRecipient.Multiline = true;
+            txtRecipient.Name = "txtRecipient";
+            txtRecipient.PlaceholderText = "Select Recipient";
+            txtRecipient.Size = new Size(448, 37);
+            txtRecipient.TabIndex = 0;
+            // 
+            // btnSelectRecipients
+            // 
+            btnSelectRecipients.BackColor = Color.FromArgb(241, 241, 241);
+            btnSelectRecipients.FlatAppearance.BorderSize = 0;
+            btnSelectRecipients.FlatStyle = FlatStyle.Flat;
+            btnSelectRecipients.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            btnSelectRecipients.IconColor = Color.FromArgb(149, 149, 149);
+            btnSelectRecipients.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSelectRecipients.Location = new Point(536, 469);
+            btnSelectRecipients.Name = "btnSelectRecipients";
+            btnSelectRecipients.Size = new Size(126, 93);
+            btnSelectRecipients.TabIndex = 3;
+            btnSelectRecipients.UseVisualStyleBackColor = false;
+            // 
             // TransferMoneyMainUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(btnSelectRecipients);
+            Controls.Add(recipientPanel);
+            Controls.Add(label15);
             Controls.Add(label13);
             Controls.Add(amountPanel);
             Controls.Add(purposePanel);
@@ -318,17 +430,20 @@
             Controls.Add(metroRBtnPesonet);
             Controls.Add(metroRBtnInstaPay);
             Controls.Add(label3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnNext);
             Controls.Add(fromPanel);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "TransferMoneyMainUserControl";
             Size = new Size(1405, 616);
+            fromPanel.ResumeLayout(false);
+            fromPanel.PerformLayout();
             purposePanel.ResumeLayout(false);
             purposePanel.PerformLayout();
             amountPanel.ResumeLayout(false);
             amountPanel.PerformLayout();
+            recipientPanel.ResumeLayout(false);
+            recipientPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -339,8 +454,7 @@
         private Label label2;
         private Panel fromPanel;
         private TextBox txtBxPurpose;
-        private Button button1;
-        private Button button2;
+        private Button btnNext;
         private Label label3;
         private ReaLTaiizor.Controls.MetroRadioButton metroRBtnInstaPay;
         private ReaLTaiizor.Controls.MetroRadioButton metroRBtnPesonet;
@@ -357,5 +471,14 @@
         private Panel amountPanel;
         private TextBox txtBxAmount;
         private Label label13;
+        private Label lblNamePlaceholder;
+        private Label lblAccountNumPlaceholder;
+        private Label label14;
+        private ComboBox comboBox1;
+        private Panel PANELLINEONLY;
+        private Label label15;
+        private Panel recipientPanel;
+        private TextBox txtRecipient;
+        private FontAwesome.Sharp.IconButton btnSelectRecipients;
     }
 }

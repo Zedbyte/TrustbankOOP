@@ -12,9 +12,13 @@ namespace Trustbank
 {
     public partial class TransferMoneyMainUserControl : UserControl
     {
-        public TransferMoneyMainUserControl()
+        string? id {  get; set; }
+
+        public TransferMoneyMainUserControl(string id)
         {
             InitializeComponent();
+
+            this.id = id;
         }
     }
 }

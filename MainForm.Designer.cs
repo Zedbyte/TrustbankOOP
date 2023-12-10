@@ -32,6 +32,16 @@
             mainFormPanel = new Panel();
             slidingPanel = new ReaLTaiizor.Controls.ParrotSlidingPanel();
             parentContainerPanel = new Panel();
+            label5 = new Label();
+            btnLogOutSideBar = new FontAwesome.Sharp.IconButton();
+            btnHelpAndSupport = new FontAwesome.Sharp.IconButton();
+            btnSettingsSideBar = new FontAwesome.Sharp.IconButton();
+            btnConversionRate = new FontAwesome.Sharp.IconButton();
+            label4 = new Label();
+            btnTransferMoney = new FontAwesome.Sharp.IconButton();
+            btnShowHistory = new FontAwesome.Sharp.IconButton();
+            label3 = new Label();
+            btnBillsPayment = new FontAwesome.Sharp.IconButton();
             btnEnrolledContacts = new FontAwesome.Sharp.IconButton();
             btnSidePanelClose = new FontAwesome.Sharp.IconButton();
             label2 = new Label();
@@ -43,17 +53,16 @@
             TRUSTBANKLOGOONLY = new PictureBox();
             headerContainerPanel = new Panel();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
+            trustBankHeaderLogo = new PictureBox();
             lblTrustbankTitle = new Label();
             btnLogOut = new FontAwesome.Sharp.IconButton();
             btnHamburger = new FontAwesome.Sharp.IconButton();
-            btnSettings = new FontAwesome.Sharp.IconButton();
             mainFormPanel.SuspendLayout();
             slidingPanel.SuspendLayout();
             HEADERPANEL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGOONLY).BeginInit();
             headerContainerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trustBankHeaderLogo).BeginInit();
             SuspendLayout();
             // 
             // mainFormPanel
@@ -73,6 +82,16 @@
             slidingPanel.CollapseControl = parentContainerPanel;
             slidingPanel.Collapsed = true;
             slidingPanel.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            slidingPanel.Controls.Add(label5);
+            slidingPanel.Controls.Add(btnLogOutSideBar);
+            slidingPanel.Controls.Add(btnHelpAndSupport);
+            slidingPanel.Controls.Add(btnSettingsSideBar);
+            slidingPanel.Controls.Add(btnConversionRate);
+            slidingPanel.Controls.Add(label4);
+            slidingPanel.Controls.Add(btnTransferMoney);
+            slidingPanel.Controls.Add(btnShowHistory);
+            slidingPanel.Controls.Add(label3);
+            slidingPanel.Controls.Add(btnBillsPayment);
             slidingPanel.Controls.Add(btnEnrolledContacts);
             slidingPanel.Controls.Add(btnSidePanelClose);
             slidingPanel.Controls.Add(label2);
@@ -104,10 +123,223 @@
             parentContainerPanel.Size = new Size(1405, 616);
             parentContainerPanel.TabIndex = 3;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.FromArgb(0, 26, 136);
+            label5.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.FromArgb(152, 224, 255);
+            label5.Location = new Point(18, 679);
+            label5.Name = "label5";
+            label5.Size = new Size(91, 25);
+            label5.TabIndex = 16;
+            label5.Text = "ACCOUNT";
+            // 
+            // btnLogOutSideBar
+            // 
+            btnLogOutSideBar.BackColor = Color.FromArgb(0, 26, 136);
+            btnLogOutSideBar.FlatAppearance.BorderSize = 0;
+            btnLogOutSideBar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnLogOutSideBar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnLogOutSideBar.FlatStyle = FlatStyle.Flat;
+            btnLogOutSideBar.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogOutSideBar.ForeColor = Color.White;
+            btnLogOutSideBar.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            btnLogOutSideBar.IconColor = Color.White;
+            btnLogOutSideBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLogOutSideBar.IconSize = 27;
+            btnLogOutSideBar.Location = new Point(2, 707);
+            btnLogOutSideBar.Name = "btnLogOutSideBar";
+            btnLogOutSideBar.Size = new Size(196, 43);
+            btnLogOutSideBar.TabIndex = 15;
+            btnLogOutSideBar.Text = "Log Out";
+            btnLogOutSideBar.TextAlign = ContentAlignment.MiddleLeft;
+            btnLogOutSideBar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLogOutSideBar.UseVisualStyleBackColor = false;
+            btnLogOutSideBar.Click += btnLogOutSideBar_Click;
+            btnLogOutSideBar.MouseEnter += btnLbl_MouseEnter;
+            btnLogOutSideBar.MouseLeave += btnLbl_MouseLeave;
+            // 
+            // btnHelpAndSupport
+            // 
+            btnHelpAndSupport.BackColor = Color.FromArgb(0, 26, 136);
+            btnHelpAndSupport.FlatAppearance.BorderSize = 0;
+            btnHelpAndSupport.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnHelpAndSupport.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnHelpAndSupport.FlatStyle = FlatStyle.Flat;
+            btnHelpAndSupport.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnHelpAndSupport.ForeColor = Color.White;
+            btnHelpAndSupport.IconChar = FontAwesome.Sharp.IconChar.Comments;
+            btnHelpAndSupport.IconColor = Color.White;
+            btnHelpAndSupport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHelpAndSupport.IconSize = 27;
+            btnHelpAndSupport.Location = new Point(18, 632);
+            btnHelpAndSupport.Name = "btnHelpAndSupport";
+            btnHelpAndSupport.Size = new Size(211, 37);
+            btnHelpAndSupport.TabIndex = 14;
+            btnHelpAndSupport.Text = "Help and Support";
+            btnHelpAndSupport.TextAlign = ContentAlignment.MiddleLeft;
+            btnHelpAndSupport.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnHelpAndSupport.UseVisualStyleBackColor = false;
+            btnHelpAndSupport.Click += btnHelpAndSupport_Click;
+            btnHelpAndSupport.MouseEnter += btnLbl_MouseEnter;
+            btnHelpAndSupport.MouseLeave += btnLbl_MouseLeave;
+            // 
+            // btnSettingsSideBar
+            // 
+            btnSettingsSideBar.BackColor = Color.FromArgb(0, 26, 136);
+            btnSettingsSideBar.FlatAppearance.BorderSize = 0;
+            btnSettingsSideBar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnSettingsSideBar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnSettingsSideBar.FlatStyle = FlatStyle.Flat;
+            btnSettingsSideBar.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSettingsSideBar.ForeColor = Color.White;
+            btnSettingsSideBar.IconChar = FontAwesome.Sharp.IconChar.Gears;
+            btnSettingsSideBar.IconColor = Color.White;
+            btnSettingsSideBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSettingsSideBar.IconSize = 27;
+            btnSettingsSideBar.Location = new Point(5, 586);
+            btnSettingsSideBar.Name = "btnSettingsSideBar";
+            btnSettingsSideBar.Size = new Size(182, 40);
+            btnSettingsSideBar.TabIndex = 13;
+            btnSettingsSideBar.Text = "Settings";
+            btnSettingsSideBar.TextAlign = ContentAlignment.MiddleLeft;
+            btnSettingsSideBar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSettingsSideBar.UseVisualStyleBackColor = false;
+            btnSettingsSideBar.Click += btnSettingsSideBar_Click;
+            btnSettingsSideBar.MouseEnter += btnLbl_MouseEnter;
+            btnSettingsSideBar.MouseLeave += btnLbl_MouseLeave;
+            // 
+            // btnConversionRate
+            // 
+            btnConversionRate.BackColor = Color.FromArgb(0, 26, 136);
+            btnConversionRate.FlatAppearance.BorderSize = 0;
+            btnConversionRate.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnConversionRate.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnConversionRate.FlatStyle = FlatStyle.Flat;
+            btnConversionRate.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnConversionRate.ForeColor = Color.White;
+            btnConversionRate.IconChar = FontAwesome.Sharp.IconChar.Coins;
+            btnConversionRate.IconColor = Color.White;
+            btnConversionRate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnConversionRate.IconSize = 27;
+            btnConversionRate.Location = new Point(18, 542);
+            btnConversionRate.Name = "btnConversionRate";
+            btnConversionRate.Size = new Size(211, 35);
+            btnConversionRate.TabIndex = 12;
+            btnConversionRate.Text = "Conversion Rate";
+            btnConversionRate.TextAlign = ContentAlignment.MiddleLeft;
+            btnConversionRate.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnConversionRate.UseVisualStyleBackColor = false;
+            btnConversionRate.Click += btnConversionRate_Click;
+            btnConversionRate.MouseEnter += btnLbl_MouseEnter;
+            btnConversionRate.MouseLeave += btnLbl_MouseLeave;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(0, 26, 136);
+            label4.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.FromArgb(152, 224, 255);
+            label4.Location = new Point(18, 509);
+            label4.Name = "label4";
+            label4.Size = new Size(65, 25);
+            label4.TabIndex = 11;
+            label4.Text = "TOOLS";
+            // 
+            // btnTransferMoney
+            // 
+            btnTransferMoney.BackColor = Color.FromArgb(0, 26, 136);
+            btnTransferMoney.FlatAppearance.BorderSize = 0;
+            btnTransferMoney.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnTransferMoney.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnTransferMoney.FlatStyle = FlatStyle.Flat;
+            btnTransferMoney.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTransferMoney.ForeColor = Color.White;
+            btnTransferMoney.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
+            btnTransferMoney.IconColor = Color.White;
+            btnTransferMoney.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnTransferMoney.IconSize = 27;
+            btnTransferMoney.Location = new Point(18, 465);
+            btnTransferMoney.Name = "btnTransferMoney";
+            btnTransferMoney.Size = new Size(211, 36);
+            btnTransferMoney.TabIndex = 10;
+            btnTransferMoney.Text = "Transfer Money";
+            btnTransferMoney.TextAlign = ContentAlignment.MiddleLeft;
+            btnTransferMoney.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTransferMoney.UseVisualStyleBackColor = false;
+            btnTransferMoney.Click += btnTransferMoney_Click;
+            btnTransferMoney.MouseEnter += btnLbl_MouseEnter;
+            btnTransferMoney.MouseLeave += btnLbl_MouseLeave;
+            // 
+            // btnShowHistory
+            // 
+            btnShowHistory.BackColor = Color.FromArgb(0, 26, 136);
+            btnShowHistory.FlatAppearance.BorderSize = 0;
+            btnShowHistory.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnShowHistory.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnShowHistory.FlatStyle = FlatStyle.Flat;
+            btnShowHistory.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnShowHistory.ForeColor = Color.White;
+            btnShowHistory.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            btnShowHistory.IconColor = Color.White;
+            btnShowHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnShowHistory.IconSize = 27;
+            btnShowHistory.Location = new Point(13, 422);
+            btnShowHistory.Name = "btnShowHistory";
+            btnShowHistory.Size = new Size(211, 33);
+            btnShowHistory.TabIndex = 9;
+            btnShowHistory.Text = "Show History";
+            btnShowHistory.TextAlign = ContentAlignment.MiddleLeft;
+            btnShowHistory.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnShowHistory.UseVisualStyleBackColor = false;
+            btnShowHistory.Click += btnShowHistory_Click;
+            btnShowHistory.MouseEnter += btnLbl_MouseEnter;
+            btnShowHistory.MouseLeave += btnLbl_MouseLeave;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(0, 26, 136);
+            label3.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(152, 224, 255);
+            label3.Location = new Point(18, 387);
+            label3.Name = "label3";
+            label3.Size = new Size(137, 25);
+            label3.TabIndex = 8;
+            label3.Text = "TRANSACTIONS";
+            // 
+            // btnBillsPayment
+            // 
+            btnBillsPayment.BackColor = Color.FromArgb(0, 26, 136);
+            btnBillsPayment.FlatAppearance.BorderSize = 0;
+            btnBillsPayment.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnBillsPayment.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnBillsPayment.FlatStyle = FlatStyle.Flat;
+            btnBillsPayment.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBillsPayment.ForeColor = Color.White;
+            btnBillsPayment.IconChar = FontAwesome.Sharp.IconChar.Scroll;
+            btnBillsPayment.IconColor = Color.White;
+            btnBillsPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBillsPayment.IconSize = 27;
+            btnBillsPayment.Location = new Point(13, 344);
+            btnBillsPayment.Name = "btnBillsPayment";
+            btnBillsPayment.Size = new Size(211, 31);
+            btnBillsPayment.TabIndex = 7;
+            btnBillsPayment.Text = "Bills Payment";
+            btnBillsPayment.TextAlign = ContentAlignment.MiddleLeft;
+            btnBillsPayment.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnBillsPayment.UseVisualStyleBackColor = false;
+            btnBillsPayment.Click += btnBillsPayment_Click;
+            btnBillsPayment.MouseEnter += btnLbl_MouseEnter;
+            btnBillsPayment.MouseLeave += btnLbl_MouseLeave;
+            // 
             // btnEnrolledContacts
             // 
             btnEnrolledContacts.BackColor = Color.FromArgb(0, 26, 136);
             btnEnrolledContacts.FlatAppearance.BorderSize = 0;
+            btnEnrolledContacts.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnEnrolledContacts.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnEnrolledContacts.FlatStyle = FlatStyle.Flat;
             btnEnrolledContacts.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnEnrolledContacts.ForeColor = Color.White;
@@ -115,15 +347,17 @@
             btnEnrolledContacts.IconColor = Color.White;
             btnEnrolledContacts.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEnrolledContacts.IconSize = 27;
-            btnEnrolledContacts.Location = new Point(18, 329);
+            btnEnrolledContacts.Location = new Point(18, 302);
             btnEnrolledContacts.Name = "btnEnrolledContacts";
-            btnEnrolledContacts.Size = new Size(211, 52);
+            btnEnrolledContacts.Size = new Size(211, 36);
             btnEnrolledContacts.TabIndex = 3;
             btnEnrolledContacts.Text = "Enrolled Contacts";
             btnEnrolledContacts.TextAlign = ContentAlignment.MiddleLeft;
             btnEnrolledContacts.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEnrolledContacts.UseVisualStyleBackColor = false;
             btnEnrolledContacts.Click += btnEnrolledContacts_Click;
+            btnEnrolledContacts.MouseEnter += btnLbl_MouseEnter;
+            btnEnrolledContacts.MouseLeave += btnLbl_MouseLeave;
             // 
             // btnSidePanelClose
             // 
@@ -146,7 +380,7 @@
             label2.BackColor = Color.FromArgb(0, 26, 136);
             label2.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(152, 224, 255);
-            label2.Location = new Point(18, 292);
+            label2.Location = new Point(18, 262);
             label2.Name = "label2";
             label2.Size = new Size(107, 25);
             label2.TabIndex = 0;
@@ -156,6 +390,8 @@
             // 
             btnAccounts.BackColor = Color.FromArgb(0, 26, 136);
             btnAccounts.FlatAppearance.BorderSize = 0;
+            btnAccounts.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnAccounts.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnAccounts.FlatStyle = FlatStyle.Flat;
             btnAccounts.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAccounts.ForeColor = Color.White;
@@ -163,20 +399,24 @@
             btnAccounts.IconColor = Color.White;
             btnAccounts.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAccounts.IconSize = 27;
-            btnAccounts.Location = new Point(0, 228);
+            btnAccounts.Location = new Point(0, 220);
             btnAccounts.Name = "btnAccounts";
-            btnAccounts.Size = new Size(195, 52);
+            btnAccounts.Size = new Size(195, 31);
             btnAccounts.TabIndex = 2;
             btnAccounts.Text = "Accounts";
             btnAccounts.TextAlign = ContentAlignment.MiddleLeft;
             btnAccounts.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAccounts.UseVisualStyleBackColor = false;
             btnAccounts.Click += btnAccounts_Click;
+            btnAccounts.MouseEnter += btnLbl_MouseEnter;
+            btnAccounts.MouseLeave += btnLbl_MouseLeave;
             // 
             // btnDashboard
             // 
             btnDashboard.BackColor = Color.FromArgb(0, 26, 136);
             btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnDashboard.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnDashboard.ForeColor = Color.White;
@@ -184,15 +424,17 @@
             btnDashboard.IconColor = Color.White;
             btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDashboard.IconSize = 27;
-            btnDashboard.Location = new Point(3, 183);
+            btnDashboard.Location = new Point(3, 181);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(195, 52);
+            btnDashboard.Size = new Size(195, 31);
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
+            btnDashboard.MouseEnter += btnLbl_MouseEnter;
+            btnDashboard.MouseLeave += btnLbl_MouseLeave;
             // 
             // HEADERPANEL
             // 
@@ -242,7 +484,7 @@
             // headerContainerPanel
             // 
             headerContainerPanel.Controls.Add(label1);
-            headerContainerPanel.Controls.Add(pictureBox1);
+            headerContainerPanel.Controls.Add(trustBankHeaderLogo);
             headerContainerPanel.Controls.Add(lblTrustbankTitle);
             headerContainerPanel.Controls.Add(btnLogOut);
             headerContainerPanel.Controls.Add(btnHamburger);
@@ -262,15 +504,15 @@
             label1.TabIndex = 4;
             label1.Text = "Where Your Wealth Finds Security";
             // 
-            // pictureBox1
+            // trustBankHeaderLogo
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(442, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(128, 109);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            trustBankHeaderLogo.Image = (Image)resources.GetObject("trustBankHeaderLogo.Image");
+            trustBankHeaderLogo.Location = new Point(442, 3);
+            trustBankHeaderLogo.Name = "trustBankHeaderLogo";
+            trustBankHeaderLogo.Size = new Size(128, 109);
+            trustBankHeaderLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            trustBankHeaderLogo.TabIndex = 3;
+            trustBankHeaderLogo.TabStop = false;
             // 
             // lblTrustbankTitle
             // 
@@ -314,26 +556,6 @@
             btnHamburger.TabIndex = 1;
             btnHamburger.UseVisualStyleBackColor = false;
             // 
-            // btnSettings
-            // 
-            btnSettings.Anchor = AnchorStyles.None;
-            btnSettings.BackColor = Color.FromArgb(241, 241, 241);
-            btnSettings.FlatAppearance.BorderSize = 0;
-            btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.Font = new Font("Gothic A1 SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSettings.ForeColor = Color.FromArgb(0, 26, 136);
-            btnSettings.IconChar = FontAwesome.Sharp.IconChar.Gear;
-            btnSettings.IconColor = Color.FromArgb(0, 26, 136);
-            btnSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSettings.ImageAlign = ContentAlignment.BottomCenter;
-            btnSettings.Location = new Point(168, 3);
-            btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(29, 94);
-            btnSettings.TabIndex = 6;
-            btnSettings.Text = "Settings";
-            btnSettings.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnSettings.UseVisualStyleBackColor = false;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -353,7 +575,7 @@
             ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGOONLY).EndInit();
             headerContainerPanel.ResumeLayout(false);
             headerContainerPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trustBankHeaderLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -368,15 +590,24 @@
         private FontAwesome.Sharp.IconButton btnHamburger;
         private Panel headerContainerPanel;
         private Panel parentContainerPanel;
-        private PictureBox pictureBox1;
+        private PictureBox trustBankHeaderLogo;
         private Label lblTrustbankTitle;
         private FontAwesome.Sharp.IconButton btnLogOut;
         private Label label1;
         private FontAwesome.Sharp.IconButton btnDashboard;
         private FontAwesome.Sharp.IconButton btnAccounts;
         private Label label2;
-        private FontAwesome.Sharp.IconButton btnSettings;
         private FontAwesome.Sharp.IconButton btnSidePanelClose;
         private FontAwesome.Sharp.IconButton btnEnrolledContacts;
+        private FontAwesome.Sharp.IconButton btnBillsPayment;
+        private Label label3;
+        private FontAwesome.Sharp.IconButton btnShowHistory;
+        private FontAwesome.Sharp.IconButton btnTransferMoney;
+        private FontAwesome.Sharp.IconButton btnConversionRate;
+        private Label label4;
+        private Label label5;
+        private FontAwesome.Sharp.IconButton btnLogOutSideBar;
+        private FontAwesome.Sharp.IconButton btnHelpAndSupport;
+        private FontAwesome.Sharp.IconButton btnSettingsSideBar;
     }
 }

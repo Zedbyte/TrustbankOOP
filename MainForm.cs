@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,6 +64,23 @@ namespace Trustbank
             TRUSTBANKLOGOONLY.Parent = HEADERPANEL;
         }
 
+        //When hovering a side panel button, change the color.
+        private void btnLbl_MouseEnter(object sender, EventArgs e)
+        {
+            IconButton btn = (IconButton)sender;
+
+            btn.ForeColor = Color.Silver;
+            btn.IconColor = Color.Silver;
+        }
+
+        private void btnLbl_MouseLeave(object sender, EventArgs e)
+        {
+            IconButton btn = (IconButton)sender;
+
+            btn.ForeColor = Color.White;
+            btn.IconColor = Color.White;
+        }
+
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Log out.", MessageBoxButtons.YesNo);
@@ -107,6 +125,46 @@ namespace Trustbank
             parentContainerPanel.Controls.Clear();
             parentContainerPanel.Controls.Add(enrolledContactsMainUserControl);
             repaintParentPanel();
+        }
+
+        private void btnBillsPayment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShowHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTransferMoney_Click(object sender, EventArgs e)
+        {
+            TransferMoneyMainUserControl transferMoneyMainUserControl = new TransferMoneyMainUserControl(id);
+            transferMoneyMainUserControl.Show();
+
+            parentContainerPanel.Controls.Clear();
+            parentContainerPanel.Controls.Add(transferMoneyMainUserControl);
+            repaintParentPanel();
+        }
+
+        private void btnConversionRate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSettingsSideBar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHelpAndSupport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogOutSideBar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

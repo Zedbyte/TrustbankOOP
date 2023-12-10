@@ -215,6 +215,7 @@
             btnTransferMoney.Text = "Transfer Money";
             btnTransferMoney.TextImageRelation = TextImageRelation.ImageAboveText;
             btnTransferMoney.UseVisualStyleBackColor = false;
+            btnTransferMoney.Click += btnTransferMoney_Click;
             // 
             // btnEnrolledContacts
             // 
