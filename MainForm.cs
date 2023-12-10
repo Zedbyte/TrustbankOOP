@@ -139,7 +139,7 @@ namespace Trustbank
 
         private void btnTransferMoney_Click(object sender, EventArgs e)
         {
-            TransferMoneyMainUserControl transferMoneyMainUserControl = new TransferMoneyMainUserControl(id);
+            TransferMoneyMainUserControl transferMoneyMainUserControl = new TransferMoneyMainUserControl(parentContainerPanel, id, 0, "", 0);
             transferMoneyMainUserControl.Show();
 
             parentContainerPanel.Controls.Clear();

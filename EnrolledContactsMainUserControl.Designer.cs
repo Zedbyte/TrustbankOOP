@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             txtBxName = new TextBox();
             txtBxAccountNumber = new TextBox();
@@ -65,7 +65,7 @@
             // 
             txtBxName.BackColor = Color.FromArgb(217, 217, 217);
             txtBxName.BorderStyle = BorderStyle.None;
-            txtBxName.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxName.Font = new Font("Gothic A1 SemiBold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxName.Location = new Point(43, 128);
             txtBxName.MaxLength = 35;
             txtBxName.Multiline = true;
@@ -77,7 +77,7 @@
             // 
             txtBxAccountNumber.BackColor = Color.FromArgb(217, 217, 217);
             txtBxAccountNumber.BorderStyle = BorderStyle.None;
-            txtBxAccountNumber.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxAccountNumber.Font = new Font("Gothic A1 SemiBold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxAccountNumber.Location = new Point(43, 220);
             txtBxAccountNumber.MaxLength = 35;
             txtBxAccountNumber.Multiline = true;
@@ -99,7 +99,7 @@
             // 
             txtBxEmailAddress.BackColor = Color.FromArgb(217, 217, 217);
             txtBxEmailAddress.BorderStyle = BorderStyle.None;
-            txtBxEmailAddress.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxEmailAddress.Font = new Font("Gothic A1 SemiBold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxEmailAddress.Location = new Point(43, 306);
             txtBxEmailAddress.MaxLength = 35;
             txtBxEmailAddress.Multiline = true;
@@ -121,7 +121,7 @@
             // 
             txtBxBankName.BackColor = Color.FromArgb(217, 217, 217);
             txtBxBankName.BorderStyle = BorderStyle.None;
-            txtBxBankName.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxBankName.Font = new Font("Gothic A1 SemiBold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxBankName.Location = new Point(43, 393);
             txtBxBankName.MaxLength = 35;
             txtBxBankName.Multiline = true;
@@ -213,30 +213,30 @@
             // 
             // contactsDataGrid
             // 
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = Color.LightGray;
-            dataGridViewCellStyle13.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            contactsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridViewCellStyle1.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            contactsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             contactsDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             contactsDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             contactsDataGrid.BackgroundColor = Color.White;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = SystemColors.Control;
-            dataGridViewCellStyle14.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
-            contactsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            contactsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             contactsDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = SystemColors.Window;
-            dataGridViewCellStyle15.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle15.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
-            contactsDataGrid.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Gothic A1 SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            contactsDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             contactsDataGrid.Location = new Point(398, 118);
             contactsDataGrid.Name = "contactsDataGrid";
             contactsDataGrid.RowTemplate.Height = 25;
