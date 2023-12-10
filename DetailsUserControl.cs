@@ -161,8 +161,8 @@ namespace Trustbank
 
         private bool keyPressDataValidation()
         {
-            if (
-                txtBxPassword.Text != "" && txtBxPassword.Text.Length >= 12 && isPasswordValid && checkIsBlankTextBox(txtBxPassword) &&
+            if ((keyPressValidationUsername() & keyPressValidationAccountNumber() & keyPressValidationEmailAddress() & doesPasswordMeetRequirements()) &&
+                txtBxPassword.Text != ""  && txtBxPassword.Text.Length >= 12 && checkIsBlankTextBox(txtBxPassword) &&
                 txtBxFirstName.Text != "" && checkIsBlankTextBox(txtBxFirstName) && !containsDigits(txtBxFirstName) &&
                 txtBxLastName.Text != "" && checkIsBlankTextBox(txtBxLastName) && !containsDigits(txtBxLastName) &&
                 
@@ -178,45 +178,9 @@ namespace Trustbank
             return false;
         }
 
-        private void btnNextIsValidUsername(object sender, KeyEventArgs e)
-        {
-            if (keyPressValidationUsername())
-            {
-                btnNextEnable();
-            }
-            else
-            {
-                btnNextDisable();
-            }
-        }
-
-        private void btnNextIsValidAccountNumber(object sender, KeyEventArgs e)
-        {
-            if (keyPressValidationAccountNumber())
-            {
-                btnNextEnable();
-            }
-            else
-            {
-                btnNextDisable();
-            }
-        }
-
-        private void btnNextIsValidEmailAddress(object sender, KeyEventArgs e)
-        {
-            if (keyPressValidationEmailAddress())
-            {
-                btnNextEnable();
-            }
-            else
-            {
-                btnNextDisable();
-            }
-        }
-
         private bool keyPressValidationUsername()
         {
-            if (!CheckIfUsernameExists(txtBxUsername.Text) && txtBxUsername.Text != "" && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername))
+            if (txtBxUsername.Text != "" && !CheckIfUsernameExists(txtBxUsername.Text) && txtBxUsername.Text.Length > 3 && txtBxUsername.Text.Length < 20 && checkIsBlankTextBox(txtBxUsername))
             {
                 return true;
             }
@@ -225,7 +189,7 @@ namespace Trustbank
 
         private bool keyPressValidationAccountNumber()
         {
-            if (!AccountNumberExist(txtBxAccountNumber.Text) && txtBxAccountNumber.Text != "" && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber) && !containsCharacters(txtBxAccountNumber))
+            if (txtBxAccountNumber.Text != "" && !AccountNumberExist(txtBxAccountNumber.Text)  && txtBxAccountNumber.Text.Length > 3 && checkIsBlankTextBox(txtBxAccountNumber) && !containsCharacters(txtBxAccountNumber))
             {
                 return true;
             }
@@ -234,7 +198,7 @@ namespace Trustbank
 
         private bool keyPressValidationEmailAddress()
         {
-            if (!AccountEmailExist(txtBxEmailAddress.Text) && txtBxEmailAddress.Text != "" && txtBxEmailAddress.Text.Contains("@") && checkIsBlankTextBox(txtBxEmailAddress))
+            if (txtBxEmailAddress.Text != "" && txtBxEmailAddress.Text.Contains("@") && !AccountEmailExist(txtBxEmailAddress.Text)  && checkIsBlankTextBox(txtBxEmailAddress))
             {
                 return true;
             }
@@ -601,7 +565,7 @@ namespace Trustbank
             return true;
         }
 
-        private void doesPasswordMeetRequirements()
+        private bool doesPasswordMeetRequirements()
         {
             // Regular expressions to check for at least one uppercase, one number, and one special character
             bool hasUppercase = Regex.IsMatch(txtBxPassword.Text, "[A-Z]");
@@ -609,7 +573,7 @@ namespace Trustbank
             bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[@$&#/~^]");
 
             //==========================================================================
-            if (txtBxPassword.Text.Length >= 12)
+            if (txtBxPassword.Text.Length >= 12 && !txtBxPassword.Text.Equals("This field is required."))
             {
                 lblNumberOfCharactersReq.ForeColor = Color.Green;
 
@@ -629,7 +593,7 @@ namespace Trustbank
 
 
             //==========================================================================
-            if (hasUppercase)
+            if (hasUppercase && !txtBxPassword.Text.Equals("This field is required."))
             {
                 lblUppercaseReq.ForeColor = Color.Green;
 
@@ -688,12 +652,13 @@ namespace Trustbank
             //==========================================================================
             if (txtBxPassword.Text.Length >= 12 && hasUppercase && hasNumber && hasSpecialChar)
             {
-                isPasswordValid = true;
+                return true;
             }
+            return false;
         }
 
         //Checks if password meets the requirements
-        private void txtBxPassword_KeyDown(object sender, KeyEventArgs e)
+/*        private void txtBxPassword_KeyDown(object sender, KeyEventArgs e)
         {
             doesPasswordMeetRequirements();
         }
@@ -701,7 +666,7 @@ namespace Trustbank
         private void txtBxPassword_KeyUp(object sender, KeyEventArgs e)
         {
             doesPasswordMeetRequirements();
-        }
+        }*/
 
         private void btnViewPassword_Click(object sender, EventArgs e)
         {

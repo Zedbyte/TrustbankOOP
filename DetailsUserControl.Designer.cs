@@ -420,8 +420,8 @@
             txtBxUsername.Size = new Size(459, 36);
             txtBxUsername.TabIndex = 1;
             txtBxUsername.Enter += EnterText;
-            txtBxUsername.KeyDown += btnNextIsValidUsername;
-            txtBxUsername.KeyUp += btnNextIsValidUsername;
+            txtBxUsername.KeyDown += btnNextIsValid;
+            txtBxUsername.KeyUp += btnNextIsValid;
             txtBxUsername.Leave += IsBlankTextBox;
             // 
             // txtBxPassword
@@ -437,8 +437,8 @@
             txtBxPassword.Size = new Size(459, 36);
             txtBxPassword.TabIndex = 2;
             txtBxPassword.Enter += EnterText;
-            txtBxPassword.KeyDown += txtBxPassword_KeyDown;
-            txtBxPassword.KeyUp += txtBxPassword_KeyUp;
+            txtBxPassword.KeyDown += btnNextIsValid;
+            txtBxPassword.KeyUp += btnNextIsValid;
             txtBxPassword.Leave += IsBlankTextBox;
             // 
             // btnCancel
@@ -571,8 +571,8 @@
             txtBxAccountNumber.Size = new Size(459, 36);
             txtBxAccountNumber.TabIndex = 8;
             txtBxAccountNumber.Enter += EnterText;
-            txtBxAccountNumber.KeyDown += btnNextIsValidAccountNumber;
-            txtBxAccountNumber.KeyUp += btnNextIsValidAccountNumber;
+            txtBxAccountNumber.KeyDown += btnNextIsValid;
+            txtBxAccountNumber.KeyUp += btnNextIsValid;
             txtBxAccountNumber.Leave += IsBlankTextBox;
             // 
             // lblMobileNumberFillUp
@@ -654,8 +654,8 @@
             txtBxEmailAddress.Size = new Size(459, 36);
             txtBxEmailAddress.TabIndex = 6;
             txtBxEmailAddress.Enter += EnterText;
-            txtBxEmailAddress.KeyDown += btnNextIsValidEmailAddress;
-            txtBxEmailAddress.KeyUp += btnNextIsValidEmailAddress;
+            txtBxEmailAddress.KeyDown += btnNextIsValid;
+            txtBxEmailAddress.KeyUp += btnNextIsValid;
             txtBxEmailAddress.Leave += IsBlankTextBox;
             // 
             // lblLastNameFillUp
