@@ -31,20 +31,20 @@
             label1 = new Label();
             label2 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnAbout = new FontAwesome.Sharp.IconButton();
             btnSubmitATicket = new FontAwesome.Sharp.IconButton();
             btnFeedback = new FontAwesome.Sharp.IconButton();
-            btnAbout = new FontAwesome.Sharp.IconButton();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Gothic A1 SemiBold", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Gothic A1", 36F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(0, 26, 136);
-            label1.Location = new Point(85, 61);
+            label1.Location = new Point(82, 46);
             label1.Name = "label1";
-            label1.Size = new Size(230, 59);
+            label1.Size = new Size(305, 76);
             label1.TabIndex = 0;
             label1.Text = "Help Center";
             // 
@@ -53,7 +53,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(0, 26, 136);
-            label2.Location = new Point(92, 123);
+            label2.Location = new Point(96, 122);
             label2.Name = "label2";
             label2.Size = new Size(210, 30);
             label2.TabIndex = 1;
@@ -76,6 +76,26 @@
             tableLayoutPanel1.Size = new Size(916, 240);
             tableLayoutPanel1.TabIndex = 2;
             // 
+            // btnAbout
+            // 
+            btnAbout.Anchor = AnchorStyles.None;
+            btnAbout.BackColor = Color.FromArgb(241, 241, 241);
+            btnAbout.FlatAppearance.BorderSize = 0;
+            btnAbout.FlatStyle = FlatStyle.Flat;
+            btnAbout.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAbout.ForeColor = Color.FromArgb(0, 26, 136);
+            btnAbout.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            btnAbout.IconColor = Color.FromArgb(0, 26, 136);
+            btnAbout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAbout.IconSize = 80;
+            btnAbout.Location = new Point(339, 15);
+            btnAbout.Name = "btnAbout";
+            btnAbout.Size = new Size(236, 210);
+            btnAbout.TabIndex = 5;
+            btnAbout.Text = "About";
+            btnAbout.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnAbout.UseVisualStyleBackColor = false;
+            // 
             // btnSubmitATicket
             // 
             btnSubmitATicket.Anchor = AnchorStyles.None;
@@ -95,6 +115,7 @@
             btnSubmitATicket.Text = "Submit a Ticket";
             btnSubmitATicket.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSubmitATicket.UseVisualStyleBackColor = false;
+            btnSubmitATicket.Click += btnSubmitATicket_Click;
             // 
             // btnFeedback
             // 
@@ -115,26 +136,7 @@
             btnFeedback.Text = "Feedback";
             btnFeedback.TextImageRelation = TextImageRelation.ImageAboveText;
             btnFeedback.UseVisualStyleBackColor = false;
-            // 
-            // btnAbout
-            // 
-            btnAbout.Anchor = AnchorStyles.None;
-            btnAbout.BackColor = Color.FromArgb(241, 241, 241);
-            btnAbout.FlatAppearance.BorderSize = 0;
-            btnAbout.FlatStyle = FlatStyle.Flat;
-            btnAbout.Font = new Font("Gothic A1", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAbout.ForeColor = Color.FromArgb(0, 26, 136);
-            btnAbout.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
-            btnAbout.IconColor = Color.FromArgb(0, 26, 136);
-            btnAbout.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAbout.IconSize = 80;
-            btnAbout.Location = new Point(339, 15);
-            btnAbout.Name = "btnAbout";
-            btnAbout.Size = new Size(236, 210);
-            btnAbout.TabIndex = 5;
-            btnAbout.Text = "About";
-            btnAbout.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnAbout.UseVisualStyleBackColor = false;
+            btnFeedback.Click += btnFeedback_Click;
             // 
             // HelpCenterMainUserControl
             // 
