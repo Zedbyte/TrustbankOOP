@@ -248,5 +248,11 @@ namespace Trustbank
         {
             parentContainerPanel.Refresh();
         }
+
+        private void btnQR_Click(object sender, EventArgs e)
+        {
+            QRCode qrCode = new QRCode();
+            qrCode.ShowDialog();
+        }
     }
 }

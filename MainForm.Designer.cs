@@ -511,6 +511,7 @@
             ClientSize = new Size(1404, 751);
             Controls.Add(mainFormPanel);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";

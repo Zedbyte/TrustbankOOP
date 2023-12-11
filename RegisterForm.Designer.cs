@@ -369,6 +369,7 @@
             Controls.Add(prtBtnsPanel);
             Controls.Add(parentRegistrationPanel);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterForm";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MobileVerification));
             LBLSECUREONLY = new Label();
             label1 = new Label();
             lblMobileNumPlaceholder = new Label();
@@ -258,6 +259,7 @@
             Controls.Add(label1);
             Controls.Add(LBLSECUREONLY);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MobileVerification";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MobileVerification";

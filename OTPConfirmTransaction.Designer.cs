@@ -310,6 +310,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "OTPConfirmTransaction";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OTPConfirmTransaction";

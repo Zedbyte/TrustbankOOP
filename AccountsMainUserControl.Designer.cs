@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            btnQR = new FontAwesome.Sharp.IconButton();
             lblBalancePlaceholder = new Label();
             label4 = new Label();
             label1 = new Label();
@@ -69,7 +69,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(244, 244, 244);
-            panel1.Controls.Add(iconButton1);
+            panel1.Controls.Add(btnQR);
             panel1.Controls.Add(lblBalancePlaceholder);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label1);
@@ -81,21 +81,22 @@
             panel1.Size = new Size(1315, 201);
             panel1.TabIndex = 0;
             // 
-            // iconButton1
+            // btnQR
             // 
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Gothic A1 ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            iconButton1.ForeColor = Color.FromArgb(0, 26, 136);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(1168, 12);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(133, 38);
-            iconButton1.TabIndex = 1;
-            iconButton1.Text = "Scan QR Code";
-            iconButton1.UseVisualStyleBackColor = true;
+            btnQR.FlatAppearance.BorderSize = 0;
+            btnQR.FlatStyle = FlatStyle.Flat;
+            btnQR.Font = new Font("Gothic A1 ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQR.ForeColor = Color.FromArgb(0, 26, 136);
+            btnQR.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnQR.IconColor = Color.Black;
+            btnQR.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnQR.Location = new Point(1168, 12);
+            btnQR.Name = "btnQR";
+            btnQR.Size = new Size(133, 38);
+            btnQR.TabIndex = 1;
+            btnQR.Text = "Scan QR Code";
+            btnQR.UseVisualStyleBackColor = true;
+            btnQR.Click += btnQR_Click;
             // 
             // lblBalancePlaceholder
             // 
@@ -480,7 +481,7 @@
         private Label label1;
         private Label label4;
         private Label lblBalancePlaceholder;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnQR;
         private Panel panel2;
         private Panel panel3;
         private Label label5;

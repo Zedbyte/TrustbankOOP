@@ -86,9 +86,11 @@
             // 
             // btnReset
             // 
-            btnReset.BackColor = Color.Transparent;
+            btnReset.BackColor = Color.FromArgb(0, 26, 136);
             btnReset.Cursor = Cursors.Hand;
             btnReset.FlatAppearance.BorderSize = 0;
+            btnReset.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 26, 136);
+            btnReset.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 26, 136);
             btnReset.FlatStyle = FlatStyle.Flat;
             btnReset.Font = new Font("Gothic A1", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnReset.ForeColor = Color.White;

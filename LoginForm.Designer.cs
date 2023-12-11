@@ -90,8 +90,8 @@
             btnViewPassword.BackColor = Color.FromArgb(230, 230, 230);
             btnViewPassword.Cursor = Cursors.Hand;
             btnViewPassword.FlatAppearance.BorderSize = 0;
-            btnViewPassword.FlatAppearance.MouseDownBackColor = Color.FromArgb(244, 244, 244);
-            btnViewPassword.FlatAppearance.MouseOverBackColor = Color.FromArgb(244, 244, 244);
+            btnViewPassword.FlatAppearance.MouseDownBackColor = Color.FromArgb(230, 230, 230);
+            btnViewPassword.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 230, 230);
             btnViewPassword.FlatStyle = FlatStyle.Flat;
             btnViewPassword.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             btnViewPassword.IconColor = Color.Black;
@@ -298,6 +298,7 @@
             Controls.Add(HEADERLBLONLY);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trustbank - Login";
