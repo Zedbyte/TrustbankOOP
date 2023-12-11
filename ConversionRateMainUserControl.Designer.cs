@@ -128,7 +128,7 @@
             inputBox.Anchor = AnchorStyles.None;
             inputBox.BackColor = Color.FromArgb(241, 241, 241);
             inputBox.BorderStyle = BorderStyle.None;
-            inputBox.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            inputBox.Font = new Font("Gothic A1", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             inputBox.Location = new Point(638, 227);
             inputBox.Name = "inputBox";
             inputBox.Size = new Size(214, 71);
@@ -152,7 +152,7 @@
             outputBox.Anchor = AnchorStyles.None;
             outputBox.BackColor = Color.FromArgb(241, 241, 241);
             outputBox.BorderStyle = BorderStyle.None;
-            outputBox.Font = new Font("Gothic A1", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            outputBox.Font = new Font("Gothic A1", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             outputBox.Location = new Point(638, 440);
             outputBox.Name = "outputBox";
             outputBox.ReadOnly = true;

@@ -265,11 +265,11 @@ namespace Trustbank
 
                 if (metroRBtnInstaPay.Checked)
                 {
-                    InstaOrPESO = "InstaPay";
+                    InstaOrPESO = "InstaPay Fee";
                 }
                 else
                 {
-                    InstaOrPESO = "PESONet";
+                    InstaOrPESO = "PESONet Fee";
                 }
 
                 ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(parentContainerPanel, id, contact_id, completeName, AccountNumber, EmailAddress,

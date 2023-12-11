@@ -161,7 +161,7 @@
             // 
             lblRecipientAccountNumber.BackColor = Color.Transparent;
             lblRecipientAccountNumber.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblRecipientAccountNumber.ForeColor = Color.Black;
+            lblRecipientAccountNumber.ForeColor = Color.DimGray;
             lblRecipientAccountNumber.Location = new Point(593, 390);
             lblRecipientAccountNumber.Name = "lblRecipientAccountNumber";
             lblRecipientAccountNumber.Size = new Size(669, 30);
@@ -223,7 +223,7 @@
             lblInstaOrPesoPlaceholder.BackColor = Color.Transparent;
             lblInstaOrPesoPlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblInstaOrPesoPlaceholder.ForeColor = Color.FromArgb(149, 149, 149);
-            lblInstaOrPesoPlaceholder.Location = new Point(71, 259);
+            lblInstaOrPesoPlaceholder.Location = new Point(69, 259);
             lblInstaOrPesoPlaceholder.Name = "lblInstaOrPesoPlaceholder";
             lblInstaOrPesoPlaceholder.Size = new Size(119, 30);
             lblInstaOrPesoPlaceholder.TabIndex = 0;
@@ -284,8 +284,8 @@
             // lblAccountNumberPlaceholder
             // 
             lblAccountNumberPlaceholder.BackColor = Color.Transparent;
-            lblAccountNumberPlaceholder.Font = new Font("Gothic A1", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAccountNumberPlaceholder.ForeColor = Color.Black;
+            lblAccountNumberPlaceholder.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAccountNumberPlaceholder.ForeColor = Color.DimGray;
             lblAccountNumberPlaceholder.Location = new Point(593, 178);
             lblAccountNumberPlaceholder.Name = "lblAccountNumberPlaceholder";
             lblAccountNumberPlaceholder.Size = new Size(669, 30);

@@ -173,5 +173,47 @@ namespace Trustbank
                 Application.Restart();
             }
         }
+
+        private void lblTrustbankTitle_Click(object sender, EventArgs e)
+        {
+            //Create the dashboard
+            DashboardMainUserControl dashboardMainUserControl = new DashboardMainUserControl(parentContainerPanel, id, date);
+            dashboardMainUserControl.Show();
+
+            //Clear the parent container of controls
+            parentContainerPanel.Controls.Clear();
+
+            //Add the dashboard to the container and refresh
+            parentContainerPanel.Controls.Add(dashboardMainUserControl);
+            repaintParentPanel();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            //Create the dashboard
+            DashboardMainUserControl dashboardMainUserControl = new DashboardMainUserControl(parentContainerPanel, id, date);
+            dashboardMainUserControl.Show();
+
+            //Clear the parent container of controls
+            parentContainerPanel.Controls.Clear();
+
+            //Add the dashboard to the container and refresh
+            parentContainerPanel.Controls.Add(dashboardMainUserControl);
+            repaintParentPanel();
+        }
+
+        private void trustBankHeaderLogo_Click(object sender, EventArgs e)
+        {
+            //Create the dashboard
+            DashboardMainUserControl dashboardMainUserControl = new DashboardMainUserControl(parentContainerPanel, id, date);
+            dashboardMainUserControl.Show();
+
+            //Clear the parent container of controls
+            parentContainerPanel.Controls.Clear();
+
+            //Add the dashboard to the container and refresh
+            parentContainerPanel.Controls.Add(dashboardMainUserControl);
+            repaintParentPanel();
+        }
     }
 }

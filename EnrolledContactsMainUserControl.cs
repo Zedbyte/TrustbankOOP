@@ -117,8 +117,9 @@ namespace Trustbank
 
                     // If count > 0, username exists; otherwise, it doesn't
                     if (count > 0)
-                    {
-                        MessageBox.Show("Own Account Number: " + count + " " + id);
+                    {   
+                        //Debugging purposes
+                        //MessageBox.Show("Own Account Number: " + count + " " + id);
                         return true;
                     }
                 }

@@ -449,6 +449,7 @@
             label1.Size = new Size(264, 25);
             label1.TabIndex = 4;
             label1.Text = "Where Your Wealth Finds Security";
+            label1.Click += label1_Click;
             // 
             // trustBankHeaderLogo
             // 
@@ -459,6 +460,7 @@
             trustBankHeaderLogo.SizeMode = PictureBoxSizeMode.Zoom;
             trustBankHeaderLogo.TabIndex = 3;
             trustBankHeaderLogo.TabStop = false;
+            trustBankHeaderLogo.Click += trustBankHeaderLogo_Click;
             // 
             // lblTrustbankTitle
             // 
@@ -470,6 +472,7 @@
             lblTrustbankTitle.Size = new Size(239, 69);
             lblTrustbankTitle.TabIndex = 0;
             lblTrustbankTitle.Text = "Trustbank";
+            lblTrustbankTitle.Click += lblTrustbankTitle_Click;
             // 
             // btnLogOut
             // 
