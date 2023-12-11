@@ -242,7 +242,7 @@ namespace Trustbank
 
             if (mobileChanged)
             {
-                if (keyPressValidationMobileNumber() && txtBxMobileNumberPlaceholder.Text.Contains("+63"))
+                if (keyPressValidationMobileNumber() & txtBxMobileNumberPlaceholder.Text.Contains("+63"))
                 {
                     NewMobileNumber = txtBxMobileNumberPlaceholder.Text;
                     mobileValid = true;
@@ -376,7 +376,7 @@ namespace Trustbank
 
         private bool keyPressValidationMobileNumber()
         {
-            if (!txtBxMobileNumberPlaceholder.Text.Equals(MobileNumber) && txtBxMobileNumberPlaceholder.Text != "" && txtBxMobileNumberPlaceholder.Text.Length > 1 && isMobileNumberValid() && !MobileNumberExist(txtBxMobileNumberPlaceholder.Text))
+            if (!txtBxMobileNumberPlaceholder.Text.Equals(MobileNumber) && txtBxMobileNumberPlaceholder.Text != "" && txtBxMobileNumberPlaceholder.Text.Length > 10 && isMobileNumberValid() && !MobileNumberExist(txtBxMobileNumberPlaceholder.Text))
             {
                 return true;
             }
@@ -473,7 +473,7 @@ namespace Trustbank
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@mobile_number", "+63" + mobileNumber);
+                    command.Parameters.AddWithValue("@mobile_number", mobileNumber);
 
                     connection.Open();
 
