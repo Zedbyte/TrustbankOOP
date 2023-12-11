@@ -35,13 +35,11 @@
             label5 = new Label();
             btnLogOutSideBar = new FontAwesome.Sharp.IconButton();
             btnHelpAndSupport = new FontAwesome.Sharp.IconButton();
-            btnSettingsSideBar = new FontAwesome.Sharp.IconButton();
             btnConversionRate = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
             btnTransferMoney = new FontAwesome.Sharp.IconButton();
             btnShowHistory = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
-            btnBillsPayment = new FontAwesome.Sharp.IconButton();
             btnEnrolledContacts = new FontAwesome.Sharp.IconButton();
             btnSidePanelClose = new FontAwesome.Sharp.IconButton();
             label2 = new Label();
@@ -85,13 +83,11 @@
             slidingPanel.Controls.Add(label5);
             slidingPanel.Controls.Add(btnLogOutSideBar);
             slidingPanel.Controls.Add(btnHelpAndSupport);
-            slidingPanel.Controls.Add(btnSettingsSideBar);
             slidingPanel.Controls.Add(btnConversionRate);
             slidingPanel.Controls.Add(label4);
             slidingPanel.Controls.Add(btnTransferMoney);
             slidingPanel.Controls.Add(btnShowHistory);
             slidingPanel.Controls.Add(label3);
-            slidingPanel.Controls.Add(btnBillsPayment);
             slidingPanel.Controls.Add(btnEnrolledContacts);
             slidingPanel.Controls.Add(btnSidePanelClose);
             slidingPanel.Controls.Add(label2);
@@ -129,7 +125,7 @@
             label5.BackColor = Color.FromArgb(0, 26, 136);
             label5.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(152, 224, 255);
-            label5.Location = new Point(18, 679);
+            label5.Location = new Point(18, 598);
             label5.Name = "label5";
             label5.Size = new Size(91, 25);
             label5.TabIndex = 16;
@@ -148,7 +144,7 @@
             btnLogOutSideBar.IconColor = Color.White;
             btnLogOutSideBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLogOutSideBar.IconSize = 27;
-            btnLogOutSideBar.Location = new Point(2, 707);
+            btnLogOutSideBar.Location = new Point(3, 635);
             btnLogOutSideBar.Name = "btnLogOutSideBar";
             btnLogOutSideBar.Size = new Size(196, 43);
             btnLogOutSideBar.TabIndex = 15;
@@ -173,7 +169,7 @@
             btnHelpAndSupport.IconColor = Color.White;
             btnHelpAndSupport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHelpAndSupport.IconSize = 27;
-            btnHelpAndSupport.Location = new Point(18, 632);
+            btnHelpAndSupport.Location = new Point(18, 542);
             btnHelpAndSupport.Name = "btnHelpAndSupport";
             btnHelpAndSupport.Size = new Size(211, 37);
             btnHelpAndSupport.TabIndex = 14;
@@ -184,31 +180,6 @@
             btnHelpAndSupport.Click += btnHelpAndSupport_Click;
             btnHelpAndSupport.MouseEnter += btnLbl_MouseEnter;
             btnHelpAndSupport.MouseLeave += btnLbl_MouseLeave;
-            // 
-            // btnSettingsSideBar
-            // 
-            btnSettingsSideBar.BackColor = Color.FromArgb(0, 26, 136);
-            btnSettingsSideBar.FlatAppearance.BorderSize = 0;
-            btnSettingsSideBar.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnSettingsSideBar.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnSettingsSideBar.FlatStyle = FlatStyle.Flat;
-            btnSettingsSideBar.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSettingsSideBar.ForeColor = Color.White;
-            btnSettingsSideBar.IconChar = FontAwesome.Sharp.IconChar.Gears;
-            btnSettingsSideBar.IconColor = Color.White;
-            btnSettingsSideBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSettingsSideBar.IconSize = 27;
-            btnSettingsSideBar.Location = new Point(5, 586);
-            btnSettingsSideBar.Name = "btnSettingsSideBar";
-            btnSettingsSideBar.Size = new Size(182, 40);
-            btnSettingsSideBar.TabIndex = 13;
-            btnSettingsSideBar.Text = "Settings";
-            btnSettingsSideBar.TextAlign = ContentAlignment.MiddleLeft;
-            btnSettingsSideBar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSettingsSideBar.UseVisualStyleBackColor = false;
-            btnSettingsSideBar.Click += btnSettingsSideBar_Click;
-            btnSettingsSideBar.MouseEnter += btnLbl_MouseEnter;
-            btnSettingsSideBar.MouseLeave += btnLbl_MouseLeave;
             // 
             // btnConversionRate
             // 
@@ -223,7 +194,7 @@
             btnConversionRate.IconColor = Color.White;
             btnConversionRate.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnConversionRate.IconSize = 27;
-            btnConversionRate.Location = new Point(18, 542);
+            btnConversionRate.Location = new Point(18, 501);
             btnConversionRate.Name = "btnConversionRate";
             btnConversionRate.Size = new Size(211, 35);
             btnConversionRate.TabIndex = 12;
@@ -241,7 +212,7 @@
             label4.BackColor = Color.FromArgb(0, 26, 136);
             label4.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(152, 224, 255);
-            label4.Location = new Point(18, 509);
+            label4.Location = new Point(18, 468);
             label4.Name = "label4";
             label4.Size = new Size(65, 25);
             label4.TabIndex = 11;
@@ -260,7 +231,7 @@
             btnTransferMoney.IconColor = Color.White;
             btnTransferMoney.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTransferMoney.IconSize = 27;
-            btnTransferMoney.Location = new Point(18, 465);
+            btnTransferMoney.Location = new Point(18, 424);
             btnTransferMoney.Name = "btnTransferMoney";
             btnTransferMoney.Size = new Size(211, 36);
             btnTransferMoney.TabIndex = 10;
@@ -285,7 +256,7 @@
             btnShowHistory.IconColor = Color.White;
             btnShowHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnShowHistory.IconSize = 27;
-            btnShowHistory.Location = new Point(13, 422);
+            btnShowHistory.Location = new Point(13, 381);
             btnShowHistory.Name = "btnShowHistory";
             btnShowHistory.Size = new Size(211, 33);
             btnShowHistory.TabIndex = 9;
@@ -303,36 +274,11 @@
             label3.BackColor = Color.FromArgb(0, 26, 136);
             label3.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(152, 224, 255);
-            label3.Location = new Point(18, 387);
+            label3.Location = new Point(18, 346);
             label3.Name = "label3";
             label3.Size = new Size(137, 25);
             label3.TabIndex = 8;
             label3.Text = "TRANSACTIONS";
-            // 
-            // btnBillsPayment
-            // 
-            btnBillsPayment.BackColor = Color.FromArgb(0, 26, 136);
-            btnBillsPayment.FlatAppearance.BorderSize = 0;
-            btnBillsPayment.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnBillsPayment.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnBillsPayment.FlatStyle = FlatStyle.Flat;
-            btnBillsPayment.Font = new Font("Gothic A1 SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBillsPayment.ForeColor = Color.White;
-            btnBillsPayment.IconChar = FontAwesome.Sharp.IconChar.Scroll;
-            btnBillsPayment.IconColor = Color.White;
-            btnBillsPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBillsPayment.IconSize = 27;
-            btnBillsPayment.Location = new Point(13, 344);
-            btnBillsPayment.Name = "btnBillsPayment";
-            btnBillsPayment.Size = new Size(211, 31);
-            btnBillsPayment.TabIndex = 7;
-            btnBillsPayment.Text = "Bills Payment";
-            btnBillsPayment.TextAlign = ContentAlignment.MiddleLeft;
-            btnBillsPayment.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnBillsPayment.UseVisualStyleBackColor = false;
-            btnBillsPayment.Click += btnBillsPayment_Click;
-            btnBillsPayment.MouseEnter += btnLbl_MouseEnter;
-            btnBillsPayment.MouseLeave += btnLbl_MouseLeave;
             // 
             // btnEnrolledContacts
             // 
@@ -347,7 +293,7 @@
             btnEnrolledContacts.IconColor = Color.White;
             btnEnrolledContacts.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEnrolledContacts.IconSize = 27;
-            btnEnrolledContacts.Location = new Point(18, 302);
+            btnEnrolledContacts.Location = new Point(18, 293);
             btnEnrolledContacts.Name = "btnEnrolledContacts";
             btnEnrolledContacts.Size = new Size(211, 36);
             btnEnrolledContacts.TabIndex = 3;
@@ -380,7 +326,7 @@
             label2.BackColor = Color.FromArgb(0, 26, 136);
             label2.Font = new Font("Gothic A1", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(152, 224, 255);
-            label2.Location = new Point(18, 262);
+            label2.Location = new Point(18, 265);
             label2.Name = "label2";
             label2.Size = new Size(107, 25);
             label2.TabIndex = 0;
@@ -600,7 +546,6 @@
         private Label label2;
         private FontAwesome.Sharp.IconButton btnSidePanelClose;
         private FontAwesome.Sharp.IconButton btnEnrolledContacts;
-        private FontAwesome.Sharp.IconButton btnBillsPayment;
         private Label label3;
         private FontAwesome.Sharp.IconButton btnShowHistory;
         private FontAwesome.Sharp.IconButton btnTransferMoney;
@@ -609,6 +554,5 @@
         private Label label5;
         private FontAwesome.Sharp.IconButton btnLogOutSideBar;
         private FontAwesome.Sharp.IconButton btnHelpAndSupport;
-        private FontAwesome.Sharp.IconButton btnSettingsSideBar;
     }
 }

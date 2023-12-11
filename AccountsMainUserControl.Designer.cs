@@ -446,6 +446,7 @@
             btnUpdateInformation.TabIndex = 2;
             btnUpdateInformation.Text = "Update Information";
             btnUpdateInformation.UseVisualStyleBackColor = false;
+            btnUpdateInformation.Click += btnUpdateInformation_Click;
             // 
             // AccountsMainUserControl
             // 

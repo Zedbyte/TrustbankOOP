@@ -125,14 +125,14 @@ namespace Trustbank
             repaintParentPanel();
         }
 
-        private void btnBillsPayment_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnShowHistory_Click(object sender, EventArgs e)
         {
+            TransactionHistoryMainUserControl transactionHistoryMainUserControl = new TransactionHistoryMainUserControl(id);
+            transactionHistoryMainUserControl.Show();
 
+            parentContainerPanel.Controls.Clear();
+            parentContainerPanel.Controls.Add(transactionHistoryMainUserControl);
+            repaintParentPanel();
         }
 
         private void btnTransferMoney_Click(object sender, EventArgs e)
@@ -150,19 +150,23 @@ namespace Trustbank
 
         }
 
-        private void btnSettingsSideBar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnHelpAndSupport_Click(object sender, EventArgs e)
         {
+            HelpCenterMainUserControl helpCenterMainUserControl = new HelpCenterMainUserControl(parentContainerPanel, id);
+            helpCenterMainUserControl.Show();
 
+            parentContainerPanel.Controls.Clear();
+            parentContainerPanel.Controls.Add(helpCenterMainUserControl);
+            repaintParentPanel();
         }
 
         private void btnLogOutSideBar_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Log out.", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
         }
     }
 }

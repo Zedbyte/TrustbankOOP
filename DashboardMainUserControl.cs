@@ -127,5 +127,23 @@ namespace Trustbank
 
             this.Dispose();
         }
+
+        private void btnConversionRate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            removePanel(this);
+            repaintParentPanel();
+
+            HelpCenterMainUserControl helpCenterMainUserControl = new HelpCenterMainUserControl(parentContainerPanel, id);
+            helpCenterMainUserControl.Show();
+
+            parentContainerPanel.Controls.Add(helpCenterMainUserControl);
+
+            this.Dispose();
+        }
     }
 }

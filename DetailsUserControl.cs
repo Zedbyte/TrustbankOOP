@@ -596,7 +596,7 @@ namespace Trustbank
 
         private bool isMobileNumberValid()
         {
-            bool hasLetters = Regex.IsMatch(txtBxMobileNumber.Text, "[A-Za-z]");
+            bool hasLetters = Regex.IsMatch(txtBxMobileNumber.Text, "[A-Za-z$!@#%,^.`~]");
             if (txtBxMobileNumber.Text.StartsWith("0") || hasLetters)
             {
                 return false;

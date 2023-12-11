@@ -35,7 +35,7 @@
             lblDatePlaceholder = new Label();
             btnsLayoutPanel = new TableLayoutPanel();
             btnSettings = new FontAwesome.Sharp.IconButton();
-            btnBillsPayment = new FontAwesome.Sharp.IconButton();
+            btnConversionRate = new FontAwesome.Sharp.IconButton();
             btnTransactionHistory = new FontAwesome.Sharp.IconButton();
             btnTransferMoney = new FontAwesome.Sharp.IconButton();
             btnEnrolledContacts = new FontAwesome.Sharp.IconButton();
@@ -124,7 +124,7 @@
             btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
             btnsLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
             btnsLayoutPanel.Controls.Add(btnSettings, 5, 0);
-            btnsLayoutPanel.Controls.Add(btnBillsPayment, 4, 0);
+            btnsLayoutPanel.Controls.Add(btnConversionRate, 4, 0);
             btnsLayoutPanel.Controls.Add(btnTransactionHistory, 3, 0);
             btnsLayoutPanel.Controls.Add(btnTransferMoney, 2, 0);
             btnsLayoutPanel.Controls.Add(btnEnrolledContacts, 1, 0);
@@ -155,26 +155,28 @@
             btnSettings.Text = "Settings";
             btnSettings.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSettings.UseVisualStyleBackColor = false;
+            btnSettings.Click += btnSettings_Click;
             // 
-            // btnBillsPayment
+            // btnConversionRate
             // 
-            btnBillsPayment.Anchor = AnchorStyles.None;
-            btnBillsPayment.BackColor = Color.FromArgb(241, 241, 241);
-            btnBillsPayment.FlatAppearance.BorderSize = 0;
-            btnBillsPayment.FlatStyle = FlatStyle.Flat;
-            btnBillsPayment.Font = new Font("Gothic A1 SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBillsPayment.ForeColor = Color.FromArgb(0, 26, 136);
-            btnBillsPayment.IconChar = FontAwesome.Sharp.IconChar.Scroll;
-            btnBillsPayment.IconColor = Color.FromArgb(0, 26, 136);
-            btnBillsPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBillsPayment.ImageAlign = ContentAlignment.BottomCenter;
-            btnBillsPayment.Location = new Point(837, 8);
-            btnBillsPayment.Name = "btnBillsPayment";
-            btnBillsPayment.Size = new Size(189, 173);
-            btnBillsPayment.TabIndex = 5;
-            btnBillsPayment.Text = "Bills Payment";
-            btnBillsPayment.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnBillsPayment.UseVisualStyleBackColor = false;
+            btnConversionRate.Anchor = AnchorStyles.None;
+            btnConversionRate.BackColor = Color.FromArgb(241, 241, 241);
+            btnConversionRate.FlatAppearance.BorderSize = 0;
+            btnConversionRate.FlatStyle = FlatStyle.Flat;
+            btnConversionRate.Font = new Font("Gothic A1 SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnConversionRate.ForeColor = Color.FromArgb(0, 26, 136);
+            btnConversionRate.IconChar = FontAwesome.Sharp.IconChar.Coins;
+            btnConversionRate.IconColor = Color.FromArgb(0, 26, 136);
+            btnConversionRate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnConversionRate.ImageAlign = ContentAlignment.BottomCenter;
+            btnConversionRate.Location = new Point(837, 8);
+            btnConversionRate.Name = "btnConversionRate";
+            btnConversionRate.Size = new Size(189, 173);
+            btnConversionRate.TabIndex = 5;
+            btnConversionRate.Text = "Conversion Rate";
+            btnConversionRate.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnConversionRate.UseVisualStyleBackColor = false;
+            btnConversionRate.Click += btnConversionRate_Click;
             // 
             // btnTransactionHistory
             // 
@@ -333,7 +335,7 @@
         private Label lblDatePlaceholder;
         private TableLayoutPanel btnsLayoutPanel;
         private FontAwesome.Sharp.IconButton btnSettings;
-        private FontAwesome.Sharp.IconButton btnBillsPayment;
+        private FontAwesome.Sharp.IconButton btnConversionRate;
         private FontAwesome.Sharp.IconButton btnTransactionHistory;
         private FontAwesome.Sharp.IconButton btnTransferMoney;
         private FontAwesome.Sharp.IconButton btnEnrolledContacts;

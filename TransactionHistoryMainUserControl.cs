@@ -83,20 +83,23 @@ namespace Trustbank
                 {
 
                     Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    //Add the workbook
                     xcelApp.Application.Workbooks.Add(Type.Missing);
 
+                    //Add the column names
                     for (int i = 1; i < transactHistoryDataGrid.Columns.Count + 1; i++)
                     {
                         xcelApp.Cells[1, i] = transactHistoryDataGrid.Columns[i - 1].HeaderText;
                     }
 
+                    //Add the rows
                     for (int i = 0; i < transactHistoryDataGrid.Rows.Count; i++)
                     {
                         for (int j = 0; j < transactHistoryDataGrid.Columns.Count; j++)
                         {
                             try
                             {
-                                xcelApp.Cells[i, j] = transactHistoryDataGrid.Rows[i].Cells[j].Value.ToString();
+                                xcelApp.Cells[i + 2, j + 1] = transactHistoryDataGrid.Rows[i].Cells[j].Value?.ToString();
                             }
                             catch (Exception ex)
                             {

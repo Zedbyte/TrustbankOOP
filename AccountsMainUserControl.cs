@@ -71,7 +71,7 @@ namespace Trustbank
         {
             viewPassCount += 1;
 
-            if (viewPassCount % 2 == 0) 
+            if (viewPassCount % 2 == 0)
             {
                 lblAccPasswordAccountInfo.Text = EncryptedPassword;
                 btnHide.IconChar = FontAwesome.Sharp.IconChar.Eye;
@@ -82,7 +82,7 @@ namespace Trustbank
                 btnHide.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
 
-            
+
         }
 
         private void InitializePlaceholders()
@@ -224,5 +224,29 @@ namespace Trustbank
             }
         }
 
+        private void btnUpdateInformation_Click(object sender, EventArgs e)
+        {
+            removePanel(this);
+
+            UpdateInformationSettingsMainUserControl updateInformationSettingsMainUserControl = new UpdateInformationSettingsMainUserControl(parentContainerPanel, id, Username, EncryptedPassword, EmailAddress, MobileNumber);
+            updateInformationSettingsMainUserControl.Show();
+
+            parentContainerPanel.Controls.Add(updateInformationSettingsMainUserControl);
+
+            this.Dispose();
+        }
+
+
+
+
+        private void removePanel(Control panel)
+        {
+            parentContainerPanel.Controls.Remove(panel);
+        }
+
+        private void repaintParentPanel()
+        {
+            parentContainerPanel.Refresh();
+        }
     }
 }
