@@ -95,6 +95,7 @@
             btnAbout.Text = "About";
             btnAbout.TextImageRelation = TextImageRelation.ImageAboveText;
             btnAbout.UseVisualStyleBackColor = false;
+            btnAbout.Click += btnAbout_Click;
             // 
             // btnSubmitATicket
             // 

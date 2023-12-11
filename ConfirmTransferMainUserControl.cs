@@ -39,6 +39,8 @@ namespace Trustbank
 
         string? Purpose { get; set; }
 
+        string? InstaOrPeso {  get; set; }
+
 
 
 
@@ -58,7 +60,8 @@ namespace Trustbank
             string recipientBankName,
             string recipientAccountNumber,
             string recipientEmailAddress,
-            string purpose)
+            string purpose,
+            string InstaOrPeso)
         {
             InitializeComponent();
 
@@ -88,6 +91,7 @@ namespace Trustbank
 
             this.Purpose = purpose;
 
+            this.InstaOrPeso = InstaOrPeso;
 
             setUserLabelDetails();
             setAmountAndChargeLabelDetails();
@@ -101,6 +105,7 @@ namespace Trustbank
             lblNamePlaceholder.Text = CompleteName;
             lblAccountNumberPlaceholder.Text = AccountNumber;
             lblPurposePlaceholder.Text = Purpose;
+            lblInstaOrPesoPlaceholder.Text = InstaOrPeso;
         }
 
         private void setAmountAndChargeLabelDetails()

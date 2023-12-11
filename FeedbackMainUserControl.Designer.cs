@@ -119,6 +119,7 @@
             btnBack.Size = new Size(70, 63);
             btnBack.TabIndex = 13;
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // FeedbackMainUserControl
             // 

@@ -96,19 +96,6 @@ namespace Trustbank
         //======================================================
 
 
-        //When hovering the Recover Access label, change the color.
-        private void btnLblRecoverAccess_MouseEnter(object sender, EventArgs e)
-        {
-            btnLblRecoverAccess.ForeColor = Color.FromArgb(102, 117, 183);
-            btnLblRecoverAccess.Font = new Font(btnLblRecoverAccess.Font.FontFamily, btnLblRecoverAccess.Font.SizeInPoints, FontStyle.Underline);
-        }
-
-        private void btnLblRecoverAccess_MouseLeave(object sender, EventArgs e)
-        {
-            btnLblRecoverAccess.ForeColor = Color.FromArgb(0, 26, 136);
-            btnLblRecoverAccess.Font = new Font(btnLblRecoverAccess.Font.FontFamily, btnLblRecoverAccess.Font.SizeInPoints, FontStyle.Regular);
-        }
-
         private void btnLblSignUp_Click(object sender, EventArgs e)
         {
             RegisterForm registerForm = new RegisterForm();
@@ -146,7 +133,7 @@ namespace Trustbank
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-               try
+                try
                 {
                     string query = "SELECT id FROM AccountsTable WHERE Username = @Username";
 
@@ -169,7 +156,7 @@ namespace Trustbank
                             }
                         }
 
-                        if (ids.Count == 0) 
+                        if (ids.Count == 0)
                         {
                             MessageBox.Show("Username/Password does not exist.");
                             return false;
@@ -180,18 +167,18 @@ namespace Trustbank
                         {
                             CheckPassword(id, password);
                         }
-                        
+
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Username/Password does not exist.");  
+                    MessageBox.Show("Username/Password does not exist.");
                 }
             }
 
 
-           // Credentials are incorrect or user doesn't exist
-           return false;
+            // Credentials are incorrect or user doesn't exist
+            return false;
         }
 
 
@@ -327,6 +314,11 @@ namespace Trustbank
                 txtBxPassword.PasswordChar = '\u2022';
                 btnViewPassword.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TrustBank is a secure, user-friendly, and extensive online banking system that is built with Object-Oriented Programming (OOP) principles such as encapsulation, inheritance, polymorphism, and abstraction. These principles ensure an efficient banking platform that not only fortifies its security but also contributes to a modular and extensible codebase. \r\n\r\nThis system provides users with secure money transfers between accounts, contact enrollment for seamless transactions, and real-time access to account balances.  The system guarantees the preservation of transaction records, which promotes transparency and effortless tracking of financial activities. \r\n\r\nIn the settings function, the users are given the ability to tailor their banking experience through allowing them to change their account information (username, password, email, and mobile number). The system  provides a user-centric approach that aligns to our goal, delivering a secure and user-friendly banking experience.\r\n\r\nStaying true to its name, TrustBank upholds its commitment to security and user satisfaction through the integration of cutting-edge technology. The system features a 2-step verification process, to safeguard all transactions and user data within the application. This advanced security protocol strengthens the defense of the system against any attack that may happen. This ensures that all data within the application are secured, fortifying user privacy and building customer confidence and trust in our system.\r\n");
         }
     }
 }

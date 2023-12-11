@@ -32,7 +32,6 @@
             HEADERLBLONLY = new Label();
             LoginPanel = new ReaLTaiizor.Controls.Panel();
             btnViewPassword = new FontAwesome.Sharp.IconButton();
-            btnLblRecoverAccess = new Label();
             btnLblSignUp = new Label();
             btnParrotLogin = new ReaLTaiizor.Controls.ParrotButton();
             BTNPASSWORDLOGO = new FontAwesome.Sharp.IconButton();
@@ -66,7 +65,6 @@
             // 
             LoginPanel.BackColor = Color.FromArgb(230, 230, 230);
             LoginPanel.Controls.Add(btnViewPassword);
-            LoginPanel.Controls.Add(btnLblRecoverAccess);
             LoginPanel.Controls.Add(btnLblSignUp);
             LoginPanel.Controls.Add(btnParrotLogin);
             LoginPanel.Controls.Add(BTNPASSWORDLOGO);
@@ -105,20 +103,6 @@
             btnViewPassword.TabIndex = 53;
             btnViewPassword.UseVisualStyleBackColor = false;
             btnViewPassword.Click += btnViewPassword_Click;
-            // 
-            // btnLblRecoverAccess
-            // 
-            btnLblRecoverAccess.AutoSize = true;
-            btnLblRecoverAccess.FlatStyle = FlatStyle.Flat;
-            btnLblRecoverAccess.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLblRecoverAccess.ForeColor = Color.FromArgb(0, 26, 136);
-            btnLblRecoverAccess.Location = new Point(436, 281);
-            btnLblRecoverAccess.Name = "btnLblRecoverAccess";
-            btnLblRecoverAccess.Size = new Size(128, 25);
-            btnLblRecoverAccess.TabIndex = 5;
-            btnLblRecoverAccess.Text = "Recover Access";
-            btnLblRecoverAccess.MouseEnter += btnLblRecoverAccess_MouseEnter;
-            btnLblRecoverAccess.MouseLeave += btnLblRecoverAccess_MouseLeave;
             // 
             // btnLblSignUp
             // 
@@ -300,6 +284,7 @@
             btnAbout.Size = new Size(59, 54);
             btnAbout.TabIndex = 4;
             btnAbout.UseVisualStyleBackColor = true;
+            btnAbout.Click += btnAbout_Click;
             // 
             // LoginForm
             // 
@@ -341,7 +326,6 @@
         private ReaLTaiizor.Controls.ParrotButton btnParrotLogin;
         private FontAwesome.Sharp.IconButton btnShutdown;
         private FontAwesome.Sharp.IconButton btnAbout;
-        private Label btnLblRecoverAccess;
         private Label btnLblSignUp;
         private FontAwesome.Sharp.IconButton btnViewPassword;
     }

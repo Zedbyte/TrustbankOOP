@@ -16,9 +16,9 @@ namespace Trustbank
     {
         string? id;
 
-        string? satisfaction {  get; set; }
+        string? satisfaction { get; set; }
 
-        string? suggestion {  get; set; }
+        string? suggestion { get; set; }
 
         HelpCenterMainUserControl helpCenterMainUserControl;
 
@@ -47,7 +47,7 @@ namespace Trustbank
                 txtBxSatisfaction.Clear();
                 txtBxSuggestion.Clear();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Cannot submit feedback. Please try again later.");
             }
@@ -73,6 +73,15 @@ namespace Trustbank
             con.Close();
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            parentContainerPanel.Controls.Remove(this);
+            parentContainerPanel.Refresh();
 
+            helpCenterMainUserControl.Show();
+            parentContainerPanel.Controls.Add(helpCenterMainUserControl);
+
+            this.Dispose();
+        }
     }
 }

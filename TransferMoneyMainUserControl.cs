@@ -261,8 +261,19 @@ namespace Trustbank
 
                 repaintParentPanel();
 
+                string InstaOrPESO = "";
+
+                if (metroRBtnInstaPay.Checked)
+                {
+                    InstaOrPESO = "InstaPay";
+                }
+                else
+                {
+                    InstaOrPESO = "PESONet";
+                }
+
                 ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(parentContainerPanel, id, contact_id, completeName, AccountNumber, EmailAddress,
-                    Amount, chargeFee, contactName, contactBankName, contactAccountNumber, contactEmailAddress, Purpose);
+                    Amount, chargeFee, contactName, contactBankName, contactAccountNumber, contactEmailAddress, Purpose, InstaOrPESO);
 
                 //For debugging
                 //MessageBox.Show(id + " " + contact_id + " " + completeName + " " + AccountNumber + " " + Amount + " " + chargeFee + " " + contactName + " " + contactBankName + " " + contactAccountNumber + " " + contactEmailAddress + " " + Purpose);

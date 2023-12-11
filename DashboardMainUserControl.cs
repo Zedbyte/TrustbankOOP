@@ -130,7 +130,14 @@ namespace Trustbank
 
         private void btnConversionRate_Click(object sender, EventArgs e)
         {
+            removePanel(this);
+            repaintParentPanel();
 
+            ConversionRateMainUserControl conversion = new ConversionRateMainUserControl(parentContainerPanel);
+            conversion.Show();
+            parentContainerPanel.Controls.Add(conversion);
+
+            this.Dispose();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
