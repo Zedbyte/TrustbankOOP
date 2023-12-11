@@ -70,7 +70,9 @@ namespace Trustbank
 
         private bool keyPressDataValidation()
         {
-            if (txtBxUsername.Text != "" && txtBxPassword.Text != "")
+            txtBxUsername.Text = txtBxUsername.Text.Replace("\n", "");
+            txtBxPassword.Text = txtBxPassword.Text.Replace("\n", "");
+            if (txtBxUsername.Text != "" && txtBxPassword.Text != "" && !txtBxUsername.Text.Contains("\n") && !txtBxPassword.Text.Contains("\n"))
             {
                 return true;
             }

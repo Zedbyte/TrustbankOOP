@@ -261,7 +261,7 @@ namespace Trustbank
 
                 repaintParentPanel();
 
-                ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(id, contact_id, completeName, AccountNumber, EmailAddress,
+                ConfirmTransferMainUserControl confirmTransferMainUserControl = new ConfirmTransferMainUserControl(parentContainerPanel, id, contact_id, completeName, AccountNumber, EmailAddress,
                     Amount, chargeFee, contactName, contactBankName, contactAccountNumber, contactEmailAddress, Purpose);
 
                 //For debugging

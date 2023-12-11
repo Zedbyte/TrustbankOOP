@@ -37,6 +37,7 @@
             lblNamePlaceholder = new Label();
             lblTypeOfAccountPlaceholder = new Label();
             panel2 = new Panel();
+            btnHide = new FontAwesome.Sharp.IconButton();
             tableAccountStatus = new TableLayoutPanel();
             label13 = new Label();
             label10 = new Label();
@@ -164,12 +165,30 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(244, 244, 244);
+            panel2.Controls.Add(btnHide);
             panel2.Controls.Add(tableAccountStatus);
             panel2.Controls.Add(tableUserStatus);
             panel2.Location = new Point(47, 267);
             panel2.Name = "panel2";
             panel2.Size = new Size(1315, 265);
             panel2.TabIndex = 1;
+            // 
+            // btnHide
+            // 
+            btnHide.Cursor = Cursors.Hand;
+            btnHide.FlatAppearance.BorderSize = 0;
+            btnHide.FlatStyle = FlatStyle.Flat;
+            btnHide.ForeColor = Color.DarkBlue;
+            btnHide.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            btnHide.IconColor = Color.DimGray;
+            btnHide.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHide.IconSize = 30;
+            btnHide.Location = new Point(1284, 207);
+            btnHide.Name = "btnHide";
+            btnHide.Size = new Size(28, 34);
+            btnHide.TabIndex = 3;
+            btnHide.UseVisualStyleBackColor = true;
+            btnHide.Click += btnHide_Click;
             // 
             // tableAccountStatus
             // 
@@ -483,5 +502,6 @@
         private Label lblAccUsernameAccountInfo;
         private Label lblAccPasswordAccountInfo;
         private Button btnUpdateInformation;
+        private FontAwesome.Sharp.IconButton btnHide;
     }
 }

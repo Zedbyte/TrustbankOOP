@@ -195,6 +195,7 @@
             btnTransactionHistory.Text = "Transaction History";
             btnTransactionHistory.TextImageRelation = TextImageRelation.ImageAboveText;
             btnTransactionHistory.UseVisualStyleBackColor = false;
+            btnTransactionHistory.Click += btnTransactionHistory_Click;
             // 
             // btnTransferMoney
             // 

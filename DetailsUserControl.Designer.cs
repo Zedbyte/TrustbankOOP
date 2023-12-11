@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             detailsPanel = new Panel();
+            lblMobileNumberExist = new Label();
             lblAccountNumberExist = new Label();
             lblEmailExist = new Label();
             lblUserExist = new Label();
@@ -79,7 +80,6 @@
             lblPasswordFillUp = new Label();
             lblUsernameFillUp = new Label();
             btnNext = new Button();
-            lblMobileNumberExist = new Label();
             detailsPanel.SuspendLayout();
             passwordRequirementsPanel.SuspendLayout();
             SuspendLayout();
@@ -136,6 +136,15 @@
             detailsPanel.Size = new Size(1421, 438);
             detailsPanel.TabIndex = 0;
             // 
+            // lblMobileNumberExist
+            // 
+            lblMobileNumberExist.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMobileNumberExist.Location = new Point(705, 510);
+            lblMobileNumberExist.Name = "lblMobileNumberExist";
+            lblMobileNumberExist.Size = new Size(230, 25);
+            lblMobileNumberExist.TabIndex = 55;
+            lblMobileNumberExist.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // lblAccountNumberExist
             // 
             lblAccountNumberExist.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -166,6 +175,7 @@
             // btnViewPassword
             // 
             btnViewPassword.BackColor = Color.FromArgb(244, 244, 244);
+            btnViewPassword.Cursor = Cursors.Hand;
             btnViewPassword.FlatAppearance.BorderSize = 0;
             btnViewPassword.FlatAppearance.MouseDownBackColor = Color.FromArgb(244, 244, 244);
             btnViewPassword.FlatAppearance.MouseOverBackColor = Color.FromArgb(244, 244, 244);
@@ -775,15 +785,6 @@
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = false;
             btnNext.Click += btnNext_Click;
-            // 
-            // lblMobileNumberExist
-            // 
-            lblMobileNumberExist.Font = new Font("Gothic A1", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMobileNumberExist.Location = new Point(705, 510);
-            lblMobileNumberExist.Name = "lblMobileNumberExist";
-            lblMobileNumberExist.Size = new Size(230, 25);
-            lblMobileNumberExist.TabIndex = 55;
-            lblMobileNumberExist.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // DetailsUserControl
             // 

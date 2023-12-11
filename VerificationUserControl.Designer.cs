@@ -140,6 +140,7 @@
             // 
             // btnShowOTP
             // 
+            btnShowOTP.Cursor = Cursors.Hand;
             btnShowOTP.FlatAppearance.BorderSize = 0;
             btnShowOTP.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnShowOTP.FlatAppearance.MouseOverBackColor = Color.Transparent;

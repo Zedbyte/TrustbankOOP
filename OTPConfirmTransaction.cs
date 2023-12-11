@@ -27,6 +27,8 @@ namespace Trustbank
         int timeCount;
         int expirationEmail;
 
+        int attempt = 5;
+
         public OTPConfirmTransaction(string id, string EmailAddress)
         {
             InitializeComponent();
@@ -39,7 +41,22 @@ namespace Trustbank
 
         private void setEmailLabel()
         {
-            lblEmailAddressPlaceholder.Text = EmailAddress;
+            char[] emailArray = EmailAddress.ToCharArray();
+            string censoredEmail = "";
+
+            for (int i = 0; i < emailArray.Length; i++)
+            {
+                if (i >= 3 && i <= emailArray.Length - 5)
+                {
+                    censoredEmail += "*";
+                }
+                else
+                {
+                    censoredEmail += emailArray[i];
+                }
+            }
+
+            lblEmailAddressPlaceholder.Text = censoredEmail;
         }
 
         private void isOTPValid(object sender, KeyEventArgs e)
@@ -54,6 +71,17 @@ namespace Trustbank
                     this.DialogResult = DialogResult.OK;
                     MessageBox.Show("Verification Success!");
                     this.Close();
+                }
+                else
+                {
+                    attempt--;
+                    MessageBox.Show("Incorrect OTP! Attempts Left: " + attempt.ToString());
+
+                    if (attempt == 0)
+                    {
+                        MessageBox.Show("You have no attempts left. OTP has now expired. Please log in again.");
+                        Application.Restart();
+                    }
                 }
             }
         }

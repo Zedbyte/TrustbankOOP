@@ -115,5 +115,17 @@ namespace Trustbank
 
             this.Dispose();
         }
+
+        private void btnTransactionHistory_Click(object sender, EventArgs e)
+        {
+            removePanel(this);
+            repaintParentPanel();
+
+            TransactionHistoryMainUserControl transactionHistory = new TransactionHistoryMainUserControl(id);
+            transactionHistory.Show();
+            parentContainerPanel.Controls.Add(transactionHistory);
+
+            this.Dispose();
+        }
     }
 }

@@ -610,7 +610,7 @@ namespace Trustbank
             // Regular expressions to check for at least one uppercase, one number, and one special character
             bool hasUppercase = Regex.IsMatch(txtBxPassword.Text, "[A-Z]");
             bool hasNumber = Regex.IsMatch(txtBxPassword.Text, "[0-9]");
-            bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[@$&#/~^]");
+            bool hasSpecialChar = Regex.IsMatch(txtBxPassword.Text, "[@$&#/~%*,^<>?!.:;']");
 
             //==========================================================================
             if (txtBxPassword.Text.Length >= 12 && !txtBxPassword.Text.Equals("This field is required."))

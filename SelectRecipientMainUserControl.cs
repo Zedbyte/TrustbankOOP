@@ -87,18 +87,25 @@ namespace Trustbank
 
         private void selectContactGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (selectContactGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                //This essentially highlights/selects the entire row in the grid view.
-                selectContactGrid.CurrentRow.Selected = true;
+                if (selectContactGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    //This essentially highlights/selects the entire row in the grid view.
+                    selectContactGrid.CurrentRow.Selected = true;
 
-                selectedContactID = selectContactGrid.Rows[e.RowIndex].Cells["Contact ID"].FormattedValue.ToString();
-                selectedContactName = selectContactGrid.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
-                selectedContactAccountNumber = selectContactGrid.Rows[e.RowIndex].Cells["Account Number"].FormattedValue.ToString();
-                selectedContactEmailAddress = selectContactGrid.Rows[e.RowIndex].Cells["Email Address"].FormattedValue.ToString();
-                selectedContactBankName = selectContactGrid.Rows[e.RowIndex].Cells["Bank Name"].FormattedValue.ToString();
+                    selectedContactID = selectContactGrid.Rows[e.RowIndex].Cells["Contact ID"].FormattedValue.ToString();
+                    selectedContactName = selectContactGrid.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
+                    selectedContactAccountNumber = selectContactGrid.Rows[e.RowIndex].Cells["Account Number"].FormattedValue.ToString();
+                    selectedContactEmailAddress = selectContactGrid.Rows[e.RowIndex].Cells["Email Address"].FormattedValue.ToString();
+                    selectedContactBankName = selectContactGrid.Rows[e.RowIndex].Cells["Bank Name"].FormattedValue.ToString();
 
-                permit = true;
+                    permit = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a cell.");
             }
 
 

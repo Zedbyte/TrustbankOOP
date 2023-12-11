@@ -528,6 +528,7 @@
             // btnLogOut
             // 
             btnLogOut.BackColor = Color.Transparent;
+            btnLogOut.Cursor = Cursors.Hand;
             btnLogOut.FlatAppearance.BorderSize = 0;
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;

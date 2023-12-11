@@ -309,7 +309,7 @@ namespace Trustbank
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[AccountsBalance] 
                    (
                    [user_id], 
-                   [balance]
+                   [balance],
                    [account_number]
                    )
                    VALUES

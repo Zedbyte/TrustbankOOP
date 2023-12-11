@@ -46,6 +46,10 @@
             label4 = new Label();
             label5 = new Label();
             timerEmail = new System.Windows.Forms.Timer(components);
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
             ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGO).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -85,7 +89,7 @@
             LBLTITLEONLY.AutoSize = true;
             LBLTITLEONLY.Font = new Font("Gothic A1", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             LBLTITLEONLY.ForeColor = Color.FromArgb(0, 26, 136);
-            LBLTITLEONLY.Location = new Point(383, 9);
+            LBLTITLEONLY.Location = new Point(386, 22);
             LBLTITLEONLY.Name = "LBLTITLEONLY";
             LBLTITLEONLY.Size = new Size(202, 59);
             LBLTITLEONLY.TabIndex = 7;
@@ -254,12 +258,48 @@
             // 
             timerEmail.Enabled = true;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(0, 26, 136);
+            panel1.Location = new Point(-1, -1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(5, 592);
+            panel1.TabIndex = 13;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(0, 26, 136);
+            panel2.Location = new Point(928, -1);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(5, 592);
+            panel2.TabIndex = 14;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(0, 26, 136);
+            panel3.Location = new Point(2, 586);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(929, 10);
+            panel3.TabIndex = 15;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(0, 26, 136);
+            panel4.Location = new Point(2, -5);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(928, 10);
+            panel4.TabIndex = 16;
+            // 
             // OTPConfirmTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(932, 591);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(tableLayoutPanel1);
@@ -297,5 +337,9 @@
         private Label label4;
         private Label label5;
         private System.Windows.Forms.Timer timerEmail;
+        private Panel panel1;
+        private Panel panel3;
+        private Panel panel2;
+        private Panel panel4;
     }
 }

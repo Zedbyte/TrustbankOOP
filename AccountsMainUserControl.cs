@@ -18,15 +18,15 @@ namespace Trustbank
 
         Panel parentContainerPanel;
 
-        string id {  get; set; }
+        string id { get; set; }
 
 
-        string Username {  get; set; }
+        string Username { get; set; }
 
-        string EncryptedPassword {  get; set; }
+        string EncryptedPassword { get; set; }
 
-        string FirstName {  get; set; }
-        
+        string FirstName { get; set; }
+
         string MiddleName { get; set; }
 
         string LastName { get; set; }
@@ -35,18 +35,21 @@ namespace Trustbank
 
         string MobileNumber { get; set; }
 
-        int Savings {  get; set; }
+        int Savings { get; set; }
 
         int Deposit { get; set; }
 
-        string AccountNumber {  get; set; }
+        string AccountNumber { get; set; }
 
-        string AccountAlias {  get; set; }
-
-
+        string AccountAlias { get; set; }
 
 
-        double AccountBalance {  get; set; }
+
+
+        double AccountBalance { get; set; }
+
+
+        int viewPassCount = 1;
 
 
 
@@ -64,7 +67,23 @@ namespace Trustbank
             //Initialize all info
             InitializePlaceholders();
         }
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            viewPassCount += 1;
 
+            if (viewPassCount % 2 == 0) 
+            {
+                lblAccPasswordAccountInfo.Text = EncryptedPassword;
+                btnHide.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            }
+            else
+            {
+                lblAccPasswordAccountInfo.Text = "-----";
+                btnHide.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+
+            
+        }
 
         private void InitializePlaceholders()
         {
@@ -83,7 +102,7 @@ namespace Trustbank
                 {
                     completeName += FirstName + " " + LastName;
                 }
-                
+
                 lblNamePlaceholder.Text = completeName + " - Active";
                 lblNameAccountInfo.Text = surnameFirst;
 
@@ -123,7 +142,7 @@ namespace Trustbank
 
             if (EncryptedPassword != null)
             {
-                lblAccPasswordAccountInfo.Text = EncryptedPassword;
+                lblAccPasswordAccountInfo.Text = "-----";
             }
 
             lblBalancePlaceholder.Text = AccountBalance.ToString("#,##0.00"); //Formats the balance

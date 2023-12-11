@@ -90,6 +90,7 @@
             // btnViewPassword
             // 
             btnViewPassword.BackColor = Color.FromArgb(230, 230, 230);
+            btnViewPassword.Cursor = Cursors.Hand;
             btnViewPassword.FlatAppearance.BorderSize = 0;
             btnViewPassword.FlatAppearance.MouseDownBackColor = Color.FromArgb(244, 244, 244);
             btnViewPassword.FlatAppearance.MouseOverBackColor = Color.FromArgb(244, 244, 244);
@@ -122,6 +123,7 @@
             // btnLblSignUp
             // 
             btnLblSignUp.AutoSize = true;
+            btnLblSignUp.Cursor = Cursors.Hand;
             btnLblSignUp.FlatStyle = FlatStyle.Flat;
             btnLblSignUp.Font = new Font("Gothic A1 SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLblSignUp.ForeColor = Color.FromArgb(0, 26, 136);
@@ -143,6 +145,7 @@
             btnParrotLogin.ClickBackColor = Color.FromArgb(0, 20, 108);
             btnParrotLogin.ClickTextColor = Color.White;
             btnParrotLogin.CornerRadius = 7;
+            btnParrotLogin.Cursor = Cursors.Hand;
             btnParrotLogin.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
             btnParrotLogin.Horizontal_Alignment = StringAlignment.Center;
             btnParrotLogin.HoverBackgroundColor = Color.FromArgb(0, 20, 108);
@@ -268,6 +271,7 @@
             // 
             // btnShutdown
             // 
+            btnShutdown.Cursor = Cursors.Hand;
             btnShutdown.FlatAppearance.BorderSize = 0;
             btnShutdown.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnShutdown.FlatAppearance.MouseOverBackColor = Color.Transparent;

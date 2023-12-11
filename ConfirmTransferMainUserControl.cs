@@ -50,7 +50,10 @@ namespace Trustbank
 
         double? RecipientBalance {  get; set; }
 
-        public ConfirmTransferMainUserControl(string id, string contact_id, string completeName, string accountNumber, string emailAddress, double amount, double chargeFee,
+
+        Panel parentContainerPanel;
+
+        public ConfirmTransferMainUserControl(Panel parentContainerPanel, string id, string contact_id, string completeName, string accountNumber, string emailAddress, double amount, double chargeFee,
             string recipientName,
             string recipientBankName,
             string recipientAccountNumber,
@@ -58,6 +61,8 @@ namespace Trustbank
             string purpose)
         {
             InitializeComponent();
+
+            this.parentContainerPanel = parentContainerPanel;
 
             this.id = id;
 
@@ -113,9 +118,18 @@ namespace Trustbank
 
         }
 
+        private void removePanel(Control panel)
+        {
+            parentContainerPanel.Controls.Remove(panel);
+        }
+
+        private void repaintParentPanel()
+        {
+            parentContainerPanel.Refresh();
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            this.Hide();
             OTPConfirmTransaction confirmTransaction = new OTPConfirmTransaction(id, EmailAddress);
 
 
@@ -124,7 +138,6 @@ namespace Trustbank
 
             if (result == DialogResult.OK) 
             {
-                this.Show();
                 try
                 {
                     //Give value to Balance before deduction
@@ -144,6 +157,18 @@ namespace Trustbank
 
                     //Add the transaction
                     AddtoTransactionHistory();
+
+                    removePanel(this);
+
+                    repaintParentPanel();
+
+                    TransactionHistoryMainUserControl transactionHistory = new TransactionHistoryMainUserControl(id);
+                    transactionHistory.Show();
+
+                    parentContainerPanel.Controls.Add(transactionHistory);
+
+                    this.Dispose();
+
                 } 
                 catch (Exception ex)
                 {

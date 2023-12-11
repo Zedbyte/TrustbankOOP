@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmationUserControl));
             confirmDetailsPanel = new Panel();
             btnShowPasscode = new FontAwesome.Sharp.IconButton();
             btnViewPassword = new FontAwesome.Sharp.IconButton();
-            LBLTITLEONLY = new Label();
-            TRUSTBANKLOGO = new PictureBox();
             btnSavingsOrDeposit = new Button();
             lblsToFillPanel = new TableLayoutPanel();
             txtBxPasswordFill = new TextBox();
@@ -63,7 +60,6 @@
             label8 = new Label();
             label9 = new Label();
             confirmDetailsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGO).BeginInit();
             lblsToFillPanel.SuspendLayout();
             lblsTablePanel.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -74,8 +70,6 @@
             confirmDetailsPanel.BackColor = Color.White;
             confirmDetailsPanel.Controls.Add(btnShowPasscode);
             confirmDetailsPanel.Controls.Add(btnViewPassword);
-            confirmDetailsPanel.Controls.Add(LBLTITLEONLY);
-            confirmDetailsPanel.Controls.Add(TRUSTBANKLOGO);
             confirmDetailsPanel.Controls.Add(btnSavingsOrDeposit);
             confirmDetailsPanel.Controls.Add(lblsToFillPanel);
             confirmDetailsPanel.Controls.Add(btnCancel);
@@ -121,27 +115,6 @@
             btnViewPassword.TabIndex = 53;
             btnViewPassword.UseVisualStyleBackColor = false;
             btnViewPassword.Click += btnViewPassword_Click;
-            // 
-            // LBLTITLEONLY
-            // 
-            LBLTITLEONLY.AutoSize = true;
-            LBLTITLEONLY.Font = new Font("Gothic A1", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LBLTITLEONLY.ForeColor = Color.FromArgb(0, 26, 136);
-            LBLTITLEONLY.Location = new Point(106, 33);
-            LBLTITLEONLY.Name = "LBLTITLEONLY";
-            LBLTITLEONLY.Size = new Size(158, 46);
-            LBLTITLEONLY.TabIndex = 5;
-            LBLTITLEONLY.Text = "Trustbank";
-            // 
-            // TRUSTBANKLOGO
-            // 
-            TRUSTBANKLOGO.Image = (Image)resources.GetObject("TRUSTBANKLOGO.Image");
-            TRUSTBANKLOGO.Location = new Point(15, 13);
-            TRUSTBANKLOGO.Name = "TRUSTBANKLOGO";
-            TRUSTBANKLOGO.Size = new Size(85, 83);
-            TRUSTBANKLOGO.SizeMode = PictureBoxSizeMode.Zoom;
-            TRUSTBANKLOGO.TabIndex = 4;
-            TRUSTBANKLOGO.TabStop = false;
             // 
             // btnSavingsOrDeposit
             // 
@@ -520,8 +493,6 @@
             Name = "ConfirmationUserControl";
             Size = new Size(1421, 438);
             confirmDetailsPanel.ResumeLayout(false);
-            confirmDetailsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)TRUSTBANKLOGO).EndInit();
             lblsToFillPanel.ResumeLayout(false);
             lblsToFillPanel.PerformLayout();
             lblsTablePanel.ResumeLayout(false);
@@ -548,8 +519,6 @@
         private Label label8;
         private Label label9;
         private Label LBLONLY9;
-        private Label LBLTITLEONLY;
-        private PictureBox TRUSTBANKLOGO;
         private Button btnSavingsOrDeposit;
         private TableLayoutPanel lblsToFillPanel;
         private Label lblMiddleName;
